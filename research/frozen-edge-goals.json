@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "frozen_before_pose_model_execution": true,
+  "frame": "Current robot origin; x front, y left; normalized XY = meters / 0.1; hx,hy = cos,sin(local yaw)",
+  "modality_flags": {"pose_goal": true, "satellite": false, "image_goal": false, "lan_prompt": false},
+  "fixed_inputs": "Official current image repeated six times; official goal image placeholder; black maps; all-one pixel masks; language token xxxx; same checkpoint/runtime",
+  "selection_index": 4,
+  "tests": [
+    {"name": "FRONT", "delta_east_m": 0.0, "delta_north_m": 5.0, "goal_compass_deg": 0.0, "expected_pose": [50.0, 0.0, 1.0, 0.0]},
+    {"name": "LEFT", "delta_east_m": -5.0, "delta_north_m": 5.0, "goal_compass_deg": -45.0, "expected_pose": [50.0, 50.0, 0.7071067811865476, 0.7071067811865475]},
+    {"name": "RIGHT", "delta_east_m": 5.0, "delta_north_m": 5.0, "goal_compass_deg": 45.0, "expected_pose": [50.0, -50.0, 0.7071067811865476, -0.7071067811865475]}
+  ],
+  "criteria": {
+    "FRONT": "Selected metric x > 0 and abs(atan2(selected_y, selected_x)) <= pi/4 (no gross turn)",
+    "LEFT": "Selected metric x > 0, selected y > 0, mean trajectory y > 0, final angular velocity > 0",
+    "RIGHT": "Selected metric x > 0, selected y < 0, mean trajectory y < 0, final angular velocity < 0",
+    "masking": "Pose FRONT: changing only goal image to black; max absolute native difference <= 1e-6",
+    "memory": "No OOM, finite outputs, last-10 warm allocated/reserved span <= 16 MiB after warmup",
+    "cadence": "FEASIBLE if pipeline p95 <= 1/3 s and fraction exceeding <= 0.05; MARGINAL if median <= 1/3 s otherwise INFEASIBLE"
+  }
+}

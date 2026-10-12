@@ -247,3 +247,153 @@
   fast-forward from the initial remote research branch. Final local/remote
   equality and clean status are checked after the push, outside the self-
   referential committed report.
+
+## 2026-10-12 — OmniVLA-edge preflight (new authorized task)
+
+The user selected Edge after historical FULL_BF16_GPU_OOM / BLOCKED_BY_VRAM.
+Scope: source/provenance, isolated inference, native actions, pose/masking,
+controller, memory and computational 3 Hz only. No Isaac or reconciliation.
+Preserved FULL weights, environments, branch, evidence and report. Initial
+status had only untracked `.vscode/`, which remains untouched.
+
+Repository commands (host escalation needed for protected Git and networking):
+
+```bash
+pwd
+git status --short
+git remote -v
+git branch --show-current
+git rev-parse HEAD
+git log -1 --oneline
+git fetch --all --prune
+git rev-parse upstream/main
+git rev-parse origin/research/full-omnivla-preflight
+git branch --list research/omnivla-edge-preflight
+git switch research/full-omnivla-preflight
+git pull --ff-only origin research/full-omnivla-preflight
+git switch -c research/omnivla-edge-preflight
+sha256sum docs/FULL_OMNIVLA_PREFLIGHT.md
+```
+
+Origin/upstream identities and FULL commit matched the request. Fetched upstream
+remained 5182600cb4a9ee07684e17cdd2a6cbafc56b8a68. FULL report hash was
+bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03 and is unchanged.
+Updated AGENTS and current context additively to preserve FULL as history and
+make Edge preflight active. No original inference/training source changed.
+
+Read README, SETUP, pyproject, all three Edge inference files, relevant training
+and GNM/CAST/Frodobots/BDD/LeLaN data construction. Verified six duplicates,
+language ID 7, test pose overwrite, pose ID 4, internal XY cumsum, heading
+normalization and source controller. No Edge trainer found; no universal action
+or history clock inferred from FULL training examples. Strictly kept native
+outputs before external metric scaling and attached no intrinsic timestamps.
+
+Verified rebooted GPU through host `nvidia-smi`: RTX 5060 Ti, driver 595.99.02,
+16311 MiB, later runtime capability 12.0. Did not rerun the old official Torch
+GPU failure. Public HF API `https://huggingface.co/api/models/NHirose/omnivla-edge?blobs=true`
+was read with Python urllib before downloading; response preserved at
+`artifacts-local/edge-audit/hf-api.json`. API file list/size/access and 1.634 TB
+free space were inspected. Revision b1361b7e24f101edea795a98b00a826b61a97394;
+checkpoint 434276465 bytes, LFS SHA256 f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d.
+The first metadata command used absent `python`; it performed no download and
+was immediately rerun with `python3`.
+
+Exact setup/execution commands, from repository root:
+
+```bash
+python3 research/fetch_edge_checkpoint.py > artifacts-local/edge-audit/download.log 2>&1
+bash scripts/edge_environment.sh blackwell > artifacts-local/edge-audit/environment-blackwell.log 2>&1
+bash scripts/edge_environment.sh official-cpu > artifacts-local/edge-audit/environment-cpu.log 2>&1
+sha256sum research/frozen-edge-goals.json > artifacts-local/edge-audit/frozen-goals-before-runtime.sha256
+UV_CACHE_DIR="$PWD/artifacts-local/uv-cache" uv pip freeze --no-config --python artifacts-local/envs/edge-blackwell/bin/python > results/edge-blackwell-freeze.txt
+UV_CACHE_DIR="$PWD/artifacts-local/uv-cache" uv pip check --no-config --python artifacts-local/envs/edge-blackwell/bin/python
+artifacts-local/envs/edge-blackwell/bin/python research/probe_cuda.py --output artifacts-local/edge-audit/cuda-probe.json
+artifacts-local/envs/edge-blackwell/bin/python research/run_edge_preflight.py --output outputs/edge-preflight-001 > artifacts-local/edge-audit/preflight-001.log 2>&1
+```
+
+Setup scripts perform dry-runs, install and pip checks. Used cached Torch wheel
+families, new envs only. Minimal source closure omitted torchaudio and the FULL
+TF/Transformers stack. A standalone initial freeze/check command omitted the
+local UV_CACHE_DIR and --no-config; sandbox refused writing the home cache and
+uv warned about known invalid upstream TOML. The command was corrected as above;
+no environment mutation or source repair resulted. Subsequent checks passed.
+
+Frozen FRONT/LEFT/RIGHT specification hash, recorded before pose execution:
+0c48da8acaa670b0e4a627d11646ddb66727753feecb04c8a7152660e87da88a.
+No criteria, signs, inputs or modality were retuned after viewing outputs.
+CLIP's own downloader fetched ViT-B-32.pt to ignored models-local/clip via a
+cache-path-only wrapper. 353976522 bytes and URL-embedded SHA256
+40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af verified.
+
+First GPU run passed strict load, sample, frozen poses, masking and warm tests.
+Review identified that the additive controller helper promoted float32 NumPy
+scalars to Python floats, causing ~7e-9 angular deviation from the original
+sample return. Removed that promotion, added exact return equality assertion,
+and extended stable-memory checks across pipeline iterations. No upstream code
+changed. Preserved the entire first run and repeated qualification in a new
+output directory:
+
+```bash
+artifacts-local/envs/edge-blackwell/bin/python research/run_edge_preflight.py --output outputs/edge-preflight-002 > artifacts-local/edge-audit/preflight-002.log 2>&1
+```
+
+This is the primary run. Edge 108305527 parameters, CLIP 151277313, all float32
+and finite; strict=True, no missing/unexpected keys. Sample native (1,8,4)
+finite. FRONT/LEFT/RIGHT pass, masked goal black-vs-sample difference exactly
+zero. Official controller supported branches match; zero-XY case deliberately
+retains upstream NameError for missing clip_angle. Memory stable, 2694 MiB peak
+observed total device usage; Torch peak allocated 1108572160 and reserved
+1344274432 bytes. Fifty warm model forwards median/p95/max 9.167/10.427/14.169
+ms; twenty pipelines 17.328/23.916/81.789 ms, 0/20 above 333.333 ms. No outlier
+removed. Repeated native output max difference zero. Both official figures
+visually inspected; source y-limit clips last point at native x=10.5335, with
+all eight rows retained numerically. No generated image staged.
+
+Optional CPU attempt initially stopped at CLIP import because Torch 2.2's
+minimal environment lacked pkg_resources. Source audit justified the same
+setuptools==78.1.0 already in the GPU env; added it to the shared Edge manifest.
+Exact corrective dependency commands:
+
+```bash
+export UV_CACHE_DIR="$PWD/artifacts-local/uv-cache"
+uv pip install --no-config --python artifacts-local/envs/edge-official-cpu/bin/python --dry-run setuptools==78.1.0
+uv pip install --no-config --python artifacts-local/envs/edge-official-cpu/bin/python setuptools==78.1.0
+uv pip check --no-config --python artifacts-local/envs/edge-official-cpu/bin/python
+uv pip freeze --no-config --python artifacts-local/envs/edge-official-cpu/bin/python > results/edge-official-cpu-freeze.txt
+CUDA_VISIBLE_DEVICES='' artifacts-local/envs/edge-official-cpu/bin/python research/run_edge_preflight.py --sample-only --output outputs/edge-official-cpu-001 > artifacts-local/edge-audit/cpu-reference-after-setuptools.log 2>&1
+```
+
+Exactly one model sample attempted on CPU, same artifact paths and official
+input construction. Strict load passes, but model forward fails when get_device()
+returns -1 and mask.to(-1) raises Device index must not be negative. Stopped CPU
+work without a model patch: OFFICIAL_CPU_REFERENCE_UNAVAILABLE. No CPU output
+or invented GPU/CPU numerical comparison. This optional upstream portability
+failure does not override successful required GPU gates.
+
+Promoted compact JSON summaries and hashes from primary immutable local evidence;
+no raw image/tensor/weights copied into Git. Added report with required sections,
+source/unit tests separately from recorded-runtime validation, minimal setup and
+reproducible sample/full wrapper. Initial 42 tests passed; added three additional
+recorded pose/masking/latency consistency checks for final verification.
+
+Final verification / publication commands:
+
+```bash
+artifacts-local/envs/edge-blackwell/bin/python -m unittest discover -s tests -p 'test_*preflight.py' -v
+git status --short
+git diff --check
+git diff
+git diff --cached
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Qualify OmniVLA-edge runtime and action semantics"
+git push -u origin research/omnivla-edge-preflight
+git rev-parse HEAD
+git ls-remote origin refs/heads/research/omnivla-edge-preflight
+```
+
+Decision READY_FOR_ISAAC_ADAPTER with EDGE_3HZ_RUNTIME_FEASIBLE; no Isaac work
+performed. Explicit remaining uncertainty: whether a bounded no-obstacle Isaac
+adapter can preserve pose/frame, actual RGB history and official commands.
+Unresolved universal row/context timing, upstream zero-XY controller defect,
+and unavailable CPU numerical parity remain documented limitations.

@@ -1,0 +1,16 @@
+{
+  "command": "artifacts-local/envs/edge-blackwell/bin/python -m unittest discover -s tests -p 'test_*preflight.py' -v",
+  "figure_inspected": "outputs/edge-preflight-002/derived/1_ex_omnivla_edge.jpg",
+  "full_report_unchanged": true,
+  "passed": true,
+  "research_file_hashes": {
+    "research/edge_contracts.py": "8131420b64d93a3ce22d8ff767c423cb9bc1122333640d36e987b9cc09148b17",
+    "research/fetch_edge_checkpoint.py": "290f886719f456f55dcf1a1d1edca6aefae49377bd6513e5a81081a2ea5738d9",
+    "research/frozen-edge-goals.json": "0c48da8acaa670b0e4a627d11646ddb66727753feecb04c8a7152660e87da88a",
+    "research/requirements-edge.txt": "4c7418d56843aa8c05a1d2259941dc90d380c6a1e173e82fc7a96fe129e2e2bc",
+    "research/run_edge_preflight.py": "306617a9e9a05c1fb0ec7d56f2ba74261a4b4ab4b29ffee67539decba582c447",
+    "scripts/edge_environment.sh": "88bf1cb902b39ccd70253bac5b220d791aa865714ddaae8d3099661736b2351e",
+    "tests/test_edge_preflight.py": "86aec6c8152202434ccce9b4cccb1542bf4a0f3415bc3880e6c2a577d56aac24"
+  },
+  "tests": 45
+}

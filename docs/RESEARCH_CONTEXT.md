@@ -18,3 +18,16 @@ is a useful result and must not be hidden by precision or model changes.
 
 Only after all pre-Isaac gates pass may the decision be
 `READY_FOR_ISAAC_ADAPTER`; that decision itself authorizes no Isaac work here.
+
+## Active candidate: OmniVLA-edge (2026-10-12)
+
+The completed FULL preflight at `3fddf03e89e4c7145ceb241532bf907444b6a87d`
+strictly loaded the full BF16 model but its first forward pass exhausted GPU
+memory: `FULL_BF16_GPU_OOM` / `BLOCKED_BY_VRAM`. No FULL action was produced.
+Its report, branch, environments, checkpoint and evidence remain preserved.
+
+The active candidate is now OmniVLA-edge. The current task qualifies its
+checkpoint, isolated runtime, official sample, native action semantics, pose
+modality, controller, memory and computational cadence only. It neither begins
+Isaac integration nor tests navigation, obstacles, or reconciliation. Edge is
+an upstream generator, not the contribution or a reconciliation baseline.

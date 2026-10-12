@@ -1,0 +1,111 @@
+{
+  "cases": {
+    "LEFT": {
+      "clipped_vw": [
+        0.5,
+        1.0
+      ],
+      "final_vw": [
+        0.15,
+        0.3
+      ],
+      "input": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "pre_clip_vw": [
+        3.0,
+        2.356194490192345
+      ]
+    },
+    "RIGHT": {
+      "clipped_vw": [
+        0.5,
+        -1.0
+      ],
+      "final_vw": [
+        0.15,
+        -0.3
+      ],
+      "input": [
+        1.0,
+        -1.0,
+        1.0,
+        0.0
+      ],
+      "pre_clip_vw": [
+        3.0,
+        -2.356194490192345
+      ]
+    },
+    "STRAIGHT": {
+      "clipped_vw": [
+        0.5,
+        0.0
+      ],
+      "final_vw": [
+        0.3,
+        0.0
+      ],
+      "input": [
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "pre_clip_vw": [
+        3.0,
+        0.0
+      ]
+    },
+    "ZERO_X": {
+      "clipped_vw": [
+        0.0,
+        1.0
+      ],
+      "final_vw": [
+        0.0,
+        0.3
+      ],
+      "input": [
+        0.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "pre_clip_vw": [
+        0.0,
+        4.71238898038469
+      ]
+    },
+    "ZERO_XY_WITH_HEADING": {
+      "input": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "upstream_error": "NameError(\"name 'clip_angle' is not defined\")"
+    }
+  },
+  "constants": {
+    "DT": 0.3333333333333333,
+    "EPS": 1e-08,
+    "first_v_clip": [
+      0,
+      0.5
+    ],
+    "first_w_clip": [
+      -1,
+      1
+    ],
+    "maxv": 0.3,
+    "maxw": 0.3,
+    "metric_waypoint_spacing": 0.1,
+    "tick_rate": 3,
+    "waypoint_select": 4
+  },
+  "sample_exact_parity": true
+}

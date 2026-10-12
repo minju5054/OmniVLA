@@ -1,0 +1,80 @@
+{
+  "dead_code": "run_omnivla_edge.define_model refers to FULL names but is never called by Edge main; no eager imports of those names.",
+  "files": {
+    "inference/model_omnivla_edge.py": {
+      "imports": [
+        "import math",
+        "import torch",
+        "import torch.nn as nn",
+        "import torch.nn.functional as F",
+        "from typing import List, Dict, Optional, Tuple",
+        "from efficientnet_pytorch import EfficientNet"
+      ],
+      "sha256": "9f3da6355af4bd23f065eeeaad905546c500575cfde9d91a8fc984dd1a69741a"
+    },
+    "inference/run_omnivla_edge.py": {
+      "imports": [
+        "import sys, os",
+        "import time, math, json",
+        "from typing import Optional, Tuple, Type, Dict",
+        "from dataclasses import dataclass",
+        "import numpy as np",
+        "from PIL import Image",
+        "import torch",
+        "import torch.nn as nn",
+        "import torch.nn.functional as F",
+        "from torch.nn.utils.rnn import pad_sequence",
+        "from torch.nn.parallel import DistributedDataParallel as DDP",
+        "import torchvision.transforms as transforms",
+        "import matplotlib.pyplot as plt",
+        "import utm",
+        "import argparse",
+        "import yaml",
+        "import clip",
+        "from utils_policy import transform_images_map, load_model, transform_images_PIL, transform_images_PIL_mask"
+      ],
+      "sha256": "bee8f50b5b2355a2b4da26d054bef820d556a585e8be735fff218be342353ec5"
+    },
+    "inference/utils_policy.py": {
+      "imports": [
+        "import os",
+        "import sys",
+        "import io",
+        "import matplotlib.pyplot as plt",
+        "import torch",
+        "import torch.nn as nn",
+        "from torchvision import transforms",
+        "import torchvision.transforms.functional as TF",
+        "import clip",
+        "import numpy as np",
+        "from PIL import Image as PILImage",
+        "from typing import List, Tuple, Dict, Optional",
+        "from model_omnivla_edge import OmniVLA_edge"
+      ],
+      "sha256": "57abbdee79b802f54f18c7360cdcf0592c732493ebc5d006d3014e3c930ec3e1"
+    }
+  },
+  "installed_direct": [
+    "# Direct Edge inference imports; upstream pyproject is invalid and not installed.",
+    "# Torch/vision installed separately; torchaudio is not imported by Edge.",
+    "numpy==1.26.4",
+    "Pillow==11.1.0",
+    "matplotlib==3.10.1",
+    "utm==0.8.1",
+    "PyYAML==6.0.2",
+    "efficientnet-pytorch==0.7.1",
+    "openai-clip==1.0.1",
+    "# CLIP imports pkg_resources.packaging; Torch 2.2 does not supply setuptools.",
+    "setuptools==78.1.0"
+  ],
+  "not_needed": [
+    "torchaudio",
+    "transformers",
+    "tensorflow",
+    "tensorflow_datasets",
+    "tensorflow_graphics",
+    "dlimp",
+    "peft",
+    "flash_attn"
+  ]
+}

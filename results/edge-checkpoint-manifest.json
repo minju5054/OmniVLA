@@ -1,0 +1,10 @@
+{
+  "repo": "NHirose/omnivla-edge",
+  "revision": "b1361b7e24f101edea795a98b00a826b61a97394",
+  "filename": "omnivla-edge.pth",
+  "bytes": 434276465,
+  "sha256": "f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d",
+  "path": "models-local/omnivla-edge/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+  "url": "https://huggingface.co/NHirose/omnivla-edge/resolve/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+  "command": "python3 research/fetch_edge_checkpoint.py"
+}

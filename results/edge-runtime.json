@@ -1,0 +1,195 @@
+{
+  "capability": [
+    12,
+    0
+  ],
+  "clip": {
+    "bytes": 353976522,
+    "command": "Official load_model -> clip.load(\"ViT-B/32\", download_root=\"models-local/clip\")",
+    "model": "ViT-B/32",
+    "package": "openai-clip==1.0.1",
+    "path": "models-local/clip/ViT-B-32.pt",
+    "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+    "url": "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt"
+  },
+  "cuda": "12.8",
+  "cudnn_benchmark": false,
+  "device": "cuda:0",
+  "frozen_spec_sha256": "0c48da8acaa670b0e4a627d11646ddb66727753feecb04c8a7152660e87da88a",
+  "full_report_sha256": "bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03",
+  "git_base": "3fddf03e89e4c7145ceb241532bf907444b6a87d",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "gpu_driver": "595.99.02",
+  "gpu_total_MiB": 16311,
+  "hardware_probe": {
+    "bf16_matmul_value": 32.0,
+    "capability": [
+      12,
+      0
+    ],
+    "compiled_arches": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120",
+      "compute_120"
+    ],
+    "cuda_available": true,
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "python": "3.10.21",
+    "status": "GPU_RUNTIME_PASS",
+    "torch": "2.7.1+cu128",
+    "trivial_result": [
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ],
+    "warnings": []
+  },
+  "label": "BLACKWELL_COMPATIBLE_EDGE_RUNTIME",
+  "memory": {
+    "allocated": 1058160128,
+    "device_samples": 30,
+    "device_sampling_interval_seconds": 0.1,
+    "device_used_MiB": 2676,
+    "peak_allocated_bytes": 1108572160,
+    "peak_observed_device_MiB": 2694,
+    "peak_reserved_bytes": 1344274432,
+    "peak_rss_bytes": 2678702080,
+    "reserved": 1344274432,
+    "rss_bytes": 2110173184,
+    "status": "EDGE_GPU_MEMORY_PASS"
+  },
+  "official_cpu_reference": {
+    "attempts": 1,
+    "comparison": {
+      "final_vw_diff": null,
+      "l2": null,
+      "max_abs": null,
+      "mean_abs": null,
+      "selected_waypoint_diff": null
+    },
+    "environment_note": "Separate Torch 2.2.0+cu121 / torchvision 0.17.0+cu121 wheels reused from cache; CUDA_VISIBLE_DEVICES empty; execution CPU only.",
+    "failure": "inference/model_omnivla_edge.py:236 obs_img.get_device() is -1 on CPU; line 272 self.all_masks.to(-1) raises RuntimeError: Device index must not be negative",
+    "native_output": null,
+    "prerequisite_import_failure": "CLIP needed pkg_resources; added setuptools==78.1.0 before model attempt",
+    "runtime": {
+      "capability": null,
+      "cuda": "12.1",
+      "cudnn_benchmark": false,
+      "device": "cpu",
+      "frozen_spec_sha256": "0c48da8acaa670b0e4a627d11646ddb66727753feecb04c8a7152660e87da88a",
+      "full_report_sha256": "bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03",
+      "git_base": "3fddf03e89e4c7145ceb241532bf907444b6a87d",
+      "gpu": null,
+      "label": "OFFICIAL_TORCH_CPU_REFERENCE",
+      "python": "3.10.21",
+      "source_hashes": {
+        "inference/model_omnivla_edge.py": "9f3da6355af4bd23f065eeeaad905546c500575cfde9d91a8fc984dd1a69741a",
+        "inference/run_omnivla_edge.py": "bee8f50b5b2355a2b4da26d054bef820d556a585e8be735fff218be342353ec5",
+        "inference/utils_policy.py": "57abbdee79b802f54f18c7360cdcf0592c732493ebc5d006d3014e3c930ec3e1"
+      },
+      "tf32_matmul": false,
+      "threads": 8,
+      "torch": "2.2.0+cu121"
+    },
+    "status": "OFFICIAL_CPU_REFERENCE_UNAVAILABLE",
+    "strict_load": {
+      "after_clip_load": {
+        "allocated": 0,
+        "device_used_MiB": 1251,
+        "peak_rss_bytes": 2347958272,
+        "reserved": 0,
+        "rss_bytes": 1727852544
+      },
+      "after_load": {
+        "allocated": 0,
+        "device_used_MiB": 1251,
+        "peak_rss_bytes": 2347958272,
+        "reserved": 0,
+        "rss_bytes": 1762541568
+      },
+      "before": {
+        "allocated": 0,
+        "device_used_MiB": 1297,
+        "peak_rss_bytes": 493551616,
+        "reserved": 0,
+        "rss_bytes": 479301632
+      },
+      "clip_dtypes": [
+        "torch.float32"
+      ],
+      "clip_parameter_count": 151277313,
+      "devices": [
+        "cpu"
+      ],
+      "dtypes": [
+        "torch.float32"
+      ],
+      "finite_clip_parameters": true,
+      "finite_parameters": true,
+      "load_seconds": 1.6150553859997672,
+      "missing_keys": [],
+      "parameter_count": 108305527,
+      "status": "EDGE_CHECKPOINT_STRICT_LOAD_PASS",
+      "strict": true,
+      "trainable_parameter_count": 108305527,
+      "unexpected_keys": []
+    }
+  },
+  "python": "3.10.21",
+  "source_hashes": {
+    "inference/model_omnivla_edge.py": "9f3da6355af4bd23f065eeeaad905546c500575cfde9d91a8fc984dd1a69741a",
+    "inference/run_omnivla_edge.py": "bee8f50b5b2355a2b4da26d054bef820d556a585e8be735fff218be342353ec5",
+    "inference/utils_policy.py": "57abbdee79b802f54f18c7360cdcf0592c732493ebc5d006d3014e3c930ec3e1"
+  },
+  "strict_load": {
+    "after_clip_load": {
+      "allocated": 359466496,
+      "device_used_MiB": 1685,
+      "peak_rss_bytes": 2678702080,
+      "reserved": 385875968,
+      "rss_bytes": 2030100480
+    },
+    "after_load": {
+      "allocated": 1049351680,
+      "device_used_MiB": 2666,
+      "peak_rss_bytes": 2678702080,
+      "reserved": 1335885824,
+      "rss_bytes": 1740619776
+    },
+    "before": {
+      "allocated": 0,
+      "device_used_MiB": 1214,
+      "peak_rss_bytes": 810487808,
+      "reserved": 0,
+      "rss_bytes": 811540480
+    },
+    "clip_dtypes": [
+      "torch.float32"
+    ],
+    "clip_parameter_count": 151277313,
+    "devices": [
+      "cuda:0"
+    ],
+    "dtypes": [
+      "torch.float32"
+    ],
+    "finite_clip_parameters": true,
+    "finite_parameters": true,
+    "load_seconds": 1.7340942569999243,
+    "missing_keys": [],
+    "parameter_count": 108305527,
+    "status": "EDGE_CHECKPOINT_STRICT_LOAD_PASS",
+    "strict": true,
+    "trainable_parameter_count": 108305527,
+    "unexpected_keys": []
+  },
+  "tf32_matmul": false,
+  "threads": 8,
+  "torch": "2.7.1+cu128"
+}

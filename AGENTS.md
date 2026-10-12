@@ -15,12 +15,17 @@
 - Do not modify LightNav or TIC-VLA repositories or their environments.
 - Distinguish repository-confirmed facts, measured runtime facts, research
   interpretations, and not-yet-implemented proposals.
-- Current research state is SE(2), unless explicitly changed later. Full
-  OmniVLA is the upstream trajectory generator, not a reconciliation baseline.
+- Current research state is SE(2), unless explicitly changed later. Active
+  candidate is OmniVLA-edge, an upstream generator, not a reconciliation baseline.
+- FULL preflight is historical `FULL_BF16_GPU_OOM` / `BLOCKED_BY_VRAM` evidence.
+  Preserve its branch, report, checkpoints, environments, and recorded results.
 - This preflight permits source/runtime qualification only: no Isaac adapter,
   obstacle experiments, OLD/FRESH analysis, training, fine-tuning, quantization,
   CPU offload, remote inference, model substitution, or reconciliation.
-- Preserve full BF16. On OOM stop model execution and finish non-runtime work.
+- Preserve each official model's precision and semantics (Edge uses float32).
+  An isolated official-Torch CPU reference is allowed for Edge; no CPU offload.
+  On OOM stop model execution and finish non-runtime work. Current scope is Edge
+  preflight only; even READY_FOR_ISAAC_ADAPTER authorizes no Isaac work here.
 - Checkpoint load is not sample inference; sample inference is not navigation;
   navigation is not obstacle avoidance. Controller cadence is not intrinsic
   waypoint timing; newer Torch compatibility is not official dependency parity.

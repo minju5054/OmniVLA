@@ -1,0 +1,11 @@
+# Direct Edge inference imports; upstream pyproject is invalid and not installed.
+# Torch/vision installed separately; torchaudio is not imported by Edge.
+numpy==1.26.4
+Pillow==11.1.0
+matplotlib==3.10.1
+utm==0.8.1
+PyYAML==6.0.2
+efficientnet-pytorch==0.7.1
+openai-clip==1.0.1
+# CLIP imports pkg_resources.packaging; Torch 2.2 does not supply setuptools.
+setuptools==78.1.0
