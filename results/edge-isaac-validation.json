@@ -1,0 +1,14 @@
+{
+  "existing_preflight_tests": 45,
+  "new_cpu_evidence_tests": 8,
+  "passed": true,
+  "simulator_or_navigation_tests_passed": false,
+  "source_hashes": {
+    "research/frozen-edge-isaac-goals.json": "d1f37af3f136839ac835a3403025d5480e4ef86b7ef55e5d76fc9fa6ebe2684f",
+    "research/isaac_scene.py": "41c3fb6519bf8724f68857eb2320202678c04634bed39e5bbc5f67a07b49ac88",
+    "research/isaac_startup_gate.py": "46ddb1ae0043dae05c2e30d929ad264172e604e757f20f3e3efb37977bbd5055",
+    "tests/test_isaac_startup_evidence.py": "c1aace6e9a4521d9714c70cb9259abad6ca884af4007cfb944e4a8ac3077ab07"
+  },
+  "test_log_sha256": "6833552b59ec45c356631bb5e0f3e07e4e15bf6442c712c1d360ce33f12f4461",
+  "tests": 53
+}

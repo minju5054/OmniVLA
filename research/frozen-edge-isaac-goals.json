@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "seed": 0,
+  "start": [0.0, 0.0, 0.0],
+  "goals": [
+    {"name": "STRAIGHT", "pose": [5.0, 0.0, 0.0]},
+    {"name": "LEFT", "pose": [5.0, 2.0, 0.3805063771123649]},
+    {"name": "RIGHT", "pose": [5.0, -2.0, -0.3805063771123649]}
+  ],
+  "isaac": {"installation": "/home/gpuadmin/isaacsim", "version_file": "6.0.1-rc.7+release.42383.32955d8d.gl", "renderer": "RaytracedLighting", "headless": true, "startup_wall_timeout_s": 300},
+  "camera": {"convention": "adapter choice; no exact Edge calibration recovered", "type": "pinhole", "width": 640, "height": 480, "horizontal_fov_deg": 90.0, "height_m": 0.5, "pitch_deg": 0.0, "focal_length_m": 0.02, "horizontal_aperture_m": 0.04, "all_one_masks": true, "axis": "world +X forward, +Y left, +Z up"},
+  "scene": {"floor_center": [5.0, 0.0, -0.05], "floor_dimensions": [30.0, 30.0, 0.1], "floor_color": [0.32, 0.34, 0.36], "free_region_xy": [-5.0, 12.0, -8.0, 8.0], "boundary_x": [-9.0, 19.0], "boundary_y": [-14.0, 14.0], "wall_height_m": 3.0, "wall_thickness_m": 0.1, "dome_intensity": 900.0, "distant_intensity": 1500.0, "grid_spacing_m": 2.0, "grid_width_m": 0.02, "collidable_prims": ["/World/Floor"], "visual_only": "boundary walls and thin floor grid; no obstacles inside free region", "calibration_panels": {"FRONT": [4.0, 0.0, 0.5], "LEFT": [4.0, 2.0, 0.5], "RIGHT": [4.0, -2.0, 0.5]}, "calibration_colors": {"FRONT": [1.0, 0.0, 0.0], "LEFT": [0.0, 1.0, 0.0], "RIGHT": [0.0, 0.0, 1.0]}, "calibration_panel_size": [0.05, 0.5, 0.5]},
+  "physics_hz": 60,
+  "observation_hz": 3,
+  "history": {"count": 6, "spacing_sim_s": 0.3333333333333333, "order": "oldest to newest", "bootstrap": "six independent rendered captures at rest; first at bootstrap step 0, then every 20 steps", "timing_is_adapter_convention": true},
+  "goal_radius_m": 0.5,
+  "timeout_after_bootstrap_sim_s": 40.0,
+  "controller": {"waypoint_index": 4, "metric_scale": 0.1, "DT": 0.3333333333333333, "EPS": 1e-8, "first_v_clip": [0.0, 0.5], "first_w_clip": [-1.0, 1.0], "maxv": 0.3, "maxw": 0.3, "mode": "unchanged upstream AST"},
+  "modality": {"id": 4, "pose_goal": true, "satellite": false, "image_goal": false, "lan_prompt": false, "language_placeholder": "xxxx", "goal_image": "black", "satellite_images": "black"},
+  "scheduling": {"grid_steps": 20, "max_outstanding": 1, "missed_slot": "capture actual RGB, log MISSED_INFERENCE_SLOT and skip request without queueing", "application": "next physics step after response poll; hold old command until then", "integration": "explicit Euler at dt=1/60"},
+  "stop_rules": ["startup failure", "camera-frame failure", "invalid RGB/history/pose", "strict-load failure", "combined OOM", "nonfinite or wrong-shaped action", "IPC ID/hash mismatch", "upstream zero-XY controller bug before goal entry", "STRAIGHT implementation failure", "goal entry <=0.5 m", "40 s timeout; no extension; one run per goal; no tuning"]
+}

@@ -397,3 +397,100 @@ performed. Explicit remaining uncertainty: whether a bounded no-obstacle Isaac
 adapter can preserve pose/frame, actual RGB history and official commands.
 Unresolved universal row/context timing, upstream zero-XY controller defect,
 and unavailable CPU numerical parity remain documented limitations.
+
+## 2026-10-12 — Bounded Edge / Isaac no-obstacle task, stopped at startup
+
+User explicitly authorized a new bounded obstacle-free Isaac task and required
+one simulator-only gate before model integration. Refreshed source exactly
+matched expected 9ebb503a5452498dbf90c95a89ef4aa26a5bfec4. Commands before edits:
+
+```bash
+git status --short
+git remote -v
+git fetch --all --prune
+git rev-parse HEAD
+git rev-parse origin/research/omnivla-edge-preflight
+git log -1 --oneline origin/research/omnivla-edge-preflight
+git rev-parse upstream/main
+git branch --list research/omnivla-edge-isaac-no-obstacle
+git switch -c research/omnivla-edge-isaac-no-obstacle origin/research/omnivla-edge-preflight
+```
+
+Origin/upstream correct; upstream remains 5182600cb4a9ee07684e17cdd2a6cbafc56b8a68.
+Existing untracked `.vscode/` remains untouched. Read current instructions,
+context/report/work log, official inference/model/helpers, research wrapper and
+contracts, frozen goals and prior runtime/latency/coordinate/sample evidence.
+Updated current branch instructions/context only to permit the requested
+bounded SE(2) obstacle-free task, preserving historical scope/context entries.
+
+Read-only simulator inventory found /home/gpuadmin/isaacsim VERSION
+6.0.1-rc.7+release.42383.32955d8d.gl, python.sh, bundled Python 3.12.13 and NumPy
+2.3.1. Read alternate /home/gpuadmin/isaacsim-ticvla-5.0.0/VERSION only:
+5.0.0-rc.45+release.23960.184afb15.gl; no alternate launch/modification. Inspected
+installed SimulationApp, camera APIs and standalone examples. No TIC-VLA repo
+source was copied or modified, and its environments were untouched.
+
+Official/public camera audit: local README and inference source, project page
+https://omnivla-nav.github.io/ and paper https://arxiv.org/html/2509.19480v1 .
+No exact Edge camera calibration recovered. Declared requested adapter geometry
+640x480 RGB pinhole, HFOV90, height0.5m, pitch0, all-one masks. Frozen JSON includes
+scene primitives/light settings, start/goals, 60Hz/3Hz, history, 0.5m threshold,
+40s timeout, controller constants and stop rules. Hash recorded before execution:
+d1f37af3f136839ac835a3403025d5480e4ef86b7ef55e5d76fc9fa6ebe2684f.
+The new primitive scene and camera helpers were written for the startup gate.
+
+Host GPU read before startup: RTX 5060 Ti, driver595.99.02,16311MiB total,
+1221MiB used. Executed exactly ONE bounded simulator-only attempt:
+
+```bash
+mkdir -p artifacts-local/isaac-edge-audit artifacts-local/isaac-cache artifacts-local/isaac-data
+sha256sum research/frozen-edge-isaac-goals.json > artifacts-local/isaac-edge-audit/frozen-before-runtime.sha256
+PYTHONDONTWRITEBYTECODE=1 XDG_CACHE_HOME="$PWD/artifacts-local/isaac-cache" XDG_DATA_HOME="$PWD/artifacts-local/isaac-data" timeout --signal=TERM --kill-after=15s 300s /home/gpuadmin/isaacsim/python.sh research/isaac_startup_gate.py --output outputs/edge-isaac-startup-001 > artifacts-local/isaac-edge-audit/startup-001.log 2>&1
+```
+
+Failure: SimulationApp constructor did not return. At Kit offset7.392s:
+libcusparse.so.12 could not resolve __nvJitLinkCreate_12_8 (libnvJitLink.so.12),
+from Isaac's own ml_archive/pip_prebundle tree. Later core.prims import failed
+with KeyError isaacsim.core.utils.types, then SIGSEGV at simulation_app.py:576
+_start_app. python.sh converted child failure to exit1; no timeout expiry.
+Last Kit offset13.155s is not claimed as total wall duration. No stage/camera,
+no task steps, no clean shutdown. Python finally could not execute after native
+segfault, so host-created failure summary explicitly identifies its provenance.
+Copied raw log losslessly to ignored outputs/.../raw/startup.log, made read-only,
+and recorded size/SHA. No model inference or navigation artifacts fabricated.
+
+Strict stop rule enforced immediately: no restart, package installation, library
+path workaround, alternate runtime, renderer change, environment/driver/CUDA
+change, or model/controller/camera/history/scene/goal/timeout tuning. The log's
+suggestion to install Torch was not followed. Only read failure logs after the
+stop. Post-failure nvidia-smi:863MiB used, no compute processes. These point
+readings are not a startup or combined memory peak. Isaac's normal runtime log
+also wrote to its default kit/logs path; installed software was not edited.
+
+Camera/history/pose/combined-memory/cadence gates NOT_RUN. Edge service never
+started. STRAIGHT/LEFT/RIGHT NOT_RUN_BLOCKED_BY_STAGE_A, no time-to-goal/final
+errors/saturation/slot/latency values. Existing preflight timings are not reused
+as simulator measurements. No IPC/navigation adapter development continued after
+Stage A failure. Requested navigation unit/runtime/figure work is deferred by
+that explicit gate; only frozen-config/failure-evidence tests were added.
+
+Regression command:
+
+```bash
+artifacts-local/envs/edge-blackwell/bin/python -m unittest discover -s tests -p 'test_*.py' -v > artifacts-local/isaac-edge-audit/tests.log 2>&1
+```
+
+53 tests PASS:45 existing preflight regressions and8 new evidence/spec checks.
+Both simulator scripts parse syntactically; this is not a runtime PASS. Both
+historical reports and official model/controller source remain unchanged.
+Created EDGE_ISAAC_NO_OBSTACLE.md with required sections and null later-stage
+metrics. Numeric scene sidecar explicitly declares an unconstructed stage.
+No figures exist because no camera or motion data exists to visualize.
+
+Finalization uses git status/diff/diff--cached/diff--check, size/ignore checks,
+normal commit and normal push of the NEW branch, followed by local/remote SHA
+verification. Suggested message retained: Qualify OmniVLA-edge obstacle-free
+Isaac navigation; report clearly states ISAAC_STARTUP_BLOCKED, not success.
+Exact remaining uncertainty: whether existing Isaac6.0.1 can complete the
+unchanged simulator-only gate after its CUDA-library loading incompatibility
+is resolved in a separately authorized runtime task. No obstacle work began.

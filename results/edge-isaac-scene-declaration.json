@@ -1,0 +1,130 @@
+{
+  "floor_xy_bounds": [
+    -10,
+    20,
+    -15,
+    15
+  ],
+  "free_region_xy": [
+    -5,
+    12,
+    -8,
+    8
+  ],
+  "goals": [
+    {
+      "name": "STRAIGHT",
+      "pose": [
+        5.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "LEFT",
+      "pose": [
+        5.0,
+        2.0,
+        0.3805063771123649
+      ]
+    },
+    {
+      "name": "RIGHT",
+      "pose": [
+        5.0,
+        -2.0,
+        -0.3805063771123649
+      ]
+    }
+  ],
+  "note": "Numeric top-down geometry declaration only; stage construction was not reached.",
+  "plane": "world XY",
+  "scene": {
+    "boundary_x": [
+      -9.0,
+      19.0
+    ],
+    "boundary_y": [
+      -14.0,
+      14.0
+    ],
+    "calibration_colors": {
+      "FRONT": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "LEFT": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "RIGHT": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "calibration_panel_size": [
+      0.05,
+      0.5,
+      0.5
+    ],
+    "calibration_panels": {
+      "FRONT": [
+        4.0,
+        0.0,
+        0.5
+      ],
+      "LEFT": [
+        4.0,
+        2.0,
+        0.5
+      ],
+      "RIGHT": [
+        4.0,
+        -2.0,
+        0.5
+      ]
+    },
+    "collidable_prims": [
+      "/World/Floor"
+    ],
+    "distant_intensity": 1500.0,
+    "dome_intensity": 900.0,
+    "floor_center": [
+      5.0,
+      0.0,
+      -0.05
+    ],
+    "floor_color": [
+      0.32,
+      0.34,
+      0.36
+    ],
+    "floor_dimensions": [
+      30.0,
+      30.0,
+      0.1
+    ],
+    "free_region_xy": [
+      -5.0,
+      12.0,
+      -8.0,
+      8.0
+    ],
+    "grid_spacing_m": 2.0,
+    "grid_width_m": 0.02,
+    "visual_only": "boundary walls and thin floor grid; no obstacles inside free region",
+    "wall_height_m": 3.0,
+    "wall_thickness_m": 0.1
+  },
+  "source_config_sha256": "d1f37af3f136839ac835a3403025d5480e4ef86b7ef55e5d76fc9fa6ebe2684f",
+  "start": [
+    0,
+    0,
+    0
+  ],
+  "status": "DECLARED_NOT_CONSTRUCTED",
+  "units": "meters"
+}

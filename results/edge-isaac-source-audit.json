@@ -1,0 +1,23 @@
+{
+  "camera_calibration": "EXACT_EDGE_CAMERA_CALIBRATION_NOT_RECOVERED",
+  "observations": [
+    "Official source offers all-one masks and optional fisheye masking without exact intrinsics/extrinsics.",
+    "Paper describes front-camera robot platforms and multi-platform data; exact Edge pinhole calibration not recovered.",
+    "640x480 / 90deg / 0.5m / zero pitch is explicitly an adapter convention."
+  ],
+  "runtime_sources": [
+    "/home/gpuadmin/isaacsim/VERSION",
+    "/home/gpuadmin/isaacsim/python.sh",
+    "/home/gpuadmin/isaacsim/exts/isaacsim.simulation_app/isaacsim/simulation_app/simulation_app.py",
+    "/home/gpuadmin/isaacsim/extsDeprecated/isaacsim.sensors.camera/isaacsim/sensors/camera/camera.py",
+    "https://docs.isaacsim.omniverse.nvidia.com/6.0.1/installation/install_faq.html"
+  ],
+  "sources": [
+    "README.md",
+    "inference/run_omnivla_edge.py",
+    "inference/utils_policy.py",
+    "https://omnivla-nav.github.io/",
+    "https://arxiv.org/html/2509.19480v1#S4.SS2",
+    "https://arxiv.org/html/2509.19480v1#S6.SS1"
+  ]
+}

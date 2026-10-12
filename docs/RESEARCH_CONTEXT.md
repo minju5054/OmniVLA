@@ -31,3 +31,14 @@ checkpoint, isolated runtime, official sample, native action semantics, pose
 modality, controller, memory and computational cadence only. It neither begins
 Isaac integration nor tests navigation, obstacles, or reconciliation. Edge is
 an upstream generator, not the contribution or a reconciliation baseline.
+
+## Active task: bounded obstacle-free Isaac qualification
+
+The Edge preflight at `9ebb503a5452498dbf90c95a89ef4aa26a5bfec4` concluded
+READY_FOR_ISAAC_ADAPTER. The user's next explicit request authorizes, only on
+`research/omnivla-edge-isaac-no-obstacle`, simple kinematic SE(2) navigation
+using actual six-frame RGB history, observation-time local pose goals, and the
+unchanged pose-only Edge model and waypoint-4 controller. It permits simulator,
+camera/history/coordinate, combined memory and three frozen no-obstacle runs.
+It does not authorize obstacle avoidance or reconciliation. Both historical
+preflight reports, branches, environments and evidence remain unchanged.

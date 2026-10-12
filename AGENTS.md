@@ -19,13 +19,16 @@
   candidate is OmniVLA-edge, an upstream generator, not a reconciliation baseline.
 - FULL preflight is historical `FULL_BF16_GPU_OOM` / `BLOCKED_BY_VRAM` evidence.
   Preserve its branch, report, checkpoints, environments, and recorded results.
-- This preflight permits source/runtime qualification only: no Isaac adapter,
-  obstacle experiments, OLD/FRESH analysis, training, fine-tuning, quantization,
+- On `research/omnivla-edge-isaac-no-obstacle`, the authorized scope is bounded
+  obstacle-free Isaac integration: simple kinematic SE(2), actual six-frame RGB
+  history, observation-time pose-only goals, and unchanged official controller.
+  No obstacle experiments, OLD/FRESH analysis, training, fine-tuning, quantization,
   CPU offload, remote inference, model substitution, or reconciliation.
 - Preserve each official model's precision and semantics (Edge uses float32).
   An isolated official-Torch CPU reference is allowed for Edge; no CPU offload.
-  On OOM stop model execution and finish non-runtime work. Current scope is Edge
-  preflight only; even READY_FOR_ISAAC_ADAPTER authorizes no Isaac work here.
+  On OOM stop model execution and finish non-runtime work. Preserve both preflight
+  reports unchanged. Do not tune or retry navigation after seeing its outcome;
+  enforce the frozen scene/camera/goals and strict stage stop rules.
 - Checkpoint load is not sample inference; sample inference is not navigation;
   navigation is not obstacle avoidance. Controller cadence is not intrinsic
   waypoint timing; newer Torch compatibility is not official dependency parity.
