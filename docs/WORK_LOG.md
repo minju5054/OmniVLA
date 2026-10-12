@@ -494,3 +494,40 @@ Isaac navigation; report clearly states ISAAC_STARTUP_BLOCKED, not success.
 Exact remaining uncertainty: whether existing Isaac6.0.1 can complete the
 unchanged simulator-only gate after its CUDA-library loading incompatibility
 is resolved in a separately authorized runtime task. No obstacle work began.
+
+
+## 2026-10-12 — OmniVLA-edge Isaac runtime recovery
+
+- Starting source: `8ddf5c60d9107f8b5f114c68f0fe9777a6f697df`; new branch
+  `research/omnivla-edge-isaac-runtime-recovery`. The TIC-VLA wrapper/report
+  were read as historical reference only; its workspace was not modified.
+- Independently confirmed `CONFIRMED_LIBRARY_PATH_COLLISION`: inherited
+  ROS/CUDA paths select system CUDA 12.6 nvJitLink without
+  `__nvJitLinkCreate_12_8`. ELF symbols, ldd and a minimal CDLL loader show
+  process-local isolation instead selects the compatible Isaac bundled file.
+- Added `scripts/isaac6_python.sh`; shell syntax and harmless boundary/real
+  Python probes passed before the retry. No system, CUDA or shell changes.
+- Exactly one isolated SimulationApp retry used byte-identical startup script,
+  scene and frozen configuration. Constructor returned, stage and finite
+  640×480 RGB succeeded, 60 steps completed, and `app.close()` returned.
+  The written result says `ISAAC_STARTUP_PASS` / `clean_shutdown=true`, but
+  Python subsequently segfaulted and the launcher exited 1, without timeout.
+  No CUDA symbol-resolution error recurred. Overall decision:
+  **ISAAC_STARTUP_RECOVERY_FAIL**. No second retry or later runtime work.
+- Raw result, PNG and log are preserved under
+  `outputs/edge-isaac-startup-isolated-001`; diagnostics under
+  `artifacts-local/isaac-runtime-recovery`. The full environment stays ignored
+  and private. Report: `docs/EDGE_ISAAC_RUNTIME_RECOVERY.md`; compact result:
+  `results/edge-isaac-runtime-recovery.json`. Historical reports unchanged.
+- Added 16 focused CPU tests covering launcher behavior, historical/frozen
+  evidence, exactly one accepted result, output scope and process-level
+  failure classification. The final focused suite also includes the 8 existing
+  startup evidence checks; see the report for validation outcome.
+- No Edge loading/inference, combined memory, calibration/history, pose-goal
+  inference, navigation, obstacles, controller changes or reconciliation.
+- Next uncertainty: can the unchanged simulator-only gate exit without a
+  post-close SIGSEGV under the clean launcher, while retaining its successful
+  constructor, stage, RGB and 60-step evidence? Native crash cause remains
+  unmeasured and needs a separately authorized task.
+
+Validation outcome: all 24 focused CPU checks passed; `git diff --check` passed.

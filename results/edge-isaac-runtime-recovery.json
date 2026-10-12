@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "starting_sha": "8ddf5c60d9107f8b5f114c68f0fe9777a6f697df",
+  "upstream_sha": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68",
+  "branch": "research/omnivla-edge-isaac-runtime-recovery",
+  "record_type": "Host evaluation of one isolated retry, including in-process result and subsequent process exit",
+  "isaac": {
+    "root": "/home/gpuadmin/isaacsim",
+    "version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "python_executable": "/home/gpuadmin/isaacsim/kit/python/bin/python3"
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5060 Ti",
+    "driver": "595.99.02",
+    "total_MiB": 16311,
+    "startup_peak_MiB": null,
+    "combined_peak_MiB": null
+  },
+  "inherited_environment": {
+    "LD_LIBRARY_PATH": "/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda/lib64:",
+    "PYTHONPATH": "/opt/ros/jazzy/lib/python3.12/site-packages",
+    "PYTHONEXE": null,
+    "LD_PRELOAD": null
+  },
+  "external_paths": {
+    "system_cuda": true,
+    "ros": true,
+    "other_cuda_nvidia_paths": [],
+    "cuda_symlink_canonical": "/usr/local/cuda-12.6",
+    "nvcc_release": "12.6, V12.6.20"
+  },
+  "problematic_libcusparse_path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/torch/lib/../../nvidia/cusparse/lib/libcusparse.so.12",
+  "problematic_libcusparse_canonical": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/nvidia/cusparse/lib/libcusparse.so.12",
+  "required_symbol": "__nvJitLinkCreate_12_8",
+  "libraries": [
+    {
+      "canonical_path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/nvidia/cusparse/lib/libcusparse.so.12",
+      "size_bytes": 387990224,
+      "sha256": "437651d1ec5d0e5b1b4d07b8c492f153cb4825222fe2d763232a407f667d9bb2",
+      "aliases": [
+        {
+          "path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/torch/lib/../../nvidia/cusparse/lib/libcusparse.so.12",
+          "direct_symlink_target": null
+        }
+      ],
+      "required_symbol_lines": [
+        "68: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __nvJitLinkCreate_12_8@libnvJitLink.so.12 (11)"
+      ],
+      "exports_required_symbol": false,
+      "dynamic_dependencies": [
+        "0x0000000000000001 (NEEDED)             Shared library: [libnvJitLink.so.12]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]",
+        "0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]",
+        "0x000000000000001d (RUNPATH)            Library runpath: [$ORIGIN/../../nvjitlink/lib:$ORIGIN]"
+      ]
+    },
+    {
+      "canonical_path": "/usr/local/cuda-12.6/targets/x86_64-linux/lib/libnvJitLink.so.12.6.20",
+      "size_bytes": 50354760,
+      "sha256": "b70f0f325cbd43f37028c559612b49d9c208649ed9184cc24b6e55abf04e341b",
+      "aliases": [
+        {
+          "path": "/usr/local/cuda/lib64/libnvJitLink.so.12.6.20",
+          "direct_symlink_target": null
+        },
+        {
+          "path": "/usr/local/cuda/lib64/libnvJitLink.so.12",
+          "direct_symlink_target": "libnvJitLink.so.12.6.20"
+        },
+        {
+          "path": "/usr/local/cuda-12.6/lib64/libnvJitLink.so.12.6.20",
+          "direct_symlink_target": null
+        },
+        {
+          "path": "/usr/local/cuda-12.6/lib64/libnvJitLink.so.12",
+          "direct_symlink_target": "libnvJitLink.so.12.6.20"
+        },
+        {
+          "path": "/usr/local/cuda-12.6/targets/x86_64-linux/lib/libnvJitLink.so.12.6.20",
+          "direct_symlink_target": null
+        },
+        {
+          "path": "/usr/local/cuda-12.6/targets/x86_64-linux/lib/libnvJitLink.so.12",
+          "direct_symlink_target": "libnvJitLink.so.12.6.20"
+        },
+        {
+          "path": "/usr/local/cuda/targets/x86_64-linux/lib/libnvJitLink.so.12.6.20",
+          "direct_symlink_target": null
+        },
+        {
+          "path": "/usr/local/cuda/targets/x86_64-linux/lib/libnvJitLink.so.12",
+          "direct_symlink_target": "libnvJitLink.so.12.6.20"
+        }
+      ],
+      "required_symbol_lines": [],
+      "exports_required_symbol": false,
+      "dynamic_dependencies": [
+        "0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]",
+        "0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]"
+      ]
+    },
+    {
+      "canonical_path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/nvidia/nvjitlink/lib/libnvJitLink.so.12",
+      "size_bytes": 94101392,
+      "sha256": "0369e6867d44b800437de4e146d72c65afc6c75adf677a15c2ecd8e6a7ac135f",
+      "aliases": [
+        {
+          "path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/nvidia/nvjitlink/lib/libnvJitLink.so.12",
+          "direct_symlink_target": null
+        }
+      ],
+      "required_symbol_lines": [
+        "348: 00000000004ba6e0    10 FUNC    GLOBAL DEFAULT   14 __nvJitLinkCreate_12_8@@libnvJitLink.so.12"
+      ],
+      "exports_required_symbol": true,
+      "dynamic_dependencies": [
+        "0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]",
+        "0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]",
+        "0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]"
+      ]
+    }
+  ],
+  "resolution": {
+    "inherited": {
+      "ldd_selected_path": "/usr/local/cuda/lib64/libnvJitLink.so.12",
+      "canonical_path": "/usr/local/cuda-12.6/targets/x86_64-linux/lib/libnvJitLink.so.12.6.20",
+      "ctypes_exit_code": 1,
+      "required_symbol_exported": false,
+      "error": "undefined symbol: __nvJitLinkCreate_12_8, version libnvJitLink.so.12"
+    },
+    "clean": {
+      "canonical_path": "/home/gpuadmin/isaacsim/extsDeprecated/omni.isaac.ml_archive/pip_prebundle/nvidia/nvjitlink/lib/libnvJitLink.so.12",
+      "ctypes_exit_code": 0,
+      "required_symbol_exported": true,
+      "mapped_library_verified_in_proc_self_maps": true
+    },
+    "probe": "ldd and LD_DEBUG=libs ctypes.CDLL(exact libcusparse path), using Isaac kit Python without SimulationApp or torch import",
+    "clean_environment": "Remove LD_LIBRARY_PATH, PYTHONPATH, PYTHONEXE; set PYTHONNOUSERSITE=1"
+  },
+  "diagnostic_classification": "CONFIRMED_LIBRARY_PATH_COLLISION",
+  "diagnostic_conditions": {
+    "classification": "CONFIRMED_LIBRARY_PATH_COLLISION",
+    "inherited_ldd_external": true,
+    "external_symbol_absent": true,
+    "bundled_symbol_present": true,
+    "clean_ldd_bundled": true,
+    "inherited_ctypes_exit_code": 1,
+    "clean_ctypes_exit_code": 0,
+    "simulation_app_started_during_diagnostics": false
+  },
+  "wrapper": {
+    "path": "scripts/isaac6_python.sh",
+    "sha256": "d71e06f693ecf9bd92051fa350af0e88b4c5d7b7f8fcfefbc76a1fb2e69a49ad",
+    "bash_syntax_pass": true,
+    "boundary_probe": {
+      "LD_LIBRARY_PATH": null,
+      "PYTHONPATH": null,
+      "PYTHONEXE": null,
+      "PYTHONNOUSERSITE": "1",
+      "PYTHONUNBUFFERED": "1"
+    },
+    "real_probe": {
+      "executable": "/home/gpuadmin/isaacsim/kit/python/bin/python3",
+      "version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+      "environment": {
+        "LD_LIBRARY_PATH": ":/home/gpuadmin/isaacsim/.:/home/gpuadmin/isaacsim/exts/isaacsim.robot.schema/plugins/lib:/home/gpuadmin/isaacsim/extsDeprecated/isaacsim.robot_motion.lula/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.robot_motion.cumotion/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.robot_motion.pink/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.asset.exporter.urdf/pip_prebundle:/home/gpuadmin/isaacsim/kit:/home/gpuadmin/isaacsim/kit/kernel/plugins:/home/gpuadmin/isaacsim/kit/libs/iray:/home/gpuadmin/isaacsim/kit/plugins:/home/gpuadmin/isaacsim/kit/plugins/bindings-python:/home/gpuadmin/isaacsim/kit/plugins/carb_gfx:/home/gpuadmin/isaacsim/kit/plugins/rtx:/home/gpuadmin/isaacsim/kit/plugins/gpu.foundation",
+        "PYTHONPATH": ":/home/gpuadmin/isaacsim/kit/python/lib/python3.12:/home/gpuadmin/isaacsim/kit/python/lib/python3.12/site-packages:/home/gpuadmin/isaacsim/python_packages:/home/gpuadmin/isaacsim/exts/isaacsim.simulation_app:/home/gpuadmin/isaacsim/kit/kernel/py:/home/gpuadmin/isaacsim/kit/plugins/bindings-python:/home/gpuadmin/isaacsim/exts/isaacsim.replicator.episode_recorder/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.replicator.teleop/pip_prebundle:/home/gpuadmin/isaacsim/extsDeprecated/isaacsim.robot_motion.lula/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.robot_motion.cumotion/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.robot_motion.pink/pip_prebundle:/home/gpuadmin/isaacsim/exts/isaacsim.asset.exporter.urdf/pip_prebundle:/home/gpuadmin/isaacsim/extscache/omni.kit.pip_archive-0.0.0+f9bf0dda.lx64.cp312/pip_prebundle:/home/gpuadmin/isaacsim/exts/omni.isaac.core_archive/pip_prebundle:/home/gpuadmin/isaacsim/exts/omni.pip.compute/pip_prebundle:/home/gpuadmin/isaacsim/exts/omni.pip.cloud/pip_prebundle",
+        "PYTHONEXE": null,
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONUNBUFFERED": "1"
+      }
+    },
+    "note": "Paths are absent at wrapper boundary; the stock Isaac launcher subsequently adds its own LD_LIBRARY_PATH/PYTHONPATH. No inherited ROS/system CUDA paths remain."
+  },
+  "frozen_sha256": {
+    "research/isaac_startup_gate.py": "46ddb1ae0043dae05c2e30d929ad264172e604e757f20f3e3efb37977bbd5055",
+    "research/isaac_scene.py": "41c3fb6519bf8724f68857eb2320202678c04634bed39e5bbc5f67a07b49ac88",
+    "research/frozen-edge-isaac-goals.json": "d1f37af3f136839ac835a3403025d5480e4ef86b7ef55e5d76fc9fa6ebe2684f",
+    "scripts/isaac6_python.sh": "d71e06f693ecf9bd92051fa350af0e88b4c5d7b7f8fcfefbc76a1fb2e69a49ad"
+  },
+  "historical_report_sha256": {
+    "docs/EDGE_ISAAC_NO_OBSTACLE.md": "fd96e229114ce92407171e48de6382f00c323ac18be0030dcb9466b34c9a3bf2",
+    "docs/EDGE_OMNIVLA_PREFLIGHT.md": "c4097bf147774f04417816a6baa8cccd177f6b4681581735e8b8d18e3d0ed5ac",
+    "docs/FULL_OMNIVLA_PREFLIGHT.md": "bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03"
+  },
+  "installation_file_sha256": {
+    "/home/gpuadmin/isaacsim/python.sh": "37f7e3717f1fce1800d0b15b55fcd754c909978bd2455b9d6de3d22d77a92bc3",
+    "/home/gpuadmin/isaacsim/setup_python_env.sh": "0f73e6dac65efa1a28f994939f4734859d2c39eb236c658bfad9fab70c8882e6",
+    "/home/gpuadmin/isaacsim/VERSION": "dd69799842a727b6a272edfaaa11b471be6ca19a2d2806973eb5ddb89a2aac0d"
+  },
+  "retry_count": 1,
+  "run_id": "edge-isaac-startup-isolated-001",
+  "launch": {
+    "retry_count": 1,
+    "started_utc": "2026-10-12T09:07:21.801055+00:00",
+    "command": "PYTHONDONTWRITEBYTECODE=1 \\\nXDG_CACHE_HOME=\"$PWD/artifacts-local/isaac-cache-isolated\" \\\nXDG_DATA_HOME=\"$PWD/artifacts-local/isaac-data-isolated\" \\\ntimeout --signal=TERM --kill-after=15s 300s \\\nscripts/isaac6_python.sh \\\n  research/isaac_startup_gate.py \\\n  --output outputs/edge-isaac-startup-isolated-001 \\\n  > artifacts-local/isaac-runtime-recovery/startup-isolated-001.log 2>&1",
+    "launcher_exit_code": 1,
+    "wall_seconds": 49.53155084699938,
+    "finished_utc": "2026-10-12T09:08:11.332696+00:00",
+    "timeout_triggered": false
+  },
+  "accepted_startup_results": [
+    {
+      "path": "outputs/edge-isaac-startup-isolated-001/result.json",
+      "sha256": "98ffc8cacff56ea40edcb1bfd3906e4379b649337282d6855badceb92664ae23"
+    }
+  ],
+  "in_process_result": {
+    "status": "ISAAC_STARTUP_PASS",
+    "constructor_returned": true,
+    "steps": 60,
+    "clean_shutdown": true,
+    "constructor_seconds": 12.112168453999402,
+    "stage_opened": true,
+    "rgb_shape": [
+      480,
+      640,
+      3
+    ],
+    "rgb_std": 8.959227583606568,
+    "rgb_sha256": "8f0c2938b92b90a316c0e0c547c44177daaf5fe3962b721a37e7715988082725",
+    "simulation_time": 1.0333333872258663,
+    "isaac_version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "wall_seconds": 46.4884618899996
+  },
+  "constructor_returned": true,
+  "stage_opened": true,
+  "camera_rendered": true,
+  "camera": {
+    "shape": [
+      480,
+      640,
+      3
+    ],
+    "dtype": "uint8",
+    "finite": true,
+    "nonempty": true,
+    "std": 8.95922758360657,
+    "pixels_sha256": "8f0c2938b92b90a316c0e0c547c44177daaf5fe3962b721a37e7715988082725",
+    "png_sha256": "9d83f710678f5f7a473fb46b4dd7e4ae64f672fd40318026acefbd638ec70a5b"
+  },
+  "steps": 60,
+  "clean_shutdown": true,
+  "clean_shutdown_scope": "app.close() returned; this does not imply clean process termination",
+  "process_clean_exit": false,
+  "launcher_exit_code": 1,
+  "timeout_triggered": false,
+  "cuda_symbol_error": false,
+  "segmentation_fault": true,
+  "earliest_material_error": "/home/gpuadmin/isaacsim/python.sh: line 69: 99833 Segmentation fault      (core dumped) $python_exe \"${filtered_args[@]}\" $args",
+  "failure_stage": "Native process termination after app.close() returned and result.json was written; native cause not diagnosed",
+  "raw_log": {
+    "path": "outputs/edge-isaac-startup-isolated-001/raw/startup.log",
+    "bytes": 41126,
+    "sha256": "03ef9c73a63a2a7bf1973bef6cb7dbdd0fadeea425040a6b3331029d586df8d0"
+  },
+  "output_audit": {
+    "before_file_count": 64,
+    "before_inventory_sha256": "6b9123b5c571bfd5d35f4df6e670e8a255ce42d96d5d29e3a90cd0c3811f3ae4",
+    "new_files": {
+      "outputs/edge-isaac-startup-isolated-001/raw/startup.log": "03ef9c73a63a2a7bf1973bef6cb7dbdd0fadeea425040a6b3331029d586df8d0",
+      "outputs/edge-isaac-startup-isolated-001/result.json": "98ffc8cacff56ea40edcb1bfd3906e4379b649337282d6855badceb92664ae23",
+      "outputs/edge-isaac-startup-isolated-001/startup-rgb.png": "9d83f710678f5f7a473fb46b4dd7e4ae64f672fd40318026acefbd638ec70a5b"
+    },
+    "removed_files": [],
+    "model_or_navigation_outputs_created": false
+  },
+  "not_run": [
+    "Edge model loading",
+    "Edge inference",
+    "combined Isaac/Edge memory",
+    "camera marker calibration",
+    "RGB history",
+    "pose-goal inference",
+    "STRAIGHT",
+    "LEFT",
+    "RIGHT",
+    "obstacles",
+    "reconciliation"
+  ],
+  "decision": "ISAAC_STARTUP_RECOVERY_FAIL",
+  "next_uncertainty": "Can the unchanged simulator-only gate exit without a post-close SIGSEGV under the clean launcher, while retaining the successful constructor, stage, RGB, and 60-step evidence?",
+  "diagnostic_evidence": {
+    "artifacts-local/isaac-runtime-recovery/candidate-search-errors.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts-local/isaac-runtime-recovery/candidate-search.txt": "51d0f150a69dac8450baa826332035a2a1b5d69325b908928e2edaba0488b215",
+    "artifacts-local/isaac-runtime-recovery/diagnostic-gate.json": "8d9a42b4defd85af2eef0fa8ab53b450f8cbf5fda8f996c803c48090bf5622a8",
+    "artifacts-local/isaac-runtime-recovery/frozen-before-retry.json": "6c0d4b2b25d2bce3049332b31e87a24dbe724acc1da3447cca75a788be4cdd2b",
+    "artifacts-local/isaac-runtime-recovery/host.json": "ddaf17e1c01a97fe16e75c21bb437670fedaed27a11c8faa1113a4886fe9c49a",
+    "artifacts-local/isaac-runtime-recovery/image-verification.json": "7a26ab8c52a0947f643e51af1902020082afa2540fc12a1f6ee2004de4186ad9",
+    "artifacts-local/isaac-runtime-recovery/launch-outcome.json": "d99c36f38016170621689c6b1927b1dc2de337fa1c8a4a49b7bacb0242b93a11",
+    "artifacts-local/isaac-runtime-recovery/ldd-clean.txt": "04d34a7376fe4e55f0049960cf3bd4b317fac1f6c8e1351c8c7db6473246844b",
+    "artifacts-local/isaac-runtime-recovery/ldd-inherited.txt": "9d31bb44597543fb92ecec9afdc48c9423df287b85a012903a703a3fc9ca3d0f",
+    "artifacts-local/isaac-runtime-recovery/libraries.json": "9edf4c88225c67af490fc93b4e600ea78d17f86094c42b223ae1d225a901152a",
+    "artifacts-local/isaac-runtime-recovery/loader-clean.json": "658130c804dc469505aade52aef9a4c07a794a93229c7bc0fc81e7e5d0fdf546",
+    "artifacts-local/isaac-runtime-recovery/loader-clean.stderr": "c0062246722fefc8f98a2138a3358631fe658b1b16b74c8f9e79f9f4cfb7f2ea",
+    "artifacts-local/isaac-runtime-recovery/loader-clean.stdout": "4412811ba174149d9309e810027530976c18fdb0c253cc410508f6734dc08926",
+    "artifacts-local/isaac-runtime-recovery/loader-inherited.json": "2b3fb975475a62d4c3cb51fcfa3b40ba6069d162081e9d557dc1a4ac50bff49f",
+    "artifacts-local/isaac-runtime-recovery/loader-inherited.stderr": "34948ef981f80ecafbd32a2878a2b26d3d320c57ff5d6fc4d8e8ffe573c53681",
+    "artifacts-local/isaac-runtime-recovery/loader-inherited.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts-local/isaac-runtime-recovery/output-inventory-before.json": "6b9123b5c571bfd5d35f4df6e670e8a255ce42d96d5d29e3a90cd0c3811f3ae4",
+    "artifacts-local/isaac-runtime-recovery/retry-registration.json": "601ab7e5c2bd924b0084515e219054dcf2a6ce4ec0ee183aed72cb87f2701efc",
+    "artifacts-local/isaac-runtime-recovery/wrapper-boundary-probe.json": "cf71eae2f08b267a46744be17d6d10a4f1af5ff1e8213d11f62129703e8452e2",
+    "artifacts-local/isaac-runtime-recovery/wrapper-real-probe.json": "ee95b077142af67787f95eea6e340aa25698a0ce0d901b63aeeba0858abb7b5d",
+    "artifacts-local/isaac-runtime-recovery/wrapper-real-probe.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts-local/isaac-runtime-recovery/wrapper-real-probe.stdout": "ee95b077142af67787f95eea6e340aa25698a0ce0d901b63aeeba0858abb7b5d"
+  },
+  "validation": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_isaac*.py' -v",
+    "new_focused_tests": 16,
+    "existing_startup_evidence_tests": 8,
+    "note": "CPU-only; no SimulationApp or model loading. Outcome retained in ignored validation log.",
+    "tests_passed": 24,
+    "tests_failed": 0,
+    "log_path": "artifacts-local/isaac-runtime-recovery/validation.log",
+    "log_sha256": "8799f324e587cff97d8d1ce87112a718a2415666170c70a30b1cc11d976b659f"
+  }
+}
