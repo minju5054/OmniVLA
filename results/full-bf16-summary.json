@@ -1,0 +1,164 @@
+{
+  "action_head_parameter_dtypes": [
+    "torch.bfloat16"
+  ],
+  "after_load": {
+    "MemAvailable_kib": 23039436,
+    "MemTotal_kib": 31971700,
+    "VmHWM_kib": 6452596,
+    "VmRSS_kib": 1574756,
+    "allocated_bytes": 15398269440,
+    "max_allocated_bytes": 15398269440,
+    "max_reserved_bytes": 15443427328,
+    "nvidia_smi_mib_used_free": "15554, 288",
+    "reserved_bytes": 15443427328,
+    "time_utc": "2026-10-12T07:22:05.378948+00:00"
+  },
+  "attention_implementation": "sdpa",
+  "before_load": {
+    "MemAvailable_kib": 23246328,
+    "MemTotal_kib": 31971700,
+    "VmHWM_kib": 1352428,
+    "VmRSS_kib": 1352428,
+    "allocated_bytes": 0,
+    "max_allocated_bytes": 0,
+    "max_reserved_bytes": 0,
+    "nvidia_smi_mib_used_free": "703, 15139",
+    "reserved_bytes": 0,
+    "time_utc": "2026-10-12T07:21:54.545546+00:00"
+  },
+  "checkpoint_path": "/home/gpuadmin/Workspace/OmniVLA/models-local/omnivla-original/e36a84d4923c041149d441f93f3bdb7092bb5f07",
+  "checkpoint_revision": "e36a84d4923c041149d441f93f3bdb7092bb5f07",
+  "classification": "FULL_BF16_GPU_OOM",
+  "command": [
+    "research/run_preflight.py",
+    "--output",
+    "outputs/full-bf16-001"
+  ],
+  "coordinate": "COORDINATE_CONVENTION_UNRESOLVED",
+  "cuda_runtime": "12.8",
+  "current_img.jpg_sha256": "efe5e0c4be8902da94eddae06ebde0bf0fc92c28ad9ff5688fe108cfcba1cc18",
+  "decision": "BLOCKED_BY_VRAM",
+  "error": "CUDA out of memory. Tried to allocate 12.00 MiB. GPU 0 has a total capacity of 15.47 GiB of which 69.56 MiB is free. Including non-PyTorch memory, this process has 14.74 GiB memory in use. Of the allocated memory 14.49 GiB is allocated by PyTorch, and 83.45 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+  "error_type": "OutOfMemoryError",
+  "evidence_directory": "outputs/full-bf16-001",
+  "expected_action_shape_from_source": [
+    1,
+    8,
+    4
+  ],
+  "final_memory": {
+    "MemAvailable_kib": 22400496,
+    "MemTotal_kib": 31971700,
+    "VmHWM_kib": 6452596,
+    "VmRSS_kib": 2501744,
+    "allocated_bytes": 15406789120,
+    "max_allocated_bytes": 15563546112,
+    "max_reserved_bytes": 15651045376,
+    "nvidia_smi_mib_used_free": "15772, 70",
+    "reserved_bytes": 15651045376,
+    "time_utc": "2026-10-12T07:22:05.846598+00:00"
+  },
+  "finished_utc": "2026-10-12T07:22:05.859575+00:00",
+  "git_head": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68",
+  "goal_img.jpg_sha256": "113713bbb970041ffa40e2e88b885f9c1ecbbe54aeaf3b98d6facf971cc15d37",
+  "latency": null,
+  "model_forward_succeeded": false,
+  "model_load_seconds": 2.8482619530000193,
+  "model_load_succeeded": true,
+  "normalization": {
+    "config_sha256": "1546e9d71e6cd37cbfd0f5a5122292b9c81412054baa36195b1404a6f7d7a76a",
+    "constant": "BOUNDS_Q99",
+    "metric_xy_scale": 0.1,
+    "sample_calls_unnormalize_actions": false
+  },
+  "omitted_packages": [
+    "peft",
+    "flash_attn"
+  ],
+  "oom_callsite": "transformers/models/llama/modeling_llama.py:240 (Llama MLP)",
+  "packages": {
+    "accelerate": "0.30.1",
+    "dlimp": "0.0.1",
+    "huggingface-hub": "0.29.1",
+    "numpy": "1.26.4",
+    "tensorflow": "2.15.0",
+    "tensorflow-datasets": "4.9.3",
+    "tensorflow-graphics": "2021.12.3",
+    "tensorflow-metadata": "1.15.0",
+    "tensorflow-probability": "0.23.0",
+    "timm": "0.9.10",
+    "tokenizers": "0.19.1",
+    "torch": "2.7.1+cu128",
+    "torchaudio": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "transformers": "4.40.1"
+  },
+  "peak_observed_device_mib": 15772,
+  "periodic_memory_samples": 6,
+  "pose_only": "POSE_ONLY_MODALITY_UNRESOLVED",
+  "pose_projector_parameter_dtypes": [
+    "torch.float32"
+  ],
+  "python": "3.10.21 (main, Sep  1 2026, 14:16:49) [Clang 22.1.3 ]",
+  "raw_action_shape": null,
+  "raw_result_sha256": "97b11cc91328e554b8b6ad6f5027ad3a02043c4b8f49ea83cb4c2cb23904c47e",
+  "runtime_environment": {
+    "CUDA_MODULE_LOADING": null,
+    "CUDA_VISIBLE_DEVICES": null,
+    "LD_LIBRARY_PATH": "/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/usr/local/cuda/lib64:",
+    "MKL_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "PYTORCH_CUDA_ALLOC_CONF": null
+  },
+  "runtime_probe": {
+    "bf16_matmul_value": 32.0,
+    "capability": [
+      12,
+      0
+    ],
+    "compiled_arches": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120",
+      "compute_120"
+    ],
+    "cuda_available": true,
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "python": "3.10.21",
+    "status": "GPU_RUNTIME_PASS",
+    "torch": "2.7.1+cu128",
+    "trivial_result": [
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ],
+    "warnings": []
+  },
+  "sample": "OFFICIAL_SAMPLE_BLOCKED",
+  "source_hashes": {
+    "inference/run_omnivla.py": "6bdd78a3533449cc8f1be6c14365650e8504bc072abc85e0bdedc2d1030679d0",
+    "prismatic/extern/hf/modeling_prismatic.py": "38ef3b82e07ae15cc25baf79746f1143f7cb154172922ffd8964a1779865ce75",
+    "prismatic/models/action_heads.py": "951c78a575e55db533cf36078adf319873dcb7ea1edcb6c4fc730b5a89da63fb",
+    "research/contracts.py": "8e397cb1173515cdd912090c1e8851545402fb42007d28840d4aeae88c844b0d",
+    "research/frozen-goals.json": "41cef6b2e49f74f4e07275d801b09e7239e5fc0208027476e25436ded28c9ee9",
+    "research/run_preflight.py": "caa8debac98f72f2a21f8f4736a70afda8b26a583d3c8b5180254d7e34ff6949"
+  },
+  "stage": "first_forward",
+  "started_utc": "2026-10-12T07:21:47.450205+00:00",
+  "tensorflow_visible_gpus": [],
+  "unit_tests": {
+    "count": 19,
+    "evidence_kind": "CPU source/evidence contracts only",
+    "passed": 19
+  },
+  "vla_parameter_dtypes": [
+    "torch.bfloat16"
+  ],
+  "warm_calls_executed": 0
+}

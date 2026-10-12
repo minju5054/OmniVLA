@@ -1,0 +1,114 @@
+{
+  "files": [
+    {
+      "bytes": 114,
+      "name": "README.md",
+      "sha256": "cc2ae86e0160a3dca87cea95ca3516896fd90a06cd10c5943d849d965ff5f4b5"
+    },
+    {
+      "bytes": 201513842,
+      "name": "action_head--120000_checkpoint.pt",
+      "sha256": "d22c198064c5c90202833162a5edb719dd0607070c549e31345785a2623281e7"
+    },
+    {
+      "bytes": 21,
+      "name": "added_tokens.json",
+      "sha256": "ab43123267b190cb7990bc9f2ae4ad32dcb7ed029fb0fccb1b4e062c6f54a2a1"
+    },
+    {
+      "bytes": 60802,
+      "name": "config.json",
+      "sha256": "1546e9d71e6cd37cbfd0f5a5122292b9c81412054baa36195b1404a6f7d7a76a"
+    },
+    {
+      "bytes": 5865,
+      "name": "configuration_prismatic.py",
+      "sha256": "68cc5ae34f1b46af3168d8d479cb81bb776965653453fd904aa8eefb6c8f9f68"
+    },
+    {
+      "bytes": 136,
+      "name": "generation_config.json",
+      "sha256": "67fbe17b12e8beb5be98eb911483971cc78589e51a37ac0cce9cd499d06a8bf1"
+    },
+    {
+      "bytes": 4925122448,
+      "name": "model-00001-of-00004.safetensors",
+      "sha256": "3bd0dd7d75924136ecf1a584bdaa8e8b994d4f5d80a7b8869814976f371c05d2"
+    },
+    {
+      "bytes": 4947392496,
+      "name": "model-00002-of-00004.safetensors",
+      "sha256": "3c21dcdb5f797631a5e555f749e0ec83a34f4d7227265e7ce3a6c320f8b42994"
+    },
+    {
+      "bytes": 4947417456,
+      "name": "model-00003-of-00004.safetensors",
+      "sha256": "5af986297dfbf994d5cf1343071d3fc30c5ba531662c9ac8c1a8364ce26fa1af"
+    },
+    {
+      "bytes": 262668432,
+      "name": "model-00004-of-00004.safetensors",
+      "sha256": "a877e3fece1feafb80f59f91585ce04379ee39e2bf9a25cb7b4acf237e896e60"
+    },
+    {
+      "bytes": 94764,
+      "name": "model.safetensors.index.json",
+      "sha256": "ca8b53fed8133ee2afcd2fc483de8febf7f5bb0f6bcb09f91189772e59e8f659"
+    },
+    {
+      "bytes": 150643,
+      "name": "modeling_prismatic.py",
+      "sha256": "9b9e1fb0297eeec8af7176fd9e3342bac0e7d89486b9659a4bc8d7f238e6eb90"
+    },
+    {
+      "bytes": 1650,
+      "name": "preprocessor_config.json",
+      "sha256": "bd024783fb785cbdfe35b710b621c5e8678d4c157a9ba625675e67d40d1757da"
+    },
+    {
+      "bytes": 12718,
+      "name": "processing_prismatic.py",
+      "sha256": "06563586bbc73d36501a14a231a3174904ede830d33174d0c625ece8e931ef1e"
+    },
+    {
+      "bytes": 130,
+      "name": "processor_config.json",
+      "sha256": "167e026d8121f6cb0bf5c18310b97ba8139152f970822bb3824213bd37dc7a76"
+    },
+    {
+      "bytes": 67209720,
+      "name": "proprio_projector--120000_checkpoint.pt",
+      "sha256": "1bd796dfeb4becda52baf09c9fbba6121818a57069750e925d5769f9a02feb04"
+    },
+    {
+      "bytes": 552,
+      "name": "special_tokens_map.json",
+      "sha256": "cb90ee5cf5793aa444039af9795b00db59d3fef8942e7eca9cf1990bab370d61"
+    },
+    {
+      "bytes": 1842976,
+      "name": "tokenizer.json",
+      "sha256": "8f5e2869e1807b8bb3c7717a294539c37e9de5d728ad60e31ef57e83cc5ea527"
+    },
+    {
+      "bytes": 499723,
+      "name": "tokenizer.model",
+      "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+    },
+    {
+      "bytes": 1192,
+      "name": "tokenizer_config.json",
+      "sha256": "f5f1d3ed015ebb71cf11686ff00bc8e0c25957bbf3952f95312cecc9b168fbea"
+    }
+  ],
+  "local_path": "/home/gpuadmin/Workspace/OmniVLA/models-local/omnivla-original/e36a84d4923c041149d441f93f3bdb7092bb5f07",
+  "model_shard_bytes": 15082600832,
+  "omitted_unused": [
+    "lora_adapter/",
+    "dist_head--120000_checkpoint.pt",
+    "modeling_prismatic_____.py"
+  ],
+  "repo": "NHirose/omnivla-original",
+  "revision": "e36a84d4923c041149d441f93f3bdb7092bb5f07",
+  "total_downloaded_bytes": 15353995680
+}

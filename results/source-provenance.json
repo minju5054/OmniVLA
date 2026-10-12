@@ -1,0 +1,20 @@
+{
+  "sha256": {
+    "README.md": "f4e0e31734b59c449ecd17f7e0d0b9788e8f6a82e57bca327e2e6a8ceea33cac",
+    "SETUP.md": "71998e2afd75d18e80e0572d16b60234f5780a650e2792f0fff50fbb01439e85",
+    "inference/run_omnivla.py": "6bdd78a3533449cc8f1be6c14365650e8504bc072abc85e0bdedc2d1030679d0",
+    "prismatic/extern/hf/modeling_prismatic.py": "38ef3b82e07ae15cc25baf79746f1143f7cb154172922ffd8964a1779865ce75",
+    "prismatic/models/action_heads.py": "951c78a575e55db533cf36078adf319873dcb7ea1edcb6c4fc730b5a89da63fb",
+    "prismatic/vla/constants.py": "1af9de3c366fe9f50f57b605aa254c30154e6f796855cd0eceb1a3677a95ff60",
+    "prismatic/vla/datasets/bdd_dataset.py": "12085557871cdcd82295cb88a560a5604f65ac10ed5b4a89613baa6d3636fca4",
+    "prismatic/vla/datasets/cast_dataset.py": "43d8f43b31046706e2fbc7eda890fd7e8def0aa5ba172ac01ae9b2cfec641232",
+    "prismatic/vla/datasets/dummy_dataset.py": "281424a01cfefd720cfd68c921dda0b478f5bc86046e71a98605f4014c96ee47",
+    "prismatic/vla/datasets/frodobots_dataset.py": "eb8a77abb2648dde1f15cb6c55bbac8f7dd27d3f2b2c2d66c8c491d6465b33f2",
+    "prismatic/vla/datasets/gnm_dataset.py": "993b160ee766e7474e420cf4ab450a62f620170e9ea5f159b0fa36f7d1c32759",
+    "prismatic/vla/datasets/lelan_dataset.py": "0c884c6a8f12544f72ae86a9852736e243664d6550c8c50f6be7f95222104fb2",
+    "pyproject.toml": "711ba0d8a8a4bbaa8c6e6a70887510d44f9e8d9c0420af7cf17c11924883f1be",
+    "vla-scripts/train_omnivla.py": "016178f2e4f316b01fc2c78bb1bbc7c6076c8c070758c74b5ffc2d15a5f67a0f",
+    "vla-scripts/train_omnivla_dataset.py": "3221fed84507303de320e91034eaf9e758e67e0268e226ba949ed1ae5ce08cc3"
+  },
+  "upstream_sha": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68"
+}

@@ -1,0 +1,153 @@
+{
+  "controller": {
+    "LEFT": {
+      "clipped_vw": [
+        0.30000000000000004,
+        1.0
+      ],
+      "final_vw": [
+        0.09000000000000001,
+        0.3
+      ],
+      "input_metric_xy_heading": [
+        0.1,
+        0.1,
+        1,
+        0
+      ],
+      "pre_clip_vw": [
+        0.30000000000000004,
+        2.356194490192345
+      ]
+    },
+    "RIGHT": {
+      "clipped_vw": [
+        0.30000000000000004,
+        -1.0
+      ],
+      "final_vw": [
+        0.09000000000000001,
+        -0.3
+      ],
+      "input_metric_xy_heading": [
+        0.1,
+        -0.1,
+        1,
+        0
+      ],
+      "pre_clip_vw": [
+        0.30000000000000004,
+        -2.356194490192345
+      ]
+    },
+    "STRAIGHT": {
+      "clipped_vw": [
+        0.30000000000000004,
+        0.0
+      ],
+      "final_vw": [
+        0.3,
+        0.0
+      ],
+      "input_metric_xy_heading": [
+        0.1,
+        0,
+        1,
+        0
+      ],
+      "pre_clip_vw": [
+        0.30000000000000004,
+        0.0
+      ]
+    },
+    "ZERO_XY_WITH_HEADING": {
+      "error": "name 'clip_angle' is not defined",
+      "error_type": "NameError",
+      "input_metric_xy_heading": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "coordinate_model_status": "NOT_RUN",
+  "evidence_kind": "SOURCE_FORMULA_CPU_UNIT_CHECK; not model or navigation evidence",
+  "goals": [
+    {
+      "expectation": "selected x > 0; abs(final w) <= 0.15 rad/s",
+      "local_metric_goal": [
+        3.0,
+        0.0
+      ],
+      "name": "FRONT",
+      "normalized_pose": [
+        30.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "raw_model_action": null,
+      "source_normalized_pose": [
+        30.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "world_delta_east_north_at_compass_zero": [
+        -0.0,
+        3.0
+      ]
+    },
+    {
+      "expectation": "selected y > 0; final w > 0",
+      "local_metric_goal": [
+        3.0,
+        2.0
+      ],
+      "name": "LEFT",
+      "normalized_pose": [
+        30.0,
+        20.0,
+        1.0,
+        0.0
+      ],
+      "raw_model_action": null,
+      "source_normalized_pose": [
+        30.0,
+        20.0,
+        1.0,
+        0.0
+      ],
+      "world_delta_east_north_at_compass_zero": [
+        -2.0,
+        3.0
+      ]
+    },
+    {
+      "expectation": "selected y < 0; final w < 0",
+      "local_metric_goal": [
+        3.0,
+        -2.0
+      ],
+      "name": "RIGHT",
+      "normalized_pose": [
+        30.0,
+        -20.0,
+        1.0,
+        0.0
+      ],
+      "raw_model_action": null,
+      "source_normalized_pose": [
+        30.0,
+        -20.0,
+        1.0,
+        0.0
+      ],
+      "world_delta_east_north_at_compass_zero": [
+        2.0,
+        3.0
+      ]
+    }
+  ]
+}

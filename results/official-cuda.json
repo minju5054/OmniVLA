@@ -1,0 +1,27 @@
+{
+  "capability": [
+    12,
+    0
+  ],
+  "compiled_arches": [
+    "sm_50",
+    "sm_60",
+    "sm_70",
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90"
+  ],
+  "cuda_available": true,
+  "cuda_runtime": "12.1",
+  "error": "CUDA error: no kernel image is available for execution on the device\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1.\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+  "error_type": "RuntimeError",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "python": "3.10.21",
+  "status": "GPU_RUNTIME_FAILED",
+  "torch": "2.2.0+cu121",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gpuadmin/Workspace/OmniVLA/research/probe_cuda.py\", line 26, in main\n    result['trivial_result'] = (torch.ones(4, device='cuda') + 1).cpu().tolist()\nRuntimeError: CUDA error: no kernel image is available for execution on the device\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1.\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n",
+  "warnings": [
+    "\nNVIDIA GeForce RTX 5060 Ti with CUDA capability sm_120 is not compatible with the current PyTorch installation.\nThe current PyTorch install supports CUDA capabilities sm_50 sm_60 sm_70 sm_75 sm_80 sm_86 sm_90.\nIf you want to use the NVIDIA GeForce RTX 5060 Ti GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"
+  ]
+}

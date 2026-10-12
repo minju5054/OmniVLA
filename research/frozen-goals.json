@@ -1,0 +1,12 @@
+{
+  "declared_before_model_outputs": true,
+  "frame": "robot-local x forward, y left",
+  "modality_id": 4,
+  "heading_vector": [1.0, 0.0],
+  "cases": [
+    {"name": "FRONT", "local_metric_goal": [3.0, 0.0], "normalized_pose": [30.0, 0.0, 1.0, 0.0], "expectation": "selected x > 0; abs(final w) <= 0.15 rad/s"},
+    {"name": "LEFT", "local_metric_goal": [3.0, 2.0], "normalized_pose": [30.0, 20.0, 1.0, 0.0], "expectation": "selected y > 0; final w > 0"},
+    {"name": "RIGHT", "local_metric_goal": [3.0, -2.0], "normalized_pose": [30.0, -20.0, 1.0, 0.0], "expectation": "selected y < 0; final w < 0"}
+  ],
+  "scope": "Frozen pre-Isaac qualitative checks; not navigation evidence. Do not change signs or thresholds after outputs."
+}

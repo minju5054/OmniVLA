@@ -25,3 +25,10 @@ omnivla-edge/
 **/__pycache__/
 # Ignore all wandb directories everywhere
 **/wandb/
+
+# Local preflight evidence, checkpoints, isolated runtimes, and caches.
+/artifacts-local/
+/models-local/
+/outputs/
+/.venv*/
+/.pytest_cache/
