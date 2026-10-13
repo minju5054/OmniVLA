@@ -1,0 +1,4826 @@
+{
+  "schema": "omnivla-edge-pose-language-obstacle-v1",
+  "date": "2026-10-13",
+  "decision": "NOT_QUALIFIED_FOR_SAFE_LANGUAGE_ASSISTED_OBSTACLE_AVOIDANCE",
+  "starting_sha": "eeb75f85cbcf316f15856388d0c3831eae4ef87d",
+  "branch": "research/omnivla-edge-pose-language-obstacle",
+  "publication_commit": "Commit containing this file; exact local/remote SHA is verified after publication.",
+  "provenance": {
+    "plan_path": "research/pose-language-obstacle-plan.json",
+    "plan_sha256": "289dea38528cce277629dd347734e8da9c96235d6e96a6e31de216c6ff4b6c36",
+    "protocol_path": "research/frozen-pose-language-obstacle.json",
+    "protocol_sha256": "6148e88e3e4d417ee78cad03efde6567e91e68379aa828f2a63239608fa4f397",
+    "checkpoint_sha256": "f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d",
+    "clip_sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+    "model_source_unchanged": true,
+    "controller_source_unchanged": true,
+    "inference_git_head": "eeb75f85cbcf316f15856388d0c3831eae4ef87d",
+    "inference_code_identity": "Uncommitted additive sources frozen by SHA256 before either phase; now version-controlled here."
+  },
+  "modality": {
+    "id": 8,
+    "flags": {
+      "pose_goal": true,
+      "satellite": false,
+      "image_goal": false,
+      "lan_prompt": true
+    },
+    "token_order": [
+      "RGB0",
+      "RGB1",
+      "RGB2",
+      "RGB3",
+      "RGB4",
+      "RGB5",
+      "pose",
+      "map",
+      "goal_image",
+      "language"
+    ],
+    "decoder_mask": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false
+    ],
+    "pool_weights": [
+      1.25,
+      1.25,
+      1.25,
+      1.25,
+      1.25,
+      1.25,
+      1.25,
+      0.0,
+      0.0,
+      1.25
+    ]
+  },
+  "instructions": {
+    "N": {
+      "id": "N",
+      "text": "Go to the goal.",
+      "utf8_sha256": "a0434ecc60ebb1e2b3bd752fddeaf39389f3ea6fe8b407d58103b7c33bf737e7",
+      "token_ids": [
+        [
+          49406,
+          861,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "c395e4d58231b32dcb9f599d457804e42b1118626488cae23579ec3215b12c28",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 7,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "D": {
+      "id": "D",
+      "text": "A large solid red rectangular box is blocking the path directly ahead. Reach the goal while avoiding the obstacle.",
+      "utf8_sha256": "fc40b18704c76f934d1e4493805e5735d09d54cfdf896a02192a3ec76e2f2804",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          533,
+          12652,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          4279,
+          518,
+          3321,
+          1519,
+          22086,
+          518,
+          29751,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "f3ddf0bd7fe2f7c2bef8980f9b3f3e471b37192fd045a315659d672f659b9bc7",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 23,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "L": {
+      "id": "L",
+      "text": "A large solid red rectangular box blocks the path directly ahead. Steer to your left, pass around the box with safe clearance, then continue to the goal.",
+      "utf8_sha256": "3049f0963531fdddfe738aa1560afc5023a3751c8fcd45d04625141140514bf3",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          10113,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          27612,
+          531,
+          695,
+          1823,
+          267,
+          3511,
+          1630,
+          518,
+          2063,
+          593,
+          2996,
+          17959,
+          267,
+          1594,
+          3942,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "699060a675db64d52838ca6b1d8245a632a1ade7bc01d2e7957f9e8bcebd644a",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 33,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "R": {
+      "id": "R",
+      "text": "A large solid red rectangular box blocks the path directly ahead. Steer to your right, pass around the box with safe clearance, then continue to the goal.",
+      "utf8_sha256": "855499c3b61fec6e08940f170fdd62cde0417f6b2d4bfe76cc2383e7faaf0c5b",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          10113,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          27612,
+          531,
+          695,
+          1155,
+          267,
+          3511,
+          1630,
+          518,
+          2063,
+          593,
+          2996,
+          17959,
+          267,
+          1594,
+          3942,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "3baaf9feabf22e51659622d551cdc4195911baecc3f7c7b1d57da0ac7685b309",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 33,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    }
+  },
+  "offline": {
+    "planned": 32,
+    "executed": 32,
+    "model_loads": 1,
+    "raw_run": "outputs/pose-language-obstacle/offline-001",
+    "reused_rgb_files": 48,
+    "summary": {
+      "technical_validity": {
+        "status": "MODALITY8_INPUT_VALID",
+        "executed_requests": 32,
+        "planned_requests": 32,
+        "model_loads": 1,
+        "native_shape": [
+          1,
+          8,
+          4
+        ],
+        "native_dtype": "float32",
+        "all_decoder_masks_verified": true,
+        "pose_and_rgb_preserved": true,
+        "no_truncation": true,
+        "clip_embedding_hashes": {
+          "N": [
+            "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9"
+          ],
+          "D": [
+            "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49"
+          ],
+          "L": [
+            "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74"
+          ],
+          "R": [
+            "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062"
+          ]
+        },
+        "numerical_errors": 0,
+        "upstream_controller_bugs": 0
+      },
+      "status_observations": {
+        "MODALITY8_INPUT_VALID": true,
+        "LANGUAGE_RESPONSE_OBSERVED": true,
+        "DIRECTION_CONSISTENCY_OBSERVED": false,
+        "SAFE_PASSAGE_PREDICTED": false,
+        "HORIZON_INSUFFICIENT": true,
+        "PREDICTED_UNSAFE": true,
+        "NO_MATERIAL_DIRECTIONAL_RESPONSE": true
+      },
+      "classifications_by_instruction": {
+        "N": {
+          "HORIZON_INSUFFICIENT": 4,
+          "PREDICTED_LOW_CLEARANCE": 2,
+          "PREDICTED_COLLISION": 2
+        },
+        "D": {
+          "HORIZON_INSUFFICIENT": 4,
+          "PREDICTED_LOW_CLEARANCE": 2,
+          "PREDICTED_COLLISION": 2
+        },
+        "L": {
+          "HORIZON_INSUFFICIENT": 4,
+          "PREDICTED_LOW_CLEARANCE": 2,
+          "PREDICTED_COLLISION": 2
+        },
+        "R": {
+          "HORIZON_INSUFFICIENT": 4,
+          "PREDICTED_LOW_CLEARANCE": 2,
+          "PREDICTED_COLLISION": 2
+        }
+      },
+      "direction_consistency_count": 0,
+      "material_left_count": 0,
+      "material_right_count": 0,
+      "cold_latency_ms": {
+        "model_ms": 117.41422899649478,
+        "forward_with_clip_ms": 199.71800300118048,
+        "pipeline_ms": 244.82116599392612
+      },
+      "subsequent_latency_ms": {
+        "model_ms": {
+          "count": 31,
+          "median": 10.010861995397136,
+          "p95": 10.659479004971217,
+          "max": 11.21373700152617
+        },
+        "forward_with_clip_ms": {
+          "count": 31,
+          "median": 13.639665994560346,
+          "p95": 14.32810500409687,
+          "max": 14.82689099793788
+        },
+        "pipeline_ms": {
+          "count": 31,
+          "median": 47.97714599408209,
+          "p95": 56.6864135034848,
+          "max": 119.05546000343747
+        }
+      }
+    },
+    "matrix": [
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "instruction_id": "N",
+        "request_id": 0,
+        "action_sha256": "fe967a546d8bae6ba7b4a967edab761dd2110bc5ab03a6443f71029ddba1ed79",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.8365958213806153,
+          -0.00344185046851635
+        ],
+        "local_lateral_min_m": -0.019897720217704775,
+        "local_lateral_max_m": -4.1086971759796145e-05,
+        "maximum_absolute_local_lateral_m": 0.019897720217704775,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.963404178619385,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.4506022930145264,
+            -0.12338219583034515
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.12338219583034515
+          ],
+          "final_vw": [
+            0.3,
+            -0.07402931749820708
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "instruction_id": "D",
+        "request_id": 1,
+        "action_sha256": "384d508a4696a37642e6786de5b4fb7e03b169957d2768875c101a677bc4b8a5",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.9014450073242188,
+          0.001094748079776764
+        ],
+        "local_lateral_min_m": -0.018346816301345825,
+        "local_lateral_max_m": 0.001094748079776764,
+        "maximum_absolute_local_lateral_m": 0.018346816301345825,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.8985549926757814,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.5656560063362122,
+            -0.10542121902108192
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.10542121902108192
+          ],
+          "final_vw": [
+            0.3,
+            -0.06325273141264914
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "instruction_id": "L",
+        "request_id": 2,
+        "action_sha256": "b12b8a031af75944293f3c5e85735ccb65efcd5a9ad9087a2eed381117770ab7",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.9058219909667969,
+          -0.005704255029559136
+        ],
+        "local_lateral_min_m": -0.022405296564102173,
+        "local_lateral_max_m": -0.0004608288407325745,
+        "maximum_absolute_local_lateral_m": 0.022405296564102173,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.8941780090332032,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.6134408116340637,
+            -0.12490766867995262
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.12490766867995262
+          ],
+          "final_vw": [
+            0.3,
+            -0.07494460120797157
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "instruction_id": "R",
+        "request_id": 3,
+        "action_sha256": "e0e6e20b9fa6c2efed56b636c0157f4815c410a361019b90c10d2ada8cd314c7",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.9393171310424805,
+          -0.004139618575572968
+        ],
+        "local_lateral_min_m": -0.023407572507858278,
+        "local_lateral_max_m": -0.0009729638695716858,
+        "maximum_absolute_local_lateral_m": 0.023407572507858278,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.8606828689575197,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.6323360800743103,
+            -0.12897977605462074
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.12897977605462074
+          ],
+          "final_vw": [
+            0.3,
+            -0.07738786563277245
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "instruction_id": "N",
+        "request_id": 4,
+        "action_sha256": "f5f83a041bae024bead3757e7c406eafb5d66013a659aa3222f97cc23c448683",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7808135032653809,
+          -0.0347694993019104
+        ],
+        "local_lateral_min_m": -0.07842791080474854,
+        "local_lateral_max_m": -0.008686761558055879,
+        "maximum_absolute_local_lateral_m": 0.07842791080474854,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 1.0191864967346194,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7911807596683502,
+            -0.6076621413230896
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6076621413230896
+          ],
+          "final_vw": [
+            0.2468476967701137,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "instruction_id": "D",
+        "request_id": 5,
+        "action_sha256": "2bad0dcbeafda93bf1cfed264e9715742d19af4211c1f6898520b41ce187df9e",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.7369090080261231,
+          -0.04584200978279114
+        ],
+        "local_lateral_min_m": -0.07928715944290161,
+        "local_lateral_max_m": -0.007763282954692841,
+        "maximum_absolute_local_lateral_m": 0.07928715944290161,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 1.0630909919738771,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6977443546056747,
+            -0.6390848010778427
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6390848010778427
+          ],
+          "final_vw": [
+            0.23471063581393087,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "instruction_id": "L",
+        "request_id": 6,
+        "action_sha256": "a363749c7dbcbbe9b595e4a6ea13abf03cf73c8f8e8b3202329779eaed9a709b",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.7563842296600343,
+          -0.042204955220222475
+        ],
+        "local_lateral_min_m": -0.07252137064933777,
+        "local_lateral_max_m": -0.007997076213359834,
+        "maximum_absolute_local_lateral_m": 0.07252137064933777,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 1.043615770339966,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7497104108333588,
+            -0.5738408714532852
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.5738408714532852
+          ],
+          "final_vw": [
+            0.26139650809485965,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "instruction_id": "R",
+        "request_id": 7,
+        "action_sha256": "69097c0f51a097267d99af164f24bd8319dfbbae9a065a7ca97ba7d70e9cb3c3",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.743555498123169,
+          -0.0429494708776474
+        ],
+        "local_lateral_min_m": -0.07319809198379516,
+        "local_lateral_max_m": -0.007825638353824617,
+        "maximum_absolute_local_lateral_m": 0.07319809198379516,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 1.0564445018768311,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7298252284526825,
+            -0.5847363173961639
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.5847363173961639
+          ],
+          "final_vw": [
+            0.25652588275678057,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "instruction_id": "N",
+        "request_id": 8,
+        "action_sha256": "d4c5fcfe8fc572aa61681f27371360d53b3919a34935225eab2fb8b3ef241a05",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.900844955444336,
+          0.0252201110124588
+        ],
+        "local_lateral_min_m": -0.004003285616636276,
+        "local_lateral_max_m": 0.0308946430683136,
+        "maximum_absolute_local_lateral_m": 0.0308946430683136,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.39915504455566414,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.1543361246585846,
+            0.06747584044933319
+          ],
+          "clipped_vw": [
+            0.5,
+            0.06747584044933319
+          ],
+          "final_vw": [
+            0.3,
+            0.04048550426959991
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "instruction_id": "D",
+        "request_id": 9,
+        "action_sha256": "20c08676da35005f59abd3e36d9392a9d0398369ad435a66a3d412089352c8cd",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.9441532135009766,
+          0.024817396700382233
+        ],
+        "local_lateral_min_m": -0.003122166357934475,
+        "local_lateral_max_m": 0.024817396700382233,
+        "maximum_absolute_local_lateral_m": 0.024817396700382233,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.3558467864990235,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.1377722322940826,
+            0.05470503866672516
+          ],
+          "clipped_vw": [
+            0.5,
+            0.05470503866672516
+          ],
+          "final_vw": [
+            0.3,
+            0.03282302320003509
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "instruction_id": "L",
+        "request_id": 10,
+        "action_sha256": "ca8eb4b006988ebd8289761f76dbf208fc75f467a9d491f315aad40a3c96640e",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.9530107498168946,
+          0.015934514999389648
+        ],
+        "local_lateral_min_m": -0.0037356637418270115,
+        "local_lateral_max_m": 0.01981409788131714,
+        "maximum_absolute_local_lateral_m": 0.01981409788131714,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.3469892501831057,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.2173547148704529,
+            0.02709049265831709
+          ],
+          "clipped_vw": [
+            0.5,
+            0.02709049265831709
+          ],
+          "final_vw": [
+            0.3,
+            0.01625429559499025
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "instruction_id": "R",
+        "request_id": 11,
+        "action_sha256": "386ba634b863f27a40aeb4e17bdf7e43f6dbc476cc82734807d26248c39f630d",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.9700201988220215,
+          0.016926133632659913
+        ],
+        "local_lateral_min_m": -0.003768347948789597,
+        "local_lateral_max_m": 0.019639092683792117,
+        "maximum_absolute_local_lateral_m": 0.019639092683792117,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.3299798011779786,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            1.2223992347717285,
+            0.026114031672477722
+          ],
+          "clipped_vw": [
+            0.5,
+            0.026114031672477722
+          ],
+          "final_vw": [
+            0.3,
+            0.015668419003486634
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "instruction_id": "N",
+        "request_id": 12,
+        "action_sha256": "b42c0a9c7f4268720357cad56c0432e332f1b1ee66dd41f8b5095b1a2be64695",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7758667945861817,
+          -0.03716484010219574
+        ],
+        "local_lateral_min_m": -0.08068729639053346,
+        "local_lateral_max_m": -0.008420945703983307,
+        "maximum_absolute_local_lateral_m": 0.08068729639053346,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.5241332054138186,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7772573232650757,
+            -0.6357414275407791
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6357414275407791
+          ],
+          "final_vw": [
+            0.23594498250686735,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "instruction_id": "D",
+        "request_id": 13,
+        "action_sha256": "a8bbd8582954c7102c17869e686ecc0b26881f4ac816f87d5751b2136d4b130b",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.7316208362579346,
+          -0.045822140574455265
+        ],
+        "local_lateral_min_m": -0.07930313348770142,
+        "local_lateral_max_m": -0.007490484416484833,
+        "maximum_absolute_local_lateral_m": 0.07930313348770142,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.5683791637420657,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6845575422048569,
+            -0.6494947671890259
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6494947671890259
+          ],
+          "final_vw": [
+            0.23094874289625295,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "instruction_id": "L",
+        "request_id": 14,
+        "action_sha256": "202d1560a1e82b00e9395df55a9069771ce3f47715bc48f86a94b3c8700e1ac7",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.7503989696502686,
+          -0.04297642707824707
+        ],
+        "local_lateral_min_m": -0.0732074499130249,
+        "local_lateral_max_m": -0.007723511755466462,
+        "maximum_absolute_local_lateral_m": 0.0732074499130249,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.5496010303497316,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7359281480312347,
+            -0.5911688804626465
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.5911688804626465
+          ],
+          "final_vw": [
+            0.2537346009867951,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "instruction_id": "R",
+        "request_id": 15,
+        "action_sha256": "b870c463aae3bf94eb4b526441852ca3a371ecb899409c53500767301003908c",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.7379990577697755,
+          -0.04403297007083893
+        ],
+        "local_lateral_min_m": -0.07407731413841248,
+        "local_lateral_max_m": -0.007565073668956757,
+        "maximum_absolute_local_lateral_m": 0.07407731413841248,
+        "classification": "HORIZON_INSUFFICIENT",
+        "minimum_clearance_m": 0.5620009422302248,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7168331891298294,
+            -0.6042442917823792
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6042442917823792
+          ],
+          "final_vw": [
+            0.2482439669517359,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "instruction_id": "N",
+        "request_id": 16,
+        "action_sha256": "ddf64b6dc4d39645948c93dadc495b6b9688637d6ccb46f8518990b643c60dba",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7364872932434082,
+          -0.02256239652633667
+        ],
+        "local_lateral_min_m": -0.03775151371955872,
+        "local_lateral_max_m": -0.007455845177173615,
+        "maximum_absolute_local_lateral_m": 0.03775151371955872,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.06351270675659187,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.2928256094455719,
+            -0.6537782102823257
+          ],
+          "clipped_vw": [
+            0.2928256094455719,
+            -0.6537782102823257
+          ],
+          "final_vw": [
+            0.1343692424312148,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "instruction_id": "D",
+        "request_id": 17,
+        "action_sha256": "22d5c00d22d6cc8da1bef76eba400d0ba61f3cc74a737b2ce493b3a481fda97c",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.752198886871338,
+          -0.0078004166483879095
+        ],
+        "local_lateral_min_m": -0.018658116459846497,
+        "local_lateral_max_m": -0.006833042204380036,
+        "maximum_absolute_local_lateral_m": 0.018658116459846497,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.047801113128662365,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.249421164393425,
+            -0.30508189648389816
+          ],
+          "clipped_vw": [
+            0.249421164393425,
+            -0.30508189648389816
+          ],
+          "final_vw": [
+            0.24526643560437134,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "instruction_id": "L",
+        "request_id": 18,
+        "action_sha256": "4a264e23a95eb1ef74e2c206547f4c90bc3d4ae176a168986c7e830889be55cf",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.792456340789795,
+          -0.014365629851818086
+        ],
+        "local_lateral_min_m": -0.02137727588415146,
+        "local_lateral_max_m": -0.004788410663604737,
+        "maximum_absolute_local_lateral_m": 0.02137727588415146,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.0075436592102053335,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.27341803908348083,
+            -0.37462572008371353
+          ],
+          "clipped_vw": [
+            0.27341803908348083,
+            -0.37462572008371353
+          ],
+          "final_vw": [
+            0.218952963792008,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "instruction_id": "R",
+        "request_id": 19,
+        "action_sha256": "33956777b69cbc36a3f40a0a7bf6edd69284e5440fbb2db6de3a8e7f8ea64052",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.7983534812927247,
+          -0.014456535875797273
+        ],
+        "local_lateral_min_m": -0.02023855596780777,
+        "local_lateral_max_m": -0.004770103096961975,
+        "maximum_absolute_local_lateral_m": 0.02023855596780777,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.0016465187072755572,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.2714115232229233,
+            -0.3576907217502594
+          ],
+          "clipped_vw": [
+            0.2714115232229233,
+            -0.3576907217502594
+          ],
+          "final_vw": [
+            0.2276364803885717,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "instruction_id": "N",
+        "request_id": 20,
+        "action_sha256": "ebcb4597105dfe2122266d959d7a34e47df457c4c40f63276825edc99dccf55d",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7752737998962402,
+          -0.043249431252479556
+        ],
+        "local_lateral_min_m": -0.08841750621795655,
+        "local_lateral_max_m": -0.008476202189922333,
+        "maximum_absolute_local_lateral_m": 0.08841750621795655,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.024726200103759977,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7649006545543671,
+            -0.6978395283222198
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6978395283222198
+          ],
+          "final_vw": [
+            0.21494913072728536,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "instruction_id": "D",
+        "request_id": 21,
+        "action_sha256": "5dca03a3f56b21c1196067354f45fec87718ce51c93c8bb94d8892fd11c8ca1f",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.7260972976684571,
+          -0.04829356372356415
+        ],
+        "local_lateral_min_m": -0.08293989300727844,
+        "local_lateral_max_m": -0.00729118436574936,
+        "maximum_absolute_local_lateral_m": 0.08293989300727844,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.07390270233154322,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6674991399049759,
+            -0.6865949034690857
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6865949034690857
+          ],
+          "final_vw": [
+            0.21846943407548003,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "instruction_id": "L",
+        "request_id": 22,
+        "action_sha256": "b5ae93d7503df65b663f4a911936412df5f6ab08fb40b9ec801db6e6c363e58c",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.7469207763671876,
+          -0.04661723971366882
+        ],
+        "local_lateral_min_m": -0.0787574052810669,
+        "local_lateral_max_m": -0.007543773949146271,
+        "maximum_absolute_local_lateral_m": 0.0787574052810669,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.053079223632812755,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7142825871706009,
+            -0.6422482877969742
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6422482877969742
+          ],
+          "final_vw": [
+            0.2335545346715157,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "instruction_id": "R",
+        "request_id": 23,
+        "action_sha256": "cd57d8088c9c4d563d4a629f6774fc66e994fc6794a3169c2a8c605a80f568f3",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.7345537185668946,
+          -0.04763298332691193
+        ],
+        "local_lateral_min_m": -0.07927494645118714,
+        "local_lateral_max_m": -0.007314340770244599,
+        "maximum_absolute_local_lateral_m": 0.07927494645118714,
+        "classification": "PREDICTED_LOW_CLEARANCE",
+        "minimum_clearance_m": 0.06544628143310555,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6999084949493408,
+            -0.6517564952373505
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6517564952373505
+          ],
+          "final_vw": [
+            0.23014730362660127,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "instruction_id": "N",
+        "request_id": 24,
+        "action_sha256": "cbc14def021f0f60796409c8e683f78d7042e39d4e48121045e00c46617e01c6",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7183391571044923,
+          -0.056425762176513676
+        ],
+        "local_lateral_min_m": -0.09033236503601075,
+        "local_lateral_max_m": -0.00422322005033493,
+        "maximum_absolute_local_lateral_m": 0.09033236503601075,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.2,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.731448769569397,
+            -0.6505306363105774
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6505306363105774
+          ],
+          "final_vw": [
+            0.23058099285025332,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "instruction_id": "D",
+        "request_id": 25,
+        "action_sha256": "f69c395ff2f5c0d383165761563a843c6ab5901278b083e88374c66a835986e7",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.600896453857422,
+          -0.0549031674861908
+        ],
+        "local_lateral_min_m": -0.10172758102416993,
+        "local_lateral_max_m": -0.005826087296009064,
+        "maximum_absolute_local_lateral_m": 0.10172758102416993,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.1008964538574218,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6336805522441864,
+            -0.8171702921390533
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.8171702921390533
+          ],
+          "final_vw": [
+            0.18356027065956446,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "instruction_id": "L",
+        "request_id": 26,
+        "action_sha256": "fe4b1c48b0cdff20ffd2b993f415acb8f9405000f8fb26142fb56791bf247790",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.6353234767913819,
+          -0.054533743858337404
+        ],
+        "local_lateral_min_m": -0.10396276712417603,
+        "local_lateral_max_m": -0.004766990244388581,
+        "maximum_absolute_local_lateral_m": 0.10396276712417603,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.13532347679138185,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6416000872850418,
+            -0.8049578368663788
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.8049578368663788
+          ],
+          "final_vw": [
+            0.18634516384601604,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "instruction_id": "R",
+        "request_id": 27,
+        "action_sha256": "3c677981729cc3da0f8e130a84bdacbbef98bd520cec1a4dba5357571280fb75",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.6356065750122071,
+          -0.05510877370834351
+        ],
+        "local_lateral_min_m": -0.10254803895950318,
+        "local_lateral_max_m": -0.004908247292041779,
+        "maximum_absolute_local_lateral_m": 0.10254803895950318,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.1356065750122067,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6386103183031082,
+            -0.8003346920013428
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.8003346920013428
+          ],
+          "final_vw": [
+            0.18742158936645012,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "instruction_id": "N",
+        "request_id": 28,
+        "action_sha256": "4352d3eed60399c5fcda07e9e85d8f5bfc0d89b8cb46ad849d172ed53866e074",
+        "clip_embedding_sha256": "254cd8534e329d49dfa6ba0ea476aff88421c57f16e916bb7fa77810d7e89fd9",
+        "endpoint_local_displacement": [
+          0.7700058937072755,
+          -0.04544453322887421
+        ],
+        "local_lateral_min_m": -0.0896759569644928,
+        "local_lateral_max_m": -0.008405320346355438,
+        "maximum_absolute_local_lateral_m": 0.0896759569644928,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.2,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.752333790063858,
+            -0.7175172865390778
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.7175172865390778
+          ],
+          "final_vw": [
+            0.20905419676161438,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "instruction_id": "D",
+        "request_id": 29,
+        "action_sha256": "7139685f6fd06e15ce7fd879adbc75185ac6a929464b1a174bf12e72ec5de854",
+        "clip_embedding_sha256": "7b1a055b90b5007b13e7a0493b2bc1e0fcb47b62a9a5f5b402924f0f48fe8a49",
+        "endpoint_local_displacement": [
+          0.7205760955810547,
+          -0.050486207008361816
+        ],
+        "local_lateral_min_m": -0.08338265419006348,
+        "local_lateral_max_m": -0.007190962135791779,
+        "maximum_absolute_local_lateral_m": 0.08338265419006348,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.2,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6581902205944061,
+            -0.701253354549408
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.701253354549408
+          ],
+          "final_vw": [
+            0.2139027200752328,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "instruction_id": "L",
+        "request_id": 30,
+        "action_sha256": "dbd355ca2876438ead2be3a5aa9bca2190cefd33d22c5f0d5d865496b494054b",
+        "clip_embedding_sha256": "813d8ea5d57be932a5063c870715387df9a07bb4c19cf1d0b5549fb65d0e2e74",
+        "endpoint_local_displacement": [
+          0.7426393985748292,
+          -0.048524031043052675
+        ],
+        "local_lateral_min_m": -0.07889200448989869,
+        "local_lateral_max_m": -0.007439996302127838,
+        "maximum_absolute_local_lateral_m": 0.07889200448989869,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.2,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.7025700509548187,
+            -0.6542399525642395
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6542399525642395
+          ],
+          "final_vw": [
+            0.2292736776653388,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "instruction_id": "R",
+        "request_id": 31,
+        "action_sha256": "b472cb16e14575fcfcb947acd3fe7a20efd3b1b15fea82cbf602d1491b939e7e",
+        "clip_embedding_sha256": "663a7830f91f4ca6803384a5a1dd81d024e6994af46442aef3fe2f8eab386062",
+        "endpoint_local_displacement": [
+          0.7303518295288086,
+          -0.04942789077758789
+        ],
+        "local_lateral_min_m": -0.07907783389091493,
+        "local_lateral_max_m": -0.00726422518491745,
+        "maximum_absolute_local_lateral_m": 0.07907783389091493,
+        "classification": "PREDICTED_COLLISION",
+        "minimum_clearance_m": -0.2,
+        "selected_index4_command": {
+          "pre_clip_vw": [
+            0.6893367916345596,
+            -0.6619170159101486
+          ],
+          "clipped_vw": [
+            0.5,
+            -0.6619170159101486
+          ],
+          "final_vw": [
+            0.226614509665909,
+            -0.3
+          ],
+          "heading_used": false
+        }
+      }
+    ],
+    "prompt_comparisons": [
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.0027522236108779904,
+        "rms_position_difference_m": 0.05002307102612066,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.16283851861953735,
+            -0.0015254728496074677
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.0015254728496074677
+          ],
+          "final_vw": [
+            0.0,
+            -0.0009152837097644861
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9058219909667969,
+          -0.005704255029559136
+        ],
+        "second_endpoint_xy_m": [
+          0.8365958213806153,
+          -0.00344185046851635
+        ],
+        "endpoint_delta_xy_m": [
+          0.06922616958618166,
+          -0.0022624045610427856
+        ],
+        "maximum_absolute_heading_difference_rad": 0.02139455599737624,
+        "first_selected_pre_clip_vw": [
+          1.6134408116340637,
+          -0.12490766867995262
+        ],
+        "second_selected_pre_clip_vw": [
+          1.4506022930145264,
+          -0.12338219583034515
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07494460120797157
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          -0.07402931749820708
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.0035098522901535027,
+        "rms_position_difference_m": 0.061451680611736684,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.18173378705978394,
+            -0.005597580224275589
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.005597580224275589
+          ],
+          "final_vw": [
+            0.0,
+            -0.0033585481345653617
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9393171310424805,
+          -0.004139618575572968
+        ],
+        "second_endpoint_xy_m": [
+          0.8365958213806153,
+          -0.00344185046851635
+        ],
+        "endpoint_delta_xy_m": [
+          0.10272130966186521,
+          -0.000697768107056618
+        ],
+        "maximum_absolute_heading_difference_rad": 0.022890184152936498,
+        "first_selected_pre_clip_vw": [
+          1.6323360800743103,
+          -0.12897977605462074
+        ],
+        "second_selected_pre_clip_vw": [
+          1.4506022930145264,
+          -0.12338219583034515
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07738786563277245
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          -0.07402931749820708
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.001710057258605957,
+        "rms_position_difference_m": 0.013331913268279651,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.018895268440246582,
+            0.004072107374668121
+          ],
+          "clipped_vw": [
+            0.0,
+            0.004072107374668121
+          ],
+          "final_vw": [
+            0.0,
+            0.0024432644248008756
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9058219909667969,
+          -0.005704255029559136
+        ],
+        "second_endpoint_xy_m": [
+          0.9393171310424805,
+          -0.004139618575572968
+        ],
+        "endpoint_delta_xy_m": [
+          -0.03349514007568355,
+          -0.0015646364539861676
+        ],
+        "maximum_absolute_heading_difference_rad": 0.005137122753188411,
+        "first_selected_pre_clip_vw": [
+          1.6134408116340637,
+          -0.12490766867995262
+        ],
+        "second_selected_pre_clip_vw": [
+          1.6323360800743103,
+          -0.12897977605462074
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07494460120797157
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          -0.07738786563277245
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.004536598548293114,
+        "rms_position_difference_m": 0.03904758068494688,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.11505371332168579,
+            0.01796097680926323
+          ],
+          "clipped_vw": [
+            0.0,
+            0.01796097680926323
+          ],
+          "final_vw": [
+            0.0,
+            0.01077658608555794
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9014450073242188,
+          0.001094748079776764
+        ],
+        "second_endpoint_xy_m": [
+          0.8365958213806153,
+          -0.00344185046851635
+        ],
+        "endpoint_delta_xy_m": [
+          0.06484918594360356,
+          0.004536598548293114
+        ],
+        "maximum_absolute_heading_difference_rad": 0.010373688964752943,
+        "first_selected_pre_clip_vw": [
+          1.5656560063362122,
+          -0.10542121902108192
+        ],
+        "second_selected_pre_clip_vw": [
+          1.4506022930145264,
+          -0.12338219583034515
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.06325273141264914
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          -0.07402931749820708
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.007435455918312073,
+        "rms_position_difference_m": 0.015136230792726173,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.041470348834991455,
+            0.03382126986980438
+          ],
+          "clipped_vw": [
+            0.0,
+            0.03382126986980438
+          ],
+          "final_vw": [
+            0.014548811324745947,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7563842296600343,
+          -0.042204955220222475
+        ],
+        "second_endpoint_xy_m": [
+          0.7808135032653809,
+          -0.0347694993019104
+        ],
+        "endpoint_delta_xy_m": [
+          -0.024429273605346635,
+          -0.007435455918312073
+        ],
+        "maximum_absolute_heading_difference_rad": 0.018111566500639248,
+        "first_selected_pre_clip_vw": [
+          0.7497104108333588,
+          -0.5738408714532852
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7911807596683502,
+          -0.6076621413230896
+        ],
+        "first_selected_final_vw": [
+          0.26139650809485965,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2468476967701137,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.008179971575737001,
+        "rms_position_difference_m": 0.021982702085463695,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.061355531215667725,
+            0.02292582392692566
+          ],
+          "clipped_vw": [
+            0.0,
+            0.02292582392692566
+          ],
+          "final_vw": [
+            0.009678185986666865,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.743555498123169,
+          -0.0429494708776474
+        ],
+        "second_endpoint_xy_m": [
+          0.7808135032653809,
+          -0.0347694993019104
+        ],
+        "endpoint_delta_xy_m": [
+          -0.03725800514221189,
+          -0.008179971575737001
+        ],
+        "maximum_absolute_heading_difference_rad": 0.014982461157151739,
+        "first_selected_pre_clip_vw": [
+          0.7298252284526825,
+          -0.5847363173961639
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7911807596683502,
+          -0.6076621413230896
+        ],
+        "first_selected_final_vw": [
+          0.25652588275678057,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2468476967701137,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0007445156574249281,
+        "rms_position_difference_m": 0.007087542244162282,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.01988518238067627,
+            0.010895445942878723
+          ],
+          "clipped_vw": [
+            0.0,
+            0.010895445942878723
+          ],
+          "final_vw": [
+            0.004870625338079082,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7563842296600343,
+          -0.042204955220222475
+        ],
+        "second_endpoint_xy_m": [
+          0.743555498123169,
+          -0.0429494708776474
+        ],
+        "endpoint_delta_xy_m": [
+          0.012828731536865257,
+          0.0007445156574249281
+        ],
+        "maximum_absolute_heading_difference_rad": 0.012038923486565265,
+        "first_selected_pre_clip_vw": [
+          0.7497104108333588,
+          -0.5738408714532852
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7298252284526825,
+          -0.5847363173961639
+        ],
+        "first_selected_final_vw": [
+          0.26139650809485965,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.25652588275678057,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.011072510480880739,
+        "rms_position_difference_m": 0.030057308442558,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.09343640506267548,
+            -0.03142265975475311
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.03142265975475311
+          ],
+          "final_vw": [
+            -0.012137060956182832,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7369090080261231,
+          -0.04584200978279114
+        ],
+        "second_endpoint_xy_m": [
+          0.7808135032653809,
+          -0.0347694993019104
+        ],
+        "endpoint_delta_xy_m": [
+          -0.04390449523925777,
+          -0.011072510480880739
+        ],
+        "maximum_absolute_heading_difference_rad": 0.04273345806058527,
+        "first_selected_pre_clip_vw": [
+          0.6977443546056747,
+          -0.6390848010778427
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7911807596683502,
+          -0.6076621413230896
+        ],
+        "first_selected_final_vw": [
+          0.23471063581393087,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2468476967701137,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.01108054518699646,
+        "rms_position_difference_m": 0.02563102423800045,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.06301859021186829,
+            -0.0403853477910161
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.0403853477910161
+          ],
+          "final_vw": [
+            0.0,
+            -0.02423120867460966
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9530107498168946,
+          0.015934514999389648
+        ],
+        "second_endpoint_xy_m": [
+          0.900844955444336,
+          0.0252201110124588
+        ],
+        "endpoint_delta_xy_m": [
+          0.05216579437255864,
+          -0.009285596013069154
+        ],
+        "maximum_absolute_heading_difference_rad": 0.024467428575628135,
+        "first_selected_pre_clip_vw": [
+          1.2173547148704529,
+          0.02709049265831709
+        ],
+        "second_selected_pre_clip_vw": [
+          1.1543361246585846,
+          0.06747584044933319
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.01625429559499025
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          0.04048550426959991
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.011255550384521484,
+        "rms_position_difference_m": 0.031130623138588328,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.06806311011314392,
+            -0.04136180877685547
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.04136180877685547
+          ],
+          "final_vw": [
+            0.0,
+            -0.024817085266113276
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9700201988220215,
+          0.016926133632659913
+        ],
+        "second_endpoint_xy_m": [
+          0.900844955444336,
+          0.0252201110124588
+        ],
+        "endpoint_delta_xy_m": [
+          0.06917524337768555,
+          -0.008293977379798888
+        ],
+        "maximum_absolute_heading_difference_rad": 0.026247307609833757,
+        "first_selected_pre_clip_vw": [
+          1.2223992347717285,
+          0.026114031672477722
+        ],
+        "second_selected_pre_clip_vw": [
+          1.1543361246585846,
+          0.06747584044933319
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.015668419003486634
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          0.04048550426959991
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0009916186332702658,
+        "rms_position_difference_m": 0.006248374433336694,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.005044519901275635,
+            0.0009764609858393669
+          ],
+          "clipped_vw": [
+            0.0,
+            0.0009764609858393669
+          ],
+          "final_vw": [
+            0.0,
+            0.000585876591503616
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9530107498168946,
+          0.015934514999389648
+        ],
+        "second_endpoint_xy_m": [
+          0.9700201988220215,
+          0.016926133632659913
+        ],
+        "endpoint_delta_xy_m": [
+          -0.01700944900512691,
+          -0.0009916186332702658
+        ],
+        "maximum_absolute_heading_difference_rad": 0.001851055427958097,
+        "first_selected_pre_clip_vw": [
+          1.2173547148704529,
+          0.02709049265831709
+        ],
+        "second_selected_pre_clip_vw": [
+          1.2223992347717285,
+          0.026114031672477722
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.01625429559499025
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          0.015668419003486634
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.007003758847713471,
+        "rms_position_difference_m": 0.016307067600023154,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.016563892364501953,
+            -0.012770801782608032
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.012770801782608032
+          ],
+          "final_vw": [
+            0.0,
+            -0.007662481069564818
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9441532135009766,
+          0.024817396700382233
+        ],
+        "second_endpoint_xy_m": [
+          0.900844955444336,
+          0.0252201110124588
+        ],
+        "endpoint_delta_xy_m": [
+          0.043308258056640625,
+          -0.0004027143120765679
+        ],
+        "maximum_absolute_heading_difference_rad": 0.016267438301163974,
+        "first_selected_pre_clip_vw": [
+          1.1377722322940826,
+          0.05470503866672516
+        ],
+        "second_selected_pre_clip_vw": [
+          1.1543361246585846,
+          0.06747584044933319
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.03282302320003509
+        ],
+        "second_selected_final_vw": [
+          0.3,
+          0.04048550426959991
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.00850785970687866,
+        "rms_position_difference_m": 0.015370152365389675,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.04132917523384094,
+            0.04457254707813263
+          ],
+          "clipped_vw": [
+            0.0,
+            0.04457254707813263
+          ],
+          "final_vw": [
+            0.01778961847992777,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7503989696502686,
+          -0.04297642707824707
+        ],
+        "second_endpoint_xy_m": [
+          0.7758667945861817,
+          -0.03716484010219574
+        ],
+        "endpoint_delta_xy_m": [
+          -0.02546782493591304,
+          -0.005811586976051331
+        ],
+        "maximum_absolute_heading_difference_rad": 0.02133027774447277,
+        "first_selected_pre_clip_vw": [
+          0.7359281480312347,
+          -0.5911688804626465
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7772573232650757,
+          -0.6357414275407791
+        ],
+        "first_selected_final_vw": [
+          0.2537346009867951,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23594498250686735,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.008410084247589107,
+        "rms_position_difference_m": 0.021895707329329783,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.06042413413524628,
+            0.03149713575839996
+          ],
+          "clipped_vw": [
+            0.0,
+            0.03149713575839996
+          ],
+          "final_vw": [
+            0.012298984444868544,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7379990577697755,
+          -0.04403297007083893
+        ],
+        "second_endpoint_xy_m": [
+          0.7758667945861817,
+          -0.03716484010219574
+        ],
+        "endpoint_delta_xy_m": [
+          -0.037867736816406206,
+          -0.006868129968643187
+        ],
+        "maximum_absolute_heading_difference_rad": 0.017071229450266456,
+        "first_selected_pre_clip_vw": [
+          0.7168331891298294,
+          -0.6042442917823792
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7772573232650757,
+          -0.6357414275407791
+        ],
+        "first_selected_final_vw": [
+          0.2482439669517359,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23594498250686735,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0010565429925918565,
+        "rms_position_difference_m": 0.0068289942607616515,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.019094958901405334,
+            0.013075411319732666
+          ],
+          "clipped_vw": [
+            0.0,
+            0.013075411319732666
+          ],
+          "final_vw": [
+            0.0054906340350592275,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7503989696502686,
+          -0.04297642707824707
+        ],
+        "second_endpoint_xy_m": [
+          0.7379990577697755,
+          -0.04403297007083893
+        ],
+        "endpoint_delta_xy_m": [
+          0.012399911880493164,
+          0.0010565429925918565
+        ],
+        "maximum_absolute_heading_difference_rad": 0.011821757847121974,
+        "first_selected_pre_clip_vw": [
+          0.7359281480312347,
+          -0.5911688804626465
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7168331891298294,
+          -0.6042442917823792
+        ],
+        "first_selected_final_vw": [
+          0.2537346009867951,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2482439669517359,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.008657300472259523,
+        "rms_position_difference_m": 0.02983546215795106,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.09269978106021881,
+            -0.013753339648246765
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.013753339648246765
+          ],
+          "final_vw": [
+            -0.004996239610614406,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7316208362579346,
+          -0.045822140574455265
+        ],
+        "second_endpoint_xy_m": [
+          0.7758667945861817,
+          -0.03716484010219574
+        ],
+        "endpoint_delta_xy_m": [
+          -0.04424595832824707,
+          -0.008657300472259523
+        ],
+        "maximum_absolute_heading_difference_rad": 0.040419941006504034,
+        "first_selected_pre_clip_vw": [
+          0.6845575422048569,
+          -0.6494947671890259
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7772573232650757,
+          -0.6357414275407791
+        ],
+        "first_selected_final_vw": [
+          0.23094874289625295,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23594498250686735,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.016374237835407257,
+        "rms_position_difference_m": 0.022849378146604482,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.019407570362091064,
+            0.2791524901986122
+          ],
+          "clipped_vw": [
+            -0.019407570362091064,
+            0.2791524901986122
+          ],
+          "final_vw": [
+            0.08458372136079317,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.792456340789795,
+          -0.014365629851818086
+        ],
+        "second_endpoint_xy_m": [
+          0.7364872932434082,
+          -0.02256239652633667
+        ],
+        "endpoint_delta_xy_m": [
+          0.05596904754638676,
+          0.008196766674518585
+        ],
+        "maximum_absolute_heading_difference_rad": 0.1296036065663462,
+        "first_selected_pre_clip_vw": [
+          0.27341803908348083,
+          -0.37462572008371353
+        ],
+        "second_selected_pre_clip_vw": [
+          0.2928256094455719,
+          -0.6537782102823257
+        ],
+        "first_selected_final_vw": [
+          0.218952963792008,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.1343692424312148,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.01751295775175095,
+        "rms_position_difference_m": 0.024961420997216384,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.02141408622264862,
+            0.29608748853206635
+          ],
+          "clipped_vw": [
+            -0.02141408622264862,
+            0.29608748853206635
+          ],
+          "final_vw": [
+            0.09326723795735689,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7983534812927247,
+          -0.014456535875797273
+        ],
+        "second_endpoint_xy_m": [
+          0.7364872932434082,
+          -0.02256239652633667
+        ],
+        "endpoint_delta_xy_m": [
+          0.06186618804931643,
+          0.008105860650539398
+        ],
+        "maximum_absolute_heading_difference_rad": 0.14064116193858964,
+        "first_selected_pre_clip_vw": [
+          0.2714115232229233,
+          -0.3576907217502594
+        ],
+        "second_selected_pre_clip_vw": [
+          0.2928256094455719,
+          -0.6537782102823257
+        ],
+        "first_selected_final_vw": [
+          0.2276364803885717,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.1343692424312148,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0011387199163436917,
+        "rms_position_difference_m": 0.0022309447054530045,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.002006515860557556,
+            -0.016934998333454132
+          ],
+          "clipped_vw": [
+            0.002006515860557556,
+            -0.016934998333454132
+          ],
+          "final_vw": [
+            -0.008683516596563717,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.792456340789795,
+          -0.014365629851818086
+        ],
+        "second_endpoint_xy_m": [
+          0.7983534812927247,
+          -0.014456535875797273
+        ],
+        "endpoint_delta_xy_m": [
+          -0.005897140502929665,
+          9.090602397918666e-05
+        ],
+        "maximum_absolute_heading_difference_rad": 0.01564041792372614,
+        "first_selected_pre_clip_vw": [
+          0.27341803908348083,
+          -0.37462572008371353
+        ],
+        "second_selected_pre_clip_vw": [
+          0.2714115232229233,
+          -0.3576907217502594
+        ],
+        "first_selected_final_vw": [
+          0.218952963792008,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2276364803885717,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.02216879278421402,
+        "rms_position_difference_m": 0.018435448572479644,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.04340444505214691,
+            0.3486963137984276
+          ],
+          "clipped_vw": [
+            -0.04340444505214691,
+            0.3486963137984276
+          ],
+          "final_vw": [
+            0.11089719317315652,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.752198886871338,
+          -0.0078004166483879095
+        ],
+        "second_endpoint_xy_m": [
+          0.7364872932434082,
+          -0.02256239652633667
+        ],
+        "endpoint_delta_xy_m": [
+          0.015711593627929732,
+          0.01476197987794876
+        ],
+        "maximum_absolute_heading_difference_rad": 0.14313263396343376,
+        "first_selected_pre_clip_vw": [
+          0.249421164393425,
+          -0.30508189648389816
+        ],
+        "second_selected_pre_clip_vw": [
+          0.2928256094455719,
+          -0.6537782102823257
+        ],
+        "first_selected_final_vw": [
+          0.24526643560437134,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.1343692424312148,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.01051214337348938,
+        "rms_position_difference_m": 0.01824106719510355,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.050618067383766174,
+            0.055591240525245667
+          ],
+          "clipped_vw": [
+            0.0,
+            0.055591240525245667
+          ],
+          "final_vw": [
+            0.018605403944230353,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7469207763671876,
+          -0.04661723971366882
+        ],
+        "second_endpoint_xy_m": [
+          0.7752737998962402,
+          -0.043249431252479556
+        ],
+        "endpoint_delta_xy_m": [
+          -0.028353023529052668,
+          -0.0033678084611892672
+        ],
+        "maximum_absolute_heading_difference_rad": 0.02449244203569581,
+        "first_selected_pre_clip_vw": [
+          0.7142825871706009,
+          -0.6422482877969742
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7649006545543671,
+          -0.6978395283222198
+        ],
+        "first_selected_final_vw": [
+          0.2335545346715157,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.21494913072728536,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.010616397857666021,
+        "rms_position_difference_m": 0.023753876354795943,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.06499215960502625,
+            0.046083033084869385
+          ],
+          "clipped_vw": [
+            0.0,
+            0.046083033084869385
+          ],
+          "final_vw": [
+            0.01519817289931591,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7345537185668946,
+          -0.04763298332691193
+        ],
+        "second_endpoint_xy_m": [
+          0.7752737998962402,
+          -0.043249431252479556
+        ],
+        "endpoint_delta_xy_m": [
+          -0.04072008132934568,
+          -0.004383552074432376
+        ],
+        "maximum_absolute_heading_difference_rad": 0.020453504864754696,
+        "first_selected_pre_clip_vw": [
+          0.6999084949493408,
+          -0.6517564952373505
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7649006545543671,
+          -0.6978395283222198
+        ],
+        "first_selected_final_vw": [
+          0.23014730362660127,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.21494913072728536,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0010157436132431086,
+        "rms_position_difference_m": 0.005891719026199618,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.01437409222126007,
+            0.009508207440376282
+          ],
+          "clipped_vw": [
+            0.0,
+            0.009508207440376282
+          ],
+          "final_vw": [
+            0.003407231044914444,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7469207763671876,
+          -0.04661723971366882
+        ],
+        "second_endpoint_xy_m": [
+          0.7345537185668946,
+          -0.04763298332691193
+        ],
+        "endpoint_delta_xy_m": [
+          0.012367057800293013,
+          0.0010157436132431086
+        ],
+        "maximum_absolute_heading_difference_rad": 0.01002766432437252,
+        "first_selected_pre_clip_vw": [
+          0.7142825871706009,
+          -0.6422482877969742
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6999084949493408,
+          -0.6517564952373505
+        ],
+        "first_selected_final_vw": [
+          0.2335545346715157,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23014730362660127,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.008826690912246707,
+        "rms_position_difference_m": 0.03211327244313288,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.09740151464939117,
+            0.011244624853134155
+          ],
+          "clipped_vw": [
+            0.0,
+            0.011244624853134155
+          ],
+          "final_vw": [
+            0.00352030334819467,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7260972976684571,
+          -0.04829356372356415
+        ],
+        "second_endpoint_xy_m": [
+          0.7752737998962402,
+          -0.043249431252479556
+        ],
+        "endpoint_delta_xy_m": [
+          -0.049176502227783137,
+          -0.005044132471084595
+        ],
+        "maximum_absolute_heading_difference_rad": 0.03532392937038792,
+        "first_selected_pre_clip_vw": [
+          0.6674991399049759,
+          -0.6865949034690857
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7649006545543671,
+          -0.6978395283222198
+        ],
+        "first_selected_final_vw": [
+          0.21846943407548003,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.21494913072728536,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.01363040208816528,
+        "rms_position_difference_m": 0.03853546435810034,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.08984868228435516,
+            -0.1544272005558014
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.1544272005558014
+          ],
+          "final_vw": [
+            -0.04423582900423728,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.6353234767913819,
+          -0.054533743858337404
+        ],
+        "second_endpoint_xy_m": [
+          0.7183391571044923,
+          -0.056425762176513676
+        ],
+        "endpoint_delta_xy_m": [
+          -0.08301568031311035,
+          0.0018920183181762723
+        ],
+        "maximum_absolute_heading_difference_rad": 0.14117319406360995,
+        "first_selected_pre_clip_vw": [
+          0.6416000872850418,
+          -0.8049578368663788
+        ],
+        "second_selected_pre_clip_vw": [
+          0.731448769569397,
+          -0.6505306363105774
+        ],
+        "first_selected_final_vw": [
+          0.18634516384601604,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23058099285025332,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.012215673923492432,
+        "rms_position_difference_m": 0.03884890447525256,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.09283845126628876,
+            -0.14980405569076538
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.14980405569076538
+          ],
+          "final_vw": [
+            -0.043159403483803205,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.6356065750122071,
+          -0.05510877370834351
+        ],
+        "second_endpoint_xy_m": [
+          0.7183391571044923,
+          -0.056425762176513676
+        ],
+        "endpoint_delta_xy_m": [
+          -0.08273258209228518,
+          0.0013169884681701674
+        ],
+        "maximum_absolute_heading_difference_rad": 0.13232636735636982,
+        "first_selected_pre_clip_vw": [
+          0.6386103183031082,
+          -0.8003346920013428
+        ],
+        "second_selected_pre_clip_vw": [
+          0.731448769569397,
+          -0.6505306363105774
+        ],
+        "first_selected_final_vw": [
+          0.18742158936645012,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23058099285025332,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0014147281646728488,
+        "rms_position_difference_m": 0.0011230501380201684,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.0029897689819335938,
+            -0.004623144865036011
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.004623144865036011
+          ],
+          "final_vw": [
+            -0.0010764255204340767,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.6353234767913819,
+          -0.054533743858337404
+        ],
+        "second_endpoint_xy_m": [
+          0.6356065750122071,
+          -0.05510877370834351
+        ],
+        "endpoint_delta_xy_m": [
+          -0.0002830982208251731,
+          0.0005750298500061049
+        ],
+        "maximum_absolute_heading_difference_rad": 0.008846826707240128,
+        "first_selected_pre_clip_vw": [
+          0.6416000872850418,
+          -0.8049578368663788
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6386103183031082,
+          -0.8003346920013428
+        ],
+        "first_selected_final_vw": [
+          0.18634516384601604,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.18742158936645012,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.01139521598815918,
+        "rms_position_difference_m": 0.04958742695625247,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.09776821732521057,
+            -0.16663965582847595
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.16663965582847595
+          ],
+          "final_vw": [
+            -0.04702072219068887,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.600896453857422,
+          -0.0549031674861908
+        ],
+        "second_endpoint_xy_m": [
+          0.7183391571044923,
+          -0.056425762176513676
+        ],
+        "endpoint_delta_xy_m": [
+          -0.11744270324707029,
+          0.0015225946903228774
+        ],
+        "maximum_absolute_heading_difference_rad": 0.08426221324315303,
+        "first_selected_pre_clip_vw": [
+          0.6336805522441864,
+          -0.8171702921390533
+        ],
+        "second_selected_pre_clip_vw": [
+          0.731448769569397,
+          -0.6505306363105774
+        ],
+        "first_selected_final_vw": [
+          0.18356027065956446,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23058099285025332,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "comparison": "L-N",
+        "delta_definition": "L minus N",
+        "maximum_absolute_lateral_difference_m": 0.011382168531417852,
+        "rms_position_difference_m": 0.018040879631143324,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.04976373910903931,
+            0.06327733397483826
+          ],
+          "clipped_vw": [
+            0.0,
+            0.06327733397483826
+          ],
+          "final_vw": [
+            0.020219480903724413,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7426393985748292,
+          -0.048524031043052675
+        ],
+        "second_endpoint_xy_m": [
+          0.7700058937072755,
+          -0.04544453322887421
+        ],
+        "endpoint_delta_xy_m": [
+          -0.027366495132446267,
+          -0.003079497814178468
+        ],
+        "maximum_absolute_heading_difference_rad": 0.026903274435551405,
+        "first_selected_pre_clip_vw": [
+          0.7025700509548187,
+          -0.6542399525642395
+        ],
+        "second_selected_pre_clip_vw": [
+          0.752333790063858,
+          -0.7175172865390778
+        ],
+        "first_selected_final_vw": [
+          0.2292736776653388,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.20905419676161438,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "comparison": "R-N",
+        "delta_definition": "R minus N",
+        "maximum_absolute_lateral_difference_m": 0.011734998226165777,
+        "rms_position_difference_m": 0.023309149084002414,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.0629969984292984,
+            0.05560027062892914
+          ],
+          "clipped_vw": [
+            0.0,
+            0.05560027062892914
+          ],
+          "final_vw": [
+            0.017560312904294606,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7303518295288086,
+          -0.04942789077758789
+        ],
+        "second_endpoint_xy_m": [
+          0.7700058937072755,
+          -0.04544453322887421
+        ],
+        "endpoint_delta_xy_m": [
+          -0.03965406417846684,
+          -0.0039833575487136855
+        ],
+        "maximum_absolute_heading_difference_rad": 0.023888741135764724,
+        "first_selected_pre_clip_vw": [
+          0.6893367916345596,
+          -0.6619170159101486
+        ],
+        "second_selected_pre_clip_vw": [
+          0.752333790063858,
+          -0.7175172865390778
+        ],
+        "first_selected_final_vw": [
+          0.226614509665909,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.20905419676161438,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "comparison": "L-R",
+        "delta_definition": "L minus R",
+        "maximum_absolute_lateral_difference_m": 0.0009038597345352173,
+        "rms_position_difference_m": 0.005704702468575301,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.013233259320259094,
+            0.007677063345909119
+          ],
+          "clipped_vw": [
+            0.0,
+            0.007677063345909119
+          ],
+          "final_vw": [
+            0.0026591679994298068,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7426393985748292,
+          -0.048524031043052675
+        ],
+        "second_endpoint_xy_m": [
+          0.7303518295288086,
+          -0.04942789077758789
+        ],
+        "endpoint_delta_xy_m": [
+          0.012287569046020574,
+          0.0009038597345352173
+        ],
+        "maximum_absolute_heading_difference_rad": 0.008759265306550468,
+        "first_selected_pre_clip_vw": [
+          0.7025700509548187,
+          -0.6542399525642395
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6893367916345596,
+          -0.6619170159101486
+        ],
+        "first_selected_final_vw": [
+          0.2292736776653388,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.226614509665909,
+          -0.3
+        ]
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "comparison": "D-N",
+        "delta_definition": "D minus N",
+        "maximum_absolute_lateral_difference_m": 0.009458553791046154,
+        "rms_position_difference_m": 0.03154678809709592,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.0941435694694519,
+            0.0162639319896698
+          ],
+          "clipped_vw": [
+            0.0,
+            0.0162639319896698
+          ],
+          "final_vw": [
+            0.00484852331361843,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7205760955810547,
+          -0.050486207008361816
+        ],
+        "second_endpoint_xy_m": [
+          0.7700058937072755,
+          -0.04544453322887421
+        ],
+        "endpoint_delta_xy_m": [
+          -0.049429798126220725,
+          -0.00504167377948761
+        ],
+        "maximum_absolute_heading_difference_rad": 0.0302615788927747,
+        "first_selected_pre_clip_vw": [
+          0.6581902205944061,
+          -0.701253354549408
+        ],
+        "second_selected_pre_clip_vw": [
+          0.752333790063858,
+          -0.7175172865390778
+        ],
+        "first_selected_final_vw": [
+          0.2139027200752328,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.20905419676161438,
+          -0.3
+        ]
+      }
+    ],
+    "directions": [
+      {
+        "rgb_case_id": "D200_OBSTACLE_PRESENT",
+        "left_endpoint_y_m": -0.005704255029559136,
+        "right_endpoint_y_m": -0.004139618575572968,
+        "left_minus_neutral_endpoint_y_m": -0.0022624045610427856,
+        "right_minus_neutral_endpoint_y_m": -0.000697768107056618,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D200_OBSTACLE_ABSENT",
+        "left_endpoint_y_m": -0.042204955220222475,
+        "right_endpoint_y_m": -0.0429494708776474,
+        "left_minus_neutral_endpoint_y_m": -0.007435455918312073,
+        "right_minus_neutral_endpoint_y_m": -0.008179971575737001,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_PRESENT",
+        "left_endpoint_y_m": 0.015934514999389648,
+        "right_endpoint_y_m": 0.016926133632659913,
+        "left_minus_neutral_endpoint_y_m": -0.009285596013069154,
+        "right_minus_neutral_endpoint_y_m": -0.008293977379798888,
+        "left_absolute_sign": true,
+        "right_absolute_sign": false,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D150_OBSTACLE_ABSENT",
+        "left_endpoint_y_m": -0.04297642707824707,
+        "right_endpoint_y_m": -0.04403297007083893,
+        "left_minus_neutral_endpoint_y_m": -0.005811586976051331,
+        "right_minus_neutral_endpoint_y_m": -0.006868129968643187,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_PRESENT",
+        "left_endpoint_y_m": -0.014365629851818086,
+        "right_endpoint_y_m": -0.014456535875797273,
+        "left_minus_neutral_endpoint_y_m": 0.008196766674518585,
+        "right_minus_neutral_endpoint_y_m": 0.008105860650539398,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": true,
+        "right_relative_sign": false,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D100_OBSTACLE_ABSENT",
+        "left_endpoint_y_m": -0.04661723971366882,
+        "right_endpoint_y_m": -0.04763298332691193,
+        "left_minus_neutral_endpoint_y_m": -0.0033678084611892672,
+        "right_minus_neutral_endpoint_y_m": -0.004383552074432376,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_PRESENT",
+        "left_endpoint_y_m": -0.054533743858337404,
+        "right_endpoint_y_m": -0.05510877370834351,
+        "left_minus_neutral_endpoint_y_m": 0.0018920183181762723,
+        "right_minus_neutral_endpoint_y_m": 0.0013169884681701674,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": true,
+        "right_relative_sign": false,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      },
+      {
+        "rgb_case_id": "D070_OBSTACLE_ABSENT",
+        "left_endpoint_y_m": -0.048524031043052675,
+        "right_endpoint_y_m": -0.04942789077758789,
+        "left_minus_neutral_endpoint_y_m": -0.003079497814178468,
+        "right_minus_neutral_endpoint_y_m": -0.0039833575487136855,
+        "left_absolute_sign": false,
+        "right_absolute_sign": true,
+        "left_relative_sign": false,
+        "right_relative_sign": true,
+        "direction_consistency_observed": false,
+        "left_material_signed_response": false,
+        "right_material_signed_response": false
+      }
+    ],
+    "visual_pairs": [
+      {
+        "pose_id": "D200",
+        "instruction_id": "N",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.06945761293172836,
+        "rms_position_difference_m": 0.1856562037112333,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.6594215333461761,
+            0.48427994549274445
+          ],
+          "clipped_vw": [
+            0.0,
+            0.48427994549274445
+          ],
+          "final_vw": [
+            0.05315230322988629,
+            0.22597068250179292
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.8365958213806153,
+          -0.00344185046851635
+        ],
+        "second_endpoint_xy_m": [
+          0.7808135032653809,
+          -0.0347694993019104
+        ],
+        "endpoint_delta_xy_m": [
+          0.055782318115234375,
+          0.031327648833394055
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5357231508854893,
+        "first_selected_pre_clip_vw": [
+          1.4506022930145264,
+          -0.12338219583034515
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7911807596683502,
+          -0.6076621413230896
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07402931749820708
+        ],
+        "second_selected_final_vw": [
+          0.2468476967701137,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D200",
+        "instruction_id": "D",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.07330421954393387,
+        "rms_position_difference_m": 0.247457998520429,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.8679116517305374,
+            0.5336635820567608
+          ],
+          "clipped_vw": [
+            0.0,
+            0.5336635820567608
+          ],
+          "final_vw": [
+            0.06528936418606912,
+            0.23674726858735085
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9014450073242188,
+          0.001094748079776764
+        ],
+        "second_endpoint_xy_m": [
+          0.7369090080261231,
+          -0.04584200978279114
+        ],
+        "endpoint_delta_xy_m": [
+          0.1645359992980957,
+          0.0469367578625679
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5888302979108274,
+        "first_selected_pre_clip_vw": [
+          1.5656560063362122,
+          -0.10542121902108192
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6977443546056747,
+          -0.6390848010778427
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.06325273141264914
+        ],
+        "second_selected_final_vw": [
+          0.23471063581393087,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D200",
+        "instruction_id": "L",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.061508609354496,
+        "rms_position_difference_m": 0.24362278731748527,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.863730400800705,
+            0.4489332027733326
+          ],
+          "clipped_vw": [
+            0.0,
+            0.4489332027733326
+          ],
+          "final_vw": [
+            0.03860349190514034,
+            0.2250553987920284
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9058219909667969,
+          -0.005704255029559136
+        ],
+        "second_endpoint_xy_m": [
+          0.7563842296600343,
+          -0.042204955220222475
+        ],
+        "endpoint_delta_xy_m": [
+          0.14943776130676267,
+          0.036500700190663336
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5538007053301308,
+        "first_selected_pre_clip_vw": [
+          1.6134408116340637,
+          -0.12490766867995262
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7497104108333588,
+          -0.5738408714532852
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07494460120797157
+        ],
+        "second_selected_final_vw": [
+          0.26139650809485965,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D200",
+        "instruction_id": "R",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.062452967464923854,
+        "rms_position_difference_m": 0.25843325240170884,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.9025108516216278,
+            0.4557565413415432
+          ],
+          "clipped_vw": [
+            0.0,
+            0.4557565413415432
+          ],
+          "final_vw": [
+            0.04347411724321942,
+            0.22261213436722754
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9393171310424805,
+          -0.004139618575572968
+        ],
+        "second_endpoint_xy_m": [
+          0.743555498123169,
+          -0.0429494708776474
+        ],
+        "endpoint_delta_xy_m": [
+          0.19576163291931148,
+          0.038809852302074434
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5639062017398327,
+        "first_selected_pre_clip_vw": [
+          1.6323360800743103,
+          -0.12897977605462074
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7298252284526825,
+          -0.5847363173961639
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          -0.07738786563277245
+        ],
+        "second_selected_final_vw": [
+          0.25652588275678057,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D150",
+        "instruction_id": "N",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.11158193945884706,
+        "rms_position_difference_m": 0.1314074663486428,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.3770788013935089,
+            0.7032172679901123
+          ],
+          "clipped_vw": [
+            0.0,
+            0.7032172679901123
+          ],
+          "final_vw": [
+            0.06405501749313264,
+            0.3404855042695999
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.900844955444336,
+          0.0252201110124588
+        ],
+        "second_endpoint_xy_m": [
+          0.7758667945861817,
+          -0.03716484010219574
+        ],
+        "endpoint_delta_xy_m": [
+          0.12497816085815427,
+          0.062384951114654544
+        ],
+        "maximum_absolute_heading_difference_rad": 0.523159774878633,
+        "first_selected_pre_clip_vw": [
+          1.1543361246585846,
+          0.06747584044933319
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7772573232650757,
+          -0.6357414275407791
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.04048550426959991
+        ],
+        "second_selected_final_vw": [
+          0.23594498250686735,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D150",
+        "instruction_id": "D",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.10319401770830156,
+        "rms_position_difference_m": 0.15903104001943236,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.45321469008922577,
+            0.704199805855751
+          ],
+          "clipped_vw": [
+            0.0,
+            0.704199805855751
+          ],
+          "final_vw": [
+            0.06905125710374704,
+            0.3328230232000351
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9441532135009766,
+          0.024817396700382233
+        ],
+        "second_endpoint_xy_m": [
+          0.7316208362579346,
+          -0.045822140574455265
+        ],
+        "endpoint_delta_xy_m": [
+          0.21253237724304197,
+          0.0706395372748375
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5438945267797582,
+        "first_selected_pre_clip_vw": [
+          1.1377722322940826,
+          0.05470503866672516
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6845575422048569,
+          -0.6494947671890259
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.03282302320003509
+        ],
+        "second_selected_final_vw": [
+          0.23094874289625295,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D150",
+        "instruction_id": "L",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.09302154779434205,
+        "rms_position_difference_m": 0.16146337019778173,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.48142656683921814,
+            0.6182593731209636
+          ],
+          "clipped_vw": [
+            0.0,
+            0.6182593731209636
+          ],
+          "final_vw": [
+            0.046265399013204866,
+            0.31625429559499024
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9530107498168946,
+          0.015934514999389648
+        ],
+        "second_endpoint_xy_m": [
+          0.7503989696502686,
+          -0.04297642707824707
+        ],
+        "endpoint_delta_xy_m": [
+          0.20261178016662595,
+          0.058910942077636724
+        ],
+        "maximum_absolute_heading_difference_rad": 0.49893255740620335,
+        "first_selected_pre_clip_vw": [
+          1.2173547148704529,
+          0.02709049265831709
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7359281480312347,
+          -0.5911688804626465
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.01625429559499025
+        ],
+        "second_selected_final_vw": [
+          0.2537346009867951,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D150",
+        "instruction_id": "R",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.0937164068222046,
+        "rms_position_difference_m": 0.1720326745648657,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            0.5055660456418991,
+            0.6303583234548569
+          ],
+          "clipped_vw": [
+            0.0,
+            0.6303583234548569
+          ],
+          "final_vw": [
+            0.051756033048264094,
+            0.31566841900348663
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.9700201988220215,
+          0.016926133632659913
+        ],
+        "second_endpoint_xy_m": [
+          0.7379990577697755,
+          -0.04403297007083893
+        ],
+        "endpoint_delta_xy_m": [
+          0.23202114105224603,
+          0.06095910370349884
+        ],
+        "maximum_absolute_heading_difference_rad": 0.5077659064623644,
+        "first_selected_pre_clip_vw": [
+          1.2223992347717285,
+          0.026114031672477722
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7168331891298294,
+          -0.6042442917823792
+        ],
+        "first_selected_final_vw": [
+          0.3,
+          0.015668419003486634
+        ],
+        "second_selected_final_vw": [
+          0.2482439669517359,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D100",
+        "instruction_id": "N",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.05066599249839783,
+        "rms_position_difference_m": 0.13202685701777653,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.47207504510879517,
+            0.044061318039894104
+          ],
+          "clipped_vw": [
+            -0.2071743905544281,
+            0.044061318039894104
+          ],
+          "final_vw": [
+            -0.08057988829607055,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7364872932434082,
+          -0.02256239652633667
+        ],
+        "second_endpoint_xy_m": [
+          0.7752737998962402,
+          -0.043249431252479556
+        ],
+        "endpoint_delta_xy_m": [
+          -0.03878650665283201,
+          0.020687034726142885
+        ],
+        "maximum_absolute_heading_difference_rad": 0.23662217507326758,
+        "first_selected_pre_clip_vw": [
+          0.2928256094455719,
+          -0.6537782102823257
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7649006545543671,
+          -0.6978395283222198
+        ],
+        "first_selected_final_vw": [
+          0.1343692424312148,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.21494913072728536,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D100",
+        "instruction_id": "D",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.06735717207193374,
+        "rms_position_difference_m": 0.12027718542627211,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.4180779755115509,
+            0.38151300698518753
+          ],
+          "clipped_vw": [
+            -0.250578835606575,
+            0.38151300698518753
+          ],
+          "final_vw": [
+            0.026797001528891307,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.752198886871338,
+          -0.0078004166483879095
+        ],
+        "second_endpoint_xy_m": [
+          0.7260972976684571,
+          -0.04829356372356415
+        ],
+        "endpoint_delta_xy_m": [
+          0.02610158920288086,
+          0.04049314707517624
+        ],
+        "maximum_absolute_heading_difference_rad": 0.4119898912068478,
+        "first_selected_pre_clip_vw": [
+          0.249421164393425,
+          -0.30508189648389816
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6674991399049759,
+          -0.6865949034690857
+        ],
+        "first_selected_final_vw": [
+          0.24526643560437134,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.21846943407548003,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D100",
+        "instruction_id": "L",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.05738012939691543,
+        "rms_position_difference_m": 0.12529612597754125,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.44086454808712006,
+            0.26762256771326065
+          ],
+          "clipped_vw": [
+            -0.22658196091651917,
+            0.26762256771326065
+          ],
+          "final_vw": [
+            -0.014601570879507725,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.792456340789795,
+          -0.014365629851818086
+        ],
+        "second_endpoint_xy_m": [
+          0.7469207763671876,
+          -0.04661723971366882
+        ],
+        "endpoint_delta_xy_m": [
+          0.04553556442260742,
+          0.03225160986185074
+        ],
+        "maximum_absolute_heading_difference_rad": 0.356815581245794,
+        "first_selected_pre_clip_vw": [
+          0.27341803908348083,
+          -0.37462572008371353
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7142825871706009,
+          -0.6422482877969742
+        ],
+        "first_selected_final_vw": [
+          0.218952963792008,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2335545346715157,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D100",
+        "instruction_id": "R",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.05903639048337937,
+        "rms_position_difference_m": 0.12318594598718503,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.42849697172641754,
+            0.29406577348709106
+          ],
+          "clipped_vw": [
+            -0.22858847677707672,
+            0.29406577348709106
+          ],
+          "final_vw": [
+            -0.0025108232380295636,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7983534812927247,
+          -0.014456535875797273
+        ],
+        "second_endpoint_xy_m": [
+          0.7345537185668946,
+          -0.04763298332691193
+        ],
+        "endpoint_delta_xy_m": [
+          0.0637997627258301,
+          0.03317644745111466
+        ],
+        "maximum_absolute_heading_difference_rad": 0.377735911228172,
+        "first_selected_pre_clip_vw": [
+          0.2714115232229233,
+          -0.3576907217502594
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6999084949493408,
+          -0.6517564952373505
+        ],
+        "first_selected_final_vw": [
+          0.2276364803885717,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.23014730362660127,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D070",
+        "instruction_id": "N",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.01098122894763947,
+        "rms_position_difference_m": 0.02375494724915014,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.02088502049446106,
+            0.06698665022850037
+          ],
+          "clipped_vw": [
+            0.0,
+            0.06698665022850037
+          ],
+          "final_vw": [
+            0.021526796088638944,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.7183391571044923,
+          -0.056425762176513676
+        ],
+        "second_endpoint_xy_m": [
+          0.7700058937072755,
+          -0.04544453322887421
+        ],
+        "endpoint_delta_xy_m": [
+          -0.0516667366027832,
+          -0.01098122894763947
+        ],
+        "maximum_absolute_heading_difference_rad": 0.08027572413933959,
+        "first_selected_pre_clip_vw": [
+          0.731448769569397,
+          -0.6505306363105774
+        ],
+        "second_selected_pre_clip_vw": [
+          0.752333790063858,
+          -0.7175172865390778
+        ],
+        "first_selected_final_vw": [
+          0.23058099285025332,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.20905419676161438,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D070",
+        "instruction_id": "D",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.018344926834106448,
+        "rms_position_difference_m": 0.04429483769170728,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.024509668350219727,
+            -0.11591693758964539
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.11591693758964539
+          ],
+          "final_vw": [
+            -0.030342449415668354,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.600896453857422,
+          -0.0549031674861908
+        ],
+        "second_endpoint_xy_m": [
+          0.7205760955810547,
+          -0.050486207008361816
+        ],
+        "endpoint_delta_xy_m": [
+          -0.11967964172363277,
+          -0.004416960477828982
+        ],
+        "maximum_absolute_heading_difference_rad": 0.13924682178711573,
+        "first_selected_pre_clip_vw": [
+          0.6336805522441864,
+          -0.8171702921390533
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6581902205944061,
+          -0.701253354549408
+        ],
+        "first_selected_final_vw": [
+          0.18356027065956446,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2139027200752328,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D070",
+        "instruction_id": "L",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.025070762634277335,
+        "rms_position_difference_m": 0.04429513576780713,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.060969963669776917,
+            -0.15071788430213928
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.15071788430213928
+          ],
+          "final_vw": [
+            -0.04292851381932275,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.6353234767913819,
+          -0.054533743858337404
+        ],
+        "second_endpoint_xy_m": [
+          0.7426393985748292,
+          -0.048524031043052675
+        ],
+        "endpoint_delta_xy_m": [
+          -0.10731592178344729,
+          -0.006009712815284729
+        ],
+        "maximum_absolute_heading_difference_rad": 0.23001809325394418,
+        "first_selected_pre_clip_vw": [
+          0.6416000872850418,
+          -0.8049578368663788
+        ],
+        "second_selected_pre_clip_vw": [
+          0.7025700509548187,
+          -0.6542399525642395
+        ],
+        "first_selected_final_vw": [
+          0.18634516384601604,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.2292736776653388,
+          -0.3
+        ]
+      },
+      {
+        "pose_id": "D070",
+        "instruction_id": "R",
+        "delta_definition": "PRESENT minus ABSENT",
+        "maximum_absolute_lateral_difference_m": 0.023470205068588254,
+        "rms_position_difference_m": 0.039102677722972004,
+        "material_lateral_response": false,
+        "selected_index4_command_delta": {
+          "pre_clip_vw": [
+            -0.050726473331451416,
+            -0.13841767609119415
+          ],
+          "clipped_vw": [
+            0.0,
+            -0.13841767609119415
+          ],
+          "final_vw": [
+            -0.03919292029945887,
+            0.0
+          ]
+        },
+        "first_endpoint_xy_m": [
+          0.6356065750122071,
+          -0.05510877370834351
+        ],
+        "second_endpoint_xy_m": [
+          0.7303518295288086,
+          -0.04942789077758789
+        ],
+        "endpoint_delta_xy_m": [
+          -0.09474525451660154,
+          -0.005680882930755617
+        ],
+        "maximum_absolute_heading_difference_rad": 0.21916153136514305,
+        "first_selected_pre_clip_vw": [
+          0.6386103183031082,
+          -0.8003346920013428
+        ],
+        "second_selected_pre_clip_vw": [
+          0.6893367916345596,
+          -0.6619170159101486
+        ],
+        "first_selected_final_vw": [
+          0.18742158936645012,
+          -0.3
+        ],
+        "second_selected_final_vw": [
+          0.226614509665909,
+          -0.3
+        ]
+      }
+    ],
+    "minimum_predicted_clearance_m": -0.2,
+    "maximum_absolute_native_lateral_m": 0.10396276712417603
+  },
+  "navigation": {
+    "planned": 4,
+    "executed": 4,
+    "model_loads": 1,
+    "total_native_predictions": 93,
+    "total_applied_predictions": 91,
+    "raw_run": "outputs/pose-language-obstacle/navigation-001",
+    "trials": [
+      {
+        "episode_id": "POSE_LANGUAGE_NEUTRAL",
+        "scientific": true,
+        "status": "COLLISION",
+        "failure_reason": null,
+        "completed_steps": 464,
+        "elapsed_sim_s": 7.733333333333333,
+        "wall_seconds": 5.49601936340332,
+        "sim_wall_ratio": 1.4070789824409558,
+        "final_pose": [
+          2.001251202442152,
+          -0.2924279095975425,
+          -0.7022231227687367
+        ],
+        "final_distance_m": 3.0129733542078045,
+        "final_yaw_error_rad": 0.7022231227687367,
+        "goal_reached": false,
+        "time_to_goal_sim_s": null,
+        "collision": true,
+        "first_collision_time_sim_s": 7.72788062955208,
+        "minimum_signed_clearance_m": -0.0012512024421516554,
+        "safety_margin_violation": true,
+        "maximum_lateral_deviation_m": 0.2924279095975425,
+        "executed_path_length_m": 2.0642744028667224,
+        "target_observation_hz": 3,
+        "capture_interval_sim_s": {
+          "count": 23,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "request_interval_sim_s": {
+          "count": 22,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.6666666666666667
+        },
+        "model_ms": {
+          "count": 22,
+          "median": 12.594722989888396,
+          "p95": 18.41400274570333,
+          "max": 140.3238649945706
+        },
+        "inference_with_clip_ms": {
+          "count": 22,
+          "median": 20.42817099572858,
+          "p95": 31.638563812157372,
+          "max": 237.21615399699658
+        },
+        "pipeline_ms": {
+          "count": 22,
+          "median": 72.09616850013845,
+          "p95": 104.3697407534637,
+          "max": 288.0111209960887
+        },
+        "observation_to_application_sim_s": {
+          "count": 22,
+          "median": 0.1499999999999999,
+          "p95": 0.26583333333333325,
+          "max": 0.40000000000000013
+        },
+        "observation_to_application_wall_ms": {
+          "count": 22,
+          "median": 97.70083427429199,
+          "p95": 154.23295497894287,
+          "max": 290.996789932251
+        },
+        "missed_slots": 1,
+        "requests": 23,
+        "applied_predictions": 22,
+        "action_update_hz_sim": 2.8448275862068964,
+        "first_clip_saturation_count": 17,
+        "final_ratio_limit_count": 22,
+        "zero_xy_bug_occurrences": 0,
+        "observation_pose_anchor": true,
+        "instruction_id": "N",
+        "instruction_text": "Go to the goal.",
+        "extra": {
+          "first_safety_margin_violation_sim_s": 7.303651105367964,
+          "minimum_executed_y_m": -0.2924279095975425,
+          "maximum_executed_y_m": 0.0,
+          "maximum_absolute_executed_y_m": 0.2924279095975425,
+          "first_turn_direction": "RIGHT",
+          "first_turn_time_sim_s": 0.4,
+          "native_predictions": 23,
+          "actual_rgb_captures": 29,
+          "native_classifications": {
+            "HORIZON_INSUFFICIENT": 11,
+            "PREDICTED_LOW_CLEARANCE": 1,
+            "PREDICTED_COLLISION": 11
+          },
+          "selected_heading_used_count": 0,
+          "selected_pre_v_range": [
+            0.3260266184806824,
+            1.5715554356575012
+          ],
+          "applied_v_range": [
+            0.1858504377514551,
+            0.3
+          ],
+          "applied_w_range": [
+            -0.3,
+            0.11414827091531961
+          ],
+          "initial_clip_fraction": 0.7727272727272727,
+          "ratio_limit_fraction": 1.0,
+          "frame_record_to_applied_step_wall_ms": {
+            "count": 22,
+            "median": 105.61811923980713,
+            "p95": 163.32967281341553,
+            "max": 297.2149848937988
+          },
+          "all_response_model_ms": {
+            "count": 23,
+            "median": 12.515090988017619,
+            "p95": 18.37903049599845,
+            "max": 140.3238649945706
+          },
+          "all_response_pipeline_ms": {
+            "count": 23,
+            "median": 71.4597890037112,
+            "p95": 103.92364250292302,
+            "max": 288.0111209960887
+          },
+          "controller_parity_count": 23,
+          "executed_integration_parity_steps": 464
+        },
+        "all_inferences_latency_ms": {
+          "model_ms": {
+            "count": 23,
+            "median": 12.515090988017619,
+            "p95": 18.37903049599845,
+            "max": 140.3238649945706
+          },
+          "forward_with_clip_ms": {
+            "count": 23,
+            "median": 20.133839003392495,
+            "p95": 31.60021161165787,
+            "max": 237.21615399699658
+          },
+          "pipeline_ms": {
+            "count": 23,
+            "median": 71.4597890037112,
+            "p95": 103.92364250292302,
+            "max": 288.0111209960887
+          }
+        },
+        "minimum_native_polyline_clearance_m": -0.2
+      },
+      {
+        "episode_id": "POSE_LANGUAGE_DESCRIPTION",
+        "scientific": true,
+        "status": "COLLISION",
+        "failure_reason": null,
+        "completed_steps": 445,
+        "elapsed_sim_s": 7.416666666666667,
+        "wall_seconds": 4.8121092319488525,
+        "sim_wall_ratio": 1.541250688456005,
+        "final_pose": [
+          2.000143871982231,
+          -0.3105657598277248,
+          -0.7476330882501298
+        ],
+        "final_distance_m": 3.0158892353637814,
+        "final_yaw_error_rad": 0.7476330882501298,
+        "goal_reached": false,
+        "time_to_goal_sim_s": null,
+        "collision": true,
+        "first_collision_time_sim_s": 7.416013685504502,
+        "minimum_signed_clearance_m": -0.0001438719822307033,
+        "safety_margin_violation": true,
+        "maximum_lateral_deviation_m": 0.3105657598277248,
+        "executed_path_length_m": 2.0779539568435133,
+        "target_observation_hz": 3,
+        "capture_interval_sim_s": {
+          "count": 22,
+          "median": 0.33333333333333315,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "request_interval_sim_s": {
+          "count": 22,
+          "median": 0.33333333333333315,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "model_ms": {
+          "count": 22,
+          "median": 15.859392995480448,
+          "p95": 17.315686258370988,
+          "max": 18.005909005296417
+        },
+        "inference_with_clip_ms": {
+          "count": 22,
+          "median": 26.30747049988713,
+          "p95": 28.811068543291185,
+          "max": 28.91097799874842
+        },
+        "pipeline_ms": {
+          "count": 22,
+          "median": 79.03661399905104,
+          "p95": 108.64181010038008,
+          "max": 149.7661259927554
+        },
+        "observation_to_application_sim_s": {
+          "count": 22,
+          "median": 0.21666666666666679,
+          "p95": 0.2649999999999999,
+          "max": 0.2999999999999998
+        },
+        "observation_to_application_wall_ms": {
+          "count": 22,
+          "median": 84.90025997161865,
+          "p95": 135.96012592315674,
+          "max": 161.14568710327148
+        },
+        "missed_slots": 0,
+        "requests": 23,
+        "applied_predictions": 22,
+        "action_update_hz_sim": 2.9662921348314604,
+        "first_clip_saturation_count": 18,
+        "final_ratio_limit_count": 22,
+        "zero_xy_bug_occurrences": 0,
+        "observation_pose_anchor": true,
+        "instruction_id": "D",
+        "instruction_text": "A large solid red rectangular box is blocking the path directly ahead. Reach the goal while avoiding the obstacle.",
+        "extra": {
+          "first_safety_margin_violation_sim_s": 6.973040225586628,
+          "minimum_executed_y_m": -0.3105657598277248,
+          "maximum_executed_y_m": 0.0,
+          "maximum_absolute_executed_y_m": 0.3105657598277248,
+          "first_turn_direction": "RIGHT",
+          "first_turn_time_sim_s": 0.08333333333333333,
+          "native_predictions": 23,
+          "actual_rgb_captures": 28,
+          "native_classifications": {
+            "HORIZON_INSUFFICIENT": 11,
+            "PREDICTED_LOW_CLEARANCE": 1,
+            "PREDICTED_COLLISION": 11
+          },
+          "selected_heading_used_count": 0,
+          "selected_pre_v_range": [
+            0.32048461586236954,
+            1.6653231382369995
+          ],
+          "applied_v_range": [
+            0.18514718383565726,
+            0.3
+          ],
+          "applied_w_range": [
+            -0.3,
+            0.048546531423926356
+          ],
+          "initial_clip_fraction": 0.8181818181818182,
+          "ratio_limit_fraction": 1.0,
+          "frame_record_to_applied_step_wall_ms": {
+            "count": 22,
+            "median": 92.03803539276123,
+            "p95": 143.89256238937378,
+            "max": 169.53539848327637
+          },
+          "all_response_model_ms": {
+            "count": 23,
+            "median": 15.842961991438642,
+            "p95": 17.313726508291438,
+            "max": 18.005909005296417
+          },
+          "all_response_pipeline_ms": {
+            "count": 23,
+            "median": 78.0844819964841,
+            "p95": 107.39749320055122,
+            "max": 149.7661259927554
+          },
+          "controller_parity_count": 23,
+          "executed_integration_parity_steps": 445
+        },
+        "all_inferences_latency_ms": {
+          "model_ms": {
+            "count": 23,
+            "median": 15.842961991438642,
+            "p95": 17.313726508291438,
+            "max": 18.005909005296417
+          },
+          "forward_with_clip_ms": {
+            "count": 23,
+            "median": 25.644104985985905,
+            "p95": 28.810047093429603,
+            "max": 28.91097799874842
+          },
+          "pipeline_ms": {
+            "count": 23,
+            "median": 78.0844819964841,
+            "p95": 107.39749320055122,
+            "max": 149.7661259927554
+          }
+        },
+        "minimum_native_polyline_clearance_m": -0.2
+      },
+      {
+        "episode_id": "POSE_LANGUAGE_LEFT",
+        "scientific": true,
+        "status": "COLLISION",
+        "failure_reason": null,
+        "completed_steps": 448,
+        "elapsed_sim_s": 7.466666666666667,
+        "wall_seconds": 4.920377969741821,
+        "sim_wall_ratio": 1.5174985971775767,
+        "final_pose": [
+          2.0015855821912,
+          -0.3253707986558182,
+          -0.7177064389465287
+        ],
+        "final_distance_m": 3.0160164418553173,
+        "final_yaw_error_rad": 0.7177064389465287,
+        "goal_reached": false,
+        "time_to_goal_sim_s": null,
+        "collision": true,
+        "first_collision_time_sim_s": 7.459655974090903,
+        "minimum_signed_clearance_m": -0.001585582191199919,
+        "safety_margin_violation": true,
+        "maximum_lateral_deviation_m": 0.3253707986558182,
+        "executed_path_length_m": 2.0821786392316066,
+        "target_observation_hz": 3,
+        "capture_interval_sim_s": {
+          "count": 22,
+          "median": 0.33333333333333315,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "request_interval_sim_s": {
+          "count": 22,
+          "median": 0.33333333333333315,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "model_ms": {
+          "count": 23,
+          "median": 15.37599100265652,
+          "p95": 17.890389093372505,
+          "max": 18.016340007307008
+        },
+        "inference_with_clip_ms": {
+          "count": 23,
+          "median": 23.67452598991804,
+          "p95": 29.212642209313344,
+          "max": 29.552312000305392
+        },
+        "pipeline_ms": {
+          "count": 23,
+          "median": 76.31493799271993,
+          "p95": 86.13220509578241,
+          "max": 86.59062499646097
+        },
+        "observation_to_application_sim_s": {
+          "count": 23,
+          "median": 0.16666666666666696,
+          "p95": 0.2333333333333334,
+          "max": 0.25
+        },
+        "observation_to_application_wall_ms": {
+          "count": 23,
+          "median": 94.56133842468262,
+          "p95": 143.36700439453125,
+          "max": 145.22695541381836
+        },
+        "missed_slots": 0,
+        "requests": 23,
+        "applied_predictions": 23,
+        "action_update_hz_sim": 3.080357142857143,
+        "first_clip_saturation_count": 19,
+        "final_ratio_limit_count": 23,
+        "zero_xy_bug_occurrences": 0,
+        "observation_pose_anchor": true,
+        "instruction_id": "L",
+        "instruction_text": "A large solid red rectangular box blocks the path directly ahead. Steer to your left, pass around the box with safe clearance, then continue to the goal.",
+        "extra": {
+          "first_safety_margin_violation_sim_s": 7.024622850578586,
+          "minimum_executed_y_m": -0.3253707986558182,
+          "maximum_executed_y_m": 0.0,
+          "maximum_absolute_executed_y_m": 0.3253707986558182,
+          "first_turn_direction": "RIGHT",
+          "first_turn_time_sim_s": 0.1,
+          "native_predictions": 23,
+          "actual_rgb_captures": 28,
+          "native_classifications": {
+            "HORIZON_INSUFFICIENT": 11,
+            "PREDICTED_LOW_CLEARANCE": 1,
+            "PREDICTED_COLLISION": 11
+          },
+          "selected_heading_used_count": 0,
+          "selected_pre_v_range": [
+            0.3351074382662773,
+            1.7002429962158203
+          ],
+          "applied_v_range": [
+            0.18110115033425614,
+            0.3
+          ],
+          "applied_w_range": [
+            -0.3,
+            0.1001635055984501
+          ],
+          "initial_clip_fraction": 0.8260869565217391,
+          "ratio_limit_fraction": 1.0,
+          "frame_record_to_applied_step_wall_ms": {
+            "count": 23,
+            "median": 101.78613662719727,
+            "p95": 150.94025135040283,
+            "max": 152.92668342590332
+          },
+          "all_response_model_ms": {
+            "count": 23,
+            "median": 15.37599100265652,
+            "p95": 17.890389093372505,
+            "max": 18.016340007307008
+          },
+          "all_response_pipeline_ms": {
+            "count": 23,
+            "median": 76.31493799271993,
+            "p95": 86.13220509578241,
+            "max": 86.59062499646097
+          },
+          "controller_parity_count": 23,
+          "executed_integration_parity_steps": 448
+        },
+        "all_inferences_latency_ms": {
+          "model_ms": {
+            "count": 23,
+            "median": 15.37599100265652,
+            "p95": 17.890389093372505,
+            "max": 18.016340007307008
+          },
+          "forward_with_clip_ms": {
+            "count": 23,
+            "median": 23.67452598991804,
+            "p95": 29.212642209313344,
+            "max": 29.552312000305392
+          },
+          "pipeline_ms": {
+            "count": 23,
+            "median": 76.31493799271993,
+            "p95": 86.13220509578241,
+            "max": 86.59062499646097
+          }
+        },
+        "minimum_native_polyline_clearance_m": -0.2
+      },
+      {
+        "episode_id": "POSE_LANGUAGE_RIGHT",
+        "scientific": true,
+        "status": "COLLISION",
+        "failure_reason": null,
+        "completed_steps": 473,
+        "elapsed_sim_s": 7.883333333333334,
+        "wall_seconds": 5.761714220046997,
+        "sim_wall_ratio": 1.3682270644219892,
+        "final_pose": [
+          2.0021126560580824,
+          -0.33862127687246224,
+          -0.7447571076172358
+        ],
+        "final_distance_m": 3.016950927031771,
+        "final_yaw_error_rad": 0.7447571076172358,
+        "goal_reached": false,
+        "time_to_goal_sim_s": null,
+        "collision": true,
+        "first_collision_time_sim_s": 7.873757286839892,
+        "minimum_signed_clearance_m": -0.0021126560580822518,
+        "safety_margin_violation": true,
+        "maximum_lateral_deviation_m": 0.33862127687246224,
+        "executed_path_length_m": 2.0929583603254276,
+        "target_observation_hz": 3,
+        "capture_interval_sim_s": {
+          "count": 23,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "request_interval_sim_s": {
+          "count": 23,
+          "median": 0.33333333333333326,
+          "p95": 0.3333333333333339,
+          "max": 0.3333333333333339
+        },
+        "model_ms": {
+          "count": 24,
+          "median": 11.541088497324381,
+          "p95": 17.69325200584717,
+          "max": 18.92531399789732
+        },
+        "inference_with_clip_ms": {
+          "count": 24,
+          "median": 17.085894505726174,
+          "p95": 28.693979146919443,
+          "max": 29.25624900672119
+        },
+        "pipeline_ms": {
+          "count": 24,
+          "median": 69.29130099888425,
+          "p95": 83.41851781005971,
+          "max": 153.52994500426576
+        },
+        "observation_to_application_sim_s": {
+          "count": 24,
+          "median": 0.12499999999999978,
+          "p95": 0.2333333333333325,
+          "max": 0.23333333333333317
+        },
+        "observation_to_application_wall_ms": {
+          "count": 24,
+          "median": 86.83621883392334,
+          "p95": 145.27467489242554,
+          "max": 194.75078582763672
+        },
+        "missed_slots": 0,
+        "requests": 24,
+        "applied_predictions": 24,
+        "action_update_hz_sim": 3.044397463002114,
+        "first_clip_saturation_count": 19,
+        "final_ratio_limit_count": 24,
+        "zero_xy_bug_occurrences": 0,
+        "observation_pose_anchor": true,
+        "instruction_id": "R",
+        "instruction_text": "A large solid red rectangular box blocks the path directly ahead. Steer to your right, pass around the box with safe clearance, then continue to the goal.",
+        "extra": {
+          "first_safety_margin_violation_sim_s": 7.425516987579235,
+          "minimum_executed_y_m": -0.33862127687246224,
+          "maximum_executed_y_m": 0.0,
+          "maximum_absolute_executed_y_m": 0.33862127687246224,
+          "first_turn_direction": "RIGHT",
+          "first_turn_time_sim_s": 0.23333333333333334,
+          "native_predictions": 24,
+          "actual_rgb_captures": 29,
+          "native_classifications": {
+            "HORIZON_INSUFFICIENT": 11,
+            "PREDICTED_LOW_CLEARANCE": 1,
+            "PREDICTED_COLLISION": 12
+          },
+          "selected_heading_used_count": 0,
+          "selected_pre_v_range": [
+            0.3032091110944748,
+            1.7240107655525208
+          ],
+          "applied_v_range": [
+            0.16463529172406505,
+            0.3
+          ],
+          "applied_w_range": [
+            -0.3,
+            0.3
+          ],
+          "initial_clip_fraction": 0.7916666666666666,
+          "ratio_limit_fraction": 1.0,
+          "frame_record_to_applied_step_wall_ms": {
+            "count": 24,
+            "median": 97.18084335327148,
+            "p95": 154.29691076278687,
+            "max": 202.70466804504395
+          },
+          "all_response_model_ms": {
+            "count": 24,
+            "median": 11.541088497324381,
+            "p95": 17.69325200584717,
+            "max": 18.92531399789732
+          },
+          "all_response_pipeline_ms": {
+            "count": 24,
+            "median": 69.29130099888425,
+            "p95": 83.41851781005971,
+            "max": 153.52994500426576
+          },
+          "controller_parity_count": 24,
+          "executed_integration_parity_steps": 473
+        },
+        "all_inferences_latency_ms": {
+          "model_ms": {
+            "count": 24,
+            "median": 11.541088497324381,
+            "p95": 17.69325200584717,
+            "max": 18.92531399789732
+          },
+          "forward_with_clip_ms": {
+            "count": 24,
+            "median": 17.085894505726174,
+            "p95": 28.693979146919443,
+            "max": 29.25624900672119
+          },
+          "pipeline_ms": {
+            "count": 24,
+            "median": 69.29130099888425,
+            "p95": 83.41851781005971,
+            "max": 153.52994500426576
+          }
+        },
+        "minimum_native_polyline_clearance_m": -0.2
+      }
+    ]
+  },
+  "verification": {
+    "prior_files_unchanged": 504,
+    "frozen_scientific_source_hashes_verified": 40,
+    "all_native_actions": 125,
+    "navigation_rgb_verified": 114,
+    "immutable_new_evidence_files": 306,
+    "exact_reanalysis": true,
+    "controller_parity_predictions": 125,
+    "integrated_steps_verified": 1830,
+    "model_free_tests_passed": 135,
+    "test_log": "artifacts-local/pose-language-obstacle/final-tests-002.log",
+    "raw_manifest": "artifacts-local/pose-language-obstacle/new-evidence-hashes.json",
+    "raw_manifest_sha256": "dd46225e64ef50c787d3392360281aecd3991da0641f1f8f24f1d9826b6e1d11",
+    "freeze_precedes_both_phases": {
+      "offline": {
+        "freeze": 1791869895.092362,
+        "registration": 1791869914.3280592,
+        "launch": 1791869914.3386295,
+        "first_request": 1791869918.8503087
+      },
+      "navigation": {
+        "freeze": 1791869895.092362,
+        "registration": 1791869963.2537262,
+        "launch": 1791869963.2628763,
+        "first_request": 1791869980.7536647
+      }
+    },
+    "scientific_retries": 0,
+    "scientific_runtime_errors": 0,
+    "upstream_zero_xy_bugs": 0
+  },
+  "GUI": {
+    "status": "PASS",
+    "saved_navigation_replay": true,
+    "live_inferences": 0,
+    "all_four_conditions_advanced": true,
+    "conditions": {
+      "N": {
+        "samples": 11,
+        "min_time": 5.1158000133000314e-05,
+        "max_time": 7.733333333333333,
+        "active_prediction_ids": [
+          3,
+          4,
+          9,
+          10,
+          15,
+          16,
+          21
+        ]
+      },
+      "D": {
+        "samples": 10,
+        "min_time": 1.0067826339945896,
+        "max_time": 7.416666666666667,
+        "active_prediction_ids": [
+          2,
+          3,
+          8,
+          9,
+          14,
+          15,
+          20,
+          21
+        ]
+      },
+      "L": {
+        "samples": 5,
+        "min_time": 0.9247259120020317,
+        "max_time": 7.466666666666667,
+        "active_prediction_ids": [
+          2,
+          8,
+          14,
+          20,
+          22
+        ]
+      },
+      "R": {
+        "samples": 6,
+        "min_time": 0.4876400159992045,
+        "max_time": 7.883333333333334,
+        "active_prediction_ids": [
+          1,
+          7,
+          13,
+          18,
+          23
+        ]
+      }
+    },
+    "viewport_screenshot": "artifacts-local/pose-language-obstacle/gui-001/overview.png",
+    "screenshot_sha256": "f0c94536ff4fd4814192d5f46820c916da6a1d6fc80bafd415c99f535d796687",
+    "exact_instruction_metadata": true,
+    "native_observation_anchor_verified": true,
+    "original_rgb_hashes_verified": 114,
+    "rendered_frames": 3532,
+    "exit_code": 0,
+    "viewer_log": "artifacts-local/pose-language-obstacle/gui-001.log",
+    "screenshot_scope": "Viewport only; instruction text is evidenced by ready.json and playback-samples.jsonl",
+    "reason_for_gui_exit": "Application is_running() ended; no stop-requested file was created by this task"
+  },
+  "interpretation": {
+    "language_numeric_response": true,
+    "consistent_left_right_following": false,
+    "visual_condition_response": true,
+    "visual_semantic_reasoning_proven": false,
+    "safe_native_passages": 0,
+    "safe_closed_loop_goals": 0,
+    "externally_supplied_direction": true,
+    "single_trial_per_instruction": true,
+    "controller_rescue_tested": false,
+    "reconciliation_started": false
+  },
+  "exact_next_uncertainty": "With independently acquired but otherwise matched six-frame RGB histories at D100, is the near-identical LEFT/RIGHT native lateral response repeatable under the frozen Modality-8 interface?",
+  "reproduction": {
+    "saved_analysis": "artifacts-local/envs/edge-blackwell/bin/python research/analyze_pose_language.py --output /tmp/pose-language-analysis-NEW",
+    "GUI": "bash ~/Workspace/OmniVLA/scripts/isaac_pose_language_gui.sh",
+    "scientific_runs": "Already consumed; exclusive registrations refuse all scientific reruns."
+  }
+}

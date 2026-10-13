@@ -850,3 +850,125 @@ test at D100 with independent six-frame histories and unchanged model/interface.
 This recommendation was not executed. Stop after normal commit/push and remote
 SHA verification; no new closed-loop, domain matrix, modality, dynamic obstacle,
 fine-tuning, controller, reconciliation or graph optimization work started.
+
+## 2026-10-13 — Frozen Pose + Language obstacle qualification
+
+Verified remote source `research/omnivla-edge-obstacle-offline-diagnostic` at
+`eeb75f85cbcf316f15856388d0c3831eae4ef87d`, then created the user-requested branch
+`research/omnivla-edge-pose-language-obstacle`. No previous branch was rewritten
+or removed. Preserved the preexisting untracked `.vscode/` directory. Read prior
+reports, compact results, configuration and official Edge source before changes.
+
+Confirmed official modality 8 with pose_goal=True, satellite=False,
+image_goal=False, lan_prompt=True. Actual decoder token order is six RGB tokens,
+pose, map, goal image, language; masks F F F F F F F T T F and weights
+1.25 1.25 1.25 1.25 1.25 1.25 1.25 0 0 1.25. Added a separate service/adapter;
+kept original model, forward, preprocessing, controller, scene and scheduler
+sources unchanged. Adapter uses the original episode's identical code object
+with private request/validator bindings. No global mutation of the old episode.
+
+Froze the four user-provided exact N/D/L/R prompts. Official CLIP ViT-B/32 token
+counts including SOT/EOT are 7/23/33/33, no truncation, distinct token identities.
+Full text, UTF-8/token hashes and padded IDs are in
+`research/pose-language-obstacle-plan.json`. Plan SHA256
+`289dea38528cce277629dd347734e8da9c96235d6e96a6e31de216c6ff4b6c36`.
+Protocol SHA256
+`6148e88e3e4d417ee78cad03efde6567e91e68379aa828f2a63239608fa4f397`.
+Both phases, fixed request/trial order, thresholds and stop rules were frozen
+before any new inference. One dummy infrastructure attempt passed with six
+requests, zero model loads/inferences, stationary motion, exit 0 and no residual
+processes. The pre-freeze suite passed all 135 model-free tests. Existing 48
+PRESENT/ABSENT RGB files were reused unchanged; no new Phase-A acquisition.
+
+Execution commands (scientific registrations now consumed):
+
+```bash
+artifacts-local/envs/edge-blackwell/bin/python research/register_pose_language_plan.py
+artifacts-local/envs/edge-blackwell/bin/python research/run_pose_language.py --phase infrastructure --run-id infrastructure-001
+artifacts-local/envs/edge-blackwell/bin/python research/freeze_pose_language.py
+artifacts-local/envs/edge-blackwell/bin/python research/run_pose_language.py --phase offline --run-id offline-001
+artifacts-local/envs/edge-blackwell/bin/python research/run_pose_language.py --phase navigation --run-id navigation-001
+```
+
+Phase A completed 32/32 requests with one strict float32 Edge/CLIP load. All
+actual ID-8 routes, masks, embeddings, native tensors and observation-time pose
+inputs passed validation. Instruction embeddings were constant per prompt and
+distinct across prompts, also matching Phase B. Native outcomes: 0 safe,
+16 horizon-insufficient, 8 low clearance, 8 collision. Minimum clearance -0.2 m;
+maximum absolute native lateral extent 0.103963 m. Fixed-input max absolute
+per-row lateral deltas: L-N 0.016374, R-N 0.017513, L-R 0.001710, D-N 0.022169 m.
+Joint direction consistency 0/8; intended-sign 0.20-m material screen L 0/8,
+R 0/8. No safe offline passage was predicted, but technical validity passed,
+so the frozen four-trial Phase B proceeded without retuning or subset selection.
+
+PRESENT/ABSENT differences remain measurable (max lateral delta 0.111582 m).
+D100 endpoint X P/A: N 0.736487/0.775274, D 0.752199/0.726097,
+L 0.792456/0.746921, R 0.798353/0.734554 m. Thus only N contracts at D100;
+the historical 0.824-m ID-4 contraction is not replicated within ID 8. Selected
+D100 final v P/A: N 0.134369/0.214949, D 0.245266/0.218469,
+L 0.218953/0.233555, R 0.227636/0.230147 m/s; all w=-0.3 rad/s. D200/D150
+PRESENT forward-command differences do collapse to v=0.3 under the unchanged
+controller. Neither this conversion nor a short native horizon proves braking
+intention, and no alternative controller was evaluated.
+
+Phase B completed four independent fresh-world/bootstrap/controller trials in
+N,D,L,R order using one fresh shared service, no per-condition reseed/warmup.
+All were valid COLLISION outcomes with no goal entry. First swept contact:
+N 7.727881, D 7.416014, L 7.459656, R 7.873757 simulation seconds. Minimum
+clearance: -0.001251/-0.000144/-0.001586/-0.002113 m. Minimum signed Y and
+maximum absolute lateral excursion: -0.292428/0.292428, -0.310566/0.310566,
+-0.325371/0.325371, -0.338621/0.338621 m. All maximum signed Y values were 0
+at start, and all first turns were RIGHT. No collision motion was repaired.
+Requests 23/23/23/24; applied predictions 22/22/23/24; two completed terminal
+predictions were retained without application. Missed slots 1/0/0/0. All 93
+native predictions were analyzed: 44 insufficient, 4 low-clearance, 45 collision,
+0 safe. Initial clipping 17/22,18/22,19/23,19/24; final ratio limiting 100%.
+No numerical, runtime, OOM or upstream zero-XY controller errors. All scientific
+service/Isaac processes exited 0, with no residual service processes.
+
+All-inference model medians N/D/L/R: 12.515/15.843/15.376/11.541 ms;
+service pipeline medians 71.460/78.084/76.315/69.291 ms. Applied-only observation
+to application-marker medians 97.701/84.900/94.561/86.836 ms. Frame record to
+completed applied-step medians 105.618/92.038/101.786/97.181 ms. Cold forwards
+were retained. Phase-A peak sampled GPU memory 2436 MiB; Phase-B 3931 MiB.
+Full timing distributions and command ranges are in the new report/result.
+
+Saved-data analysis exactly reproduced both metrics JSONs, checked all 125
+native tensor/controller identities and reintegrated 1830 executed steps with
+1e-12 pose tolerance. Verified 114 navigation PNG/decoded RGB pairs and all
+306 new immutable evidence files. Final preservation audit rechecked 504 prior
+files and 40 frozen scientific source hashes. Scientific outputs remain 0444,
+with derived metrics and plots separate. No prior scientific run was repeated.
+
+Extended only the non-scientific GUI dispatcher with `--language-protocol` and
+added `research/pose_language_gui.py` plus launcher. Preserved static/offline
+launchers. One GUI attempt opened this actual run and cycled all N/D/L/R
+recordings through their terminal times: 3532 rendered frames, exit 0. Displayed
+real obstacle, saved paths, start/goal, footprint/heading/clearance envelope,
+exact current instruction, native XY at actual observation pose and original
+RGB. Native lines are elevated only for visibility, with no changed XY or
+invented row times. Label: `RECORDED REPLAY - NO LIVE INFERENCE`.
+`artifacts-local/pose-language-obstacle/gui-verification.json` records verification;
+the screenshot captures the viewport, with exact instruction text in playback
+metadata. No model runs in the viewer and no overlay entered model inputs.
+One-line command: `bash ~/Workspace/OmniVLA/scripts/isaac_pose_language_gui.sh`.
+
+Final test attempt 001 hit the sandbox's Unix-socket bind restriction in an
+existing IPC test (PermissionError). The identical suite passed 135/135 in the
+permitted host context (`final-tests-002.log`), without changing frozen code.
+This was only a model-free test retry. Four analysis plots were inspected.
+Report: `docs/EDGE_POSE_LANGUAGE_OBSTACLE.md`; compact derived result:
+`results/edge-pose-language-obstacle.json`. Large plots/raw RGB/tensors,
+checkpoints, environments and generated runs remain ignored.
+
+Decision: not qualified for safe language-assisted obstacle avoidance in this
+frozen scenario. Small text effects and visual sensitivity do not establish
+directional language following, native safe passage or closed-loop avoidance.
+This single scene/history/trial design does not establish general inability.
+The L/R prompts supply direction externally; no autonomous side-selection claim.
+No controller rescue, reconciliation, graph, artificial latency, dynamic human,
+training, prompt tuning, placement search or new follow-up experiment started.
+Exact next uncertainty: with independently acquired but otherwise matched
+six-frame histories at D100, is the near-identical LEFT/RIGHT native lateral
+response repeatable under the frozen Modality-8 interface? Stated only, not run.
+Finish with a normal commit/push on the requested branch and remote SHA check.

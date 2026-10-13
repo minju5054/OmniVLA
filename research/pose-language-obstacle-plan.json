@@ -1,0 +1,830 @@
+{
+  "protocol": "POSE_LANGUAGE_OBSTACLE_V1",
+  "starting_sha": "eeb75f85cbcf316f15856388d0c3831eae4ef87d",
+  "flags": {
+    "pose_goal": true,
+    "satellite": false,
+    "image_goal": false,
+    "lan_prompt": true
+  },
+  "modality_id": 8,
+  "decoder_mask": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false
+  ],
+  "world_goal": [
+    5.0,
+    0.0,
+    0.0
+  ],
+  "instructions": {
+    "N": {
+      "id": "N",
+      "text": "Go to the goal.",
+      "utf8_sha256": "a0434ecc60ebb1e2b3bd752fddeaf39389f3ea6fe8b407d58103b7c33bf737e7",
+      "token_ids": [
+        [
+          49406,
+          861,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "c395e4d58231b32dcb9f599d457804e42b1118626488cae23579ec3215b12c28",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 7,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "D": {
+      "id": "D",
+      "text": "A large solid red rectangular box is blocking the path directly ahead. Reach the goal while avoiding the obstacle.",
+      "utf8_sha256": "fc40b18704c76f934d1e4493805e5735d09d54cfdf896a02192a3ec76e2f2804",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          533,
+          12652,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          4279,
+          518,
+          3321,
+          1519,
+          22086,
+          518,
+          29751,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "f3ddf0bd7fe2f7c2bef8980f9b3f3e471b37192fd045a315659d672f659b9bc7",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 23,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "L": {
+      "id": "L",
+      "text": "A large solid red rectangular box blocks the path directly ahead. Steer to your left, pass around the box with safe clearance, then continue to the goal.",
+      "utf8_sha256": "3049f0963531fdddfe738aa1560afc5023a3751c8fcd45d04625141140514bf3",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          10113,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          27612,
+          531,
+          695,
+          1823,
+          267,
+          3511,
+          1630,
+          518,
+          2063,
+          593,
+          2996,
+          17959,
+          267,
+          1594,
+          3942,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "699060a675db64d52838ca6b1d8245a632a1ade7bc01d2e7957f9e8bcebd644a",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 33,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    },
+    "R": {
+      "id": "R",
+      "text": "A large solid red rectangular box blocks the path directly ahead. Steer to your right, pass around the box with safe clearance, then continue to the goal.",
+      "utf8_sha256": "855499c3b61fec6e08940f170fdd62cde0417f6b2d4bfe76cc2383e7faaf0c5b",
+      "token_ids": [
+        [
+          49406,
+          320,
+          3638,
+          6148,
+          736,
+          43321,
+          2063,
+          10113,
+          518,
+          5035,
+          9701,
+          3158,
+          269,
+          27612,
+          531,
+          695,
+          1155,
+          267,
+          3511,
+          1630,
+          518,
+          2063,
+          593,
+          2996,
+          17959,
+          267,
+          1594,
+          3942,
+          531,
+          518,
+          3321,
+          269,
+          49407,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "token_sha256": "3baaf9feabf22e51659622d551cdc4195911baecc3f7c7b1d57da0ac7685b309",
+      "token_dtype": "int32",
+      "token_hash_encoding": "C-contiguous little-endian int32 bytes, shape [1,77]",
+      "token_count_including_sot_eot": 33,
+      "context_length": 77,
+      "truncated": false,
+      "modality_id": 8
+    }
+  },
+  "offline_order": [
+    {
+      "request_id": 0,
+      "episode_id": "D200_OBSTACLE_PRESENT_N",
+      "rgb_case_id": "D200_OBSTACLE_PRESENT",
+      "instruction_id": "N",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 1,
+      "episode_id": "D200_OBSTACLE_PRESENT_D",
+      "rgb_case_id": "D200_OBSTACLE_PRESENT",
+      "instruction_id": "D",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 2,
+      "episode_id": "D200_OBSTACLE_PRESENT_L",
+      "rgb_case_id": "D200_OBSTACLE_PRESENT",
+      "instruction_id": "L",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 3,
+      "episode_id": "D200_OBSTACLE_PRESENT_R",
+      "rgb_case_id": "D200_OBSTACLE_PRESENT",
+      "instruction_id": "R",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 4,
+      "episode_id": "D200_OBSTACLE_ABSENT_N",
+      "rgb_case_id": "D200_OBSTACLE_ABSENT",
+      "instruction_id": "N",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 5,
+      "episode_id": "D200_OBSTACLE_ABSENT_D",
+      "rgb_case_id": "D200_OBSTACLE_ABSENT",
+      "instruction_id": "D",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 6,
+      "episode_id": "D200_OBSTACLE_ABSENT_L",
+      "rgb_case_id": "D200_OBSTACLE_ABSENT",
+      "instruction_id": "L",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 7,
+      "episode_id": "D200_OBSTACLE_ABSENT_R",
+      "rgb_case_id": "D200_OBSTACLE_ABSENT",
+      "instruction_id": "R",
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 8,
+      "episode_id": "D150_OBSTACLE_PRESENT_N",
+      "rgb_case_id": "D150_OBSTACLE_PRESENT",
+      "instruction_id": "N",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 9,
+      "episode_id": "D150_OBSTACLE_PRESENT_D",
+      "rgb_case_id": "D150_OBSTACLE_PRESENT",
+      "instruction_id": "D",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 10,
+      "episode_id": "D150_OBSTACLE_PRESENT_L",
+      "rgb_case_id": "D150_OBSTACLE_PRESENT",
+      "instruction_id": "L",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 11,
+      "episode_id": "D150_OBSTACLE_PRESENT_R",
+      "rgb_case_id": "D150_OBSTACLE_PRESENT",
+      "instruction_id": "R",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 12,
+      "episode_id": "D150_OBSTACLE_ABSENT_N",
+      "rgb_case_id": "D150_OBSTACLE_ABSENT",
+      "instruction_id": "N",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 13,
+      "episode_id": "D150_OBSTACLE_ABSENT_D",
+      "rgb_case_id": "D150_OBSTACLE_ABSENT",
+      "instruction_id": "D",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 14,
+      "episode_id": "D150_OBSTACLE_ABSENT_L",
+      "rgb_case_id": "D150_OBSTACLE_ABSENT",
+      "instruction_id": "L",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 15,
+      "episode_id": "D150_OBSTACLE_ABSENT_R",
+      "rgb_case_id": "D150_OBSTACLE_ABSENT",
+      "instruction_id": "R",
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 16,
+      "episode_id": "D100_OBSTACLE_PRESENT_N",
+      "rgb_case_id": "D100_OBSTACLE_PRESENT",
+      "instruction_id": "N",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 17,
+      "episode_id": "D100_OBSTACLE_PRESENT_D",
+      "rgb_case_id": "D100_OBSTACLE_PRESENT",
+      "instruction_id": "D",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 18,
+      "episode_id": "D100_OBSTACLE_PRESENT_L",
+      "rgb_case_id": "D100_OBSTACLE_PRESENT",
+      "instruction_id": "L",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 19,
+      "episode_id": "D100_OBSTACLE_PRESENT_R",
+      "rgb_case_id": "D100_OBSTACLE_PRESENT",
+      "instruction_id": "R",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 20,
+      "episode_id": "D100_OBSTACLE_ABSENT_N",
+      "rgb_case_id": "D100_OBSTACLE_ABSENT",
+      "instruction_id": "N",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 21,
+      "episode_id": "D100_OBSTACLE_ABSENT_D",
+      "rgb_case_id": "D100_OBSTACLE_ABSENT",
+      "instruction_id": "D",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 22,
+      "episode_id": "D100_OBSTACLE_ABSENT_L",
+      "rgb_case_id": "D100_OBSTACLE_ABSENT",
+      "instruction_id": "L",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 23,
+      "episode_id": "D100_OBSTACLE_ABSENT_R",
+      "rgb_case_id": "D100_OBSTACLE_ABSENT",
+      "instruction_id": "R",
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 24,
+      "episode_id": "D070_OBSTACLE_PRESENT_N",
+      "rgb_case_id": "D070_OBSTACLE_PRESENT",
+      "instruction_id": "N",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 25,
+      "episode_id": "D070_OBSTACLE_PRESENT_D",
+      "rgb_case_id": "D070_OBSTACLE_PRESENT",
+      "instruction_id": "D",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 26,
+      "episode_id": "D070_OBSTACLE_PRESENT_L",
+      "rgb_case_id": "D070_OBSTACLE_PRESENT",
+      "instruction_id": "L",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 27,
+      "episode_id": "D070_OBSTACLE_PRESENT_R",
+      "rgb_case_id": "D070_OBSTACLE_PRESENT",
+      "instruction_id": "R",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 28,
+      "episode_id": "D070_OBSTACLE_ABSENT_N",
+      "rgb_case_id": "D070_OBSTACLE_ABSENT",
+      "instruction_id": "N",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 29,
+      "episode_id": "D070_OBSTACLE_ABSENT_D",
+      "rgb_case_id": "D070_OBSTACLE_ABSENT",
+      "instruction_id": "D",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 30,
+      "episode_id": "D070_OBSTACLE_ABSENT_L",
+      "rgb_case_id": "D070_OBSTACLE_ABSENT",
+      "instruction_id": "L",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "request_id": 31,
+      "episode_id": "D070_OBSTACLE_ABSENT_R",
+      "rgb_case_id": "D070_OBSTACLE_ABSENT",
+      "instruction_id": "R",
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "navigation_order": [
+    {
+      "episode_id": "POSE_LANGUAGE_NEUTRAL",
+      "instruction_id": "N"
+    },
+    {
+      "episode_id": "POSE_LANGUAGE_DESCRIPTION",
+      "instruction_id": "D"
+    },
+    {
+      "episode_id": "POSE_LANGUAGE_LEFT",
+      "instruction_id": "L"
+    },
+    {
+      "episode_id": "POSE_LANGUAGE_RIGHT",
+      "instruction_id": "R"
+    }
+  ],
+  "phase_a": {
+    "requests": 32,
+    "model_loads": 1,
+    "rgb_manifest": "artifacts-local/edge-obstacle-offline/input-manifest.json",
+    "rgb_manifest_sha256": "9e2101cf748ab60b34b1c63ad12b5acb049d4b89b1bd0561fa9b66a41c66a56f",
+    "order": "RGB cases in prior D200/D150/D100/D070 PRESENT/ABSENT order, then N,D,L,R within each case"
+  },
+  "phase_b": {
+    "primary_trials": 4,
+    "trial_order": [
+      "N",
+      "D",
+      "L",
+      "R"
+    ],
+    "model_loads": 1,
+    "service_policy": "One fresh Phase-B service shared by four independent Isaac processes; no per-condition reseed",
+    "fresh_world_bootstrap_history_controller_per_trial": true,
+    "model_forward_warmup": false,
+    "start_pose": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scientific_timeout_sim_s": 40.0,
+    "physics_hz": 60,
+    "observation_hz": 3,
+    "waypoint_index": 4,
+    "unchanged_controller": true,
+    "artificial_latency": false,
+    "continue_after_valid_collision": true,
+    "stop_after_implementation_or_runtime_failure": true
+  },
+  "seed_policy": "Torch and NumPy seed 0 once at each phase service load; eval; no reseed per condition; retain first cold forward in each phase",
+  "static_config": "research/frozen-edge-static-obstacle.json",
+  "static_config_sha256": "f8cdbfe22a32a335968976c80a4c86994154866fcf859277a81f4ce911b73728",
+  "interpretation": {
+    "material_lateral_threshold_m": 0.2,
+    "statistical_significance": false,
+    "direction_epsilon_m": 1e-06,
+    "language_response": "Any metric XY delta >1e-6 m from neutral; descriptive numerical observation",
+    "direction_consistency": "L endpoint local Y >1e-6, R endpoint local Y <-1e-6, L-N endpoint delta Y >1e-6 and R-N <-1e-6; report each separately",
+    "material_direction": "Signed intended-direction row delta reaches 0.20 m; also report max absolute delta independent of sign",
+    "first_executed_turn": "First applied angular command with abs(w)>1e-6 rad/s",
+    "safety": "Previous full polyline criterion, observation included; 0.20-m radius and 0.10-m margin; downstream expanded x=3.1",
+    "waypoint_timestamps": null,
+    "externally_supplied_avoidance_side": true
+  },
+  "failure_policy": "No scientific retries or retuning; Phase B follows technically valid A regardless of geometric outcome; OOM/runtime/routing/data error stops science and records not-run cases",
+  "stop_rules": [
+    "swept collision",
+    "goal-region entry (0.50 m)",
+    "40 s after bootstrap",
+    "upstream controller bug",
+    "implementation/runtime failure"
+  ]
+}

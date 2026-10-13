@@ -55,7 +55,8 @@ def run_gui(app, recordings, config, output):
     if 'static_obstacle' in config:
         from research.static_obstacle_scene import add_obstacle
         add_obstacle(stage, config)
-    colors = [(0.15, 0.7, 1.0), (0.2, 1.0, 0.42), (1.0, 0.5, 0.12)]
+    colors = [(0.15, 0.7, 1.0), (0.2, 1.0, 0.42), (1.0, 0.5, 0.12), (1.0, 0.3, 0.7)]
+    language = 'instruction_id' in recordings[0]
 
     def curve(path, points, color, width):
         item = UsdGeom.BasisCurves.Define(stage, path)
@@ -73,12 +74,18 @@ def run_gui(app, recordings, config, output):
         name = recording['goal']['name']
         curve(f'/World/ReplayOverlays/Path{name}',
               [(row['pose'][0], row['pose'][1], 0.035) for row in recording['states']], color, 0.035)
+        if language and index > 0:
+            continue  # All four language trials share one physical goal.
         gx, gy, _ = recording['goal']['pose']
         curve(f'/World/ReplayOverlays/Goal{name}',
               [(gx + config['goal_radius_m'] * math.cos(t),
                 gy + config['goal_radius_m'] * math.sin(t), 0.055)
                for t in np.linspace(0, 2 * math.pi, 65)], color, 0.045)
         box(stage, f'/World/ReplayOverlays/Center{name}', [gx, gy, 0.06], [0.13, 0.13, 0.12], color)
+
+    if language:
+        from research.pose_language_gui import language_overlays
+        update_native = language_overlays(stage, config, curve, box)
 
     agent = UsdGeom.Xform.Define(stage, '/World/ReplayOverlays/PoseArrow')
     translate = agent.AddTranslateOp()
@@ -126,12 +133,13 @@ def run_gui(app, recordings, config, output):
     with window.frame:
         with ui.VStack(spacing=9, height=0):
             ui.Label('OmniVLA-edge', height=30, style={'font_size': 24})
-            ui.Label('RECORDED RESULT REPLAY', height=22)
-            ui.Label('White arrow = recorded SE(2) pose\nColored lines = saved paths\nRings = 0.50 m goal tolerance',
+            ui.Label('RECORDED REPLAY - NO LIVE INFERENCE' if language else 'RECORDED RESULT REPLAY', height=22)
+            ui.Label(('Paths: N blue, D green, L orange, R pink\nPurple = native XY projected at height 1.08 m\nYellow dot = waypoint 4; yellow outline = 0.10 m margin'
+                      if language else 'White arrow = recorded SE(2) pose\nColored lines = saved paths\nRings = 0.50 m goal tolerance'),
                      height=64, word_wrap=True)
             with ui.HStack(height=34, spacing=5):
                 for index, item in enumerate(recordings):
-                    ui.Button(item['goal']['name'], clicked_fn=lambda i=index: select(i))
+                    ui.Button(item.get('instruction_id', item['goal']['name']), clicked_fn=lambda i=index: select(i))
             with ui.HStack(height=32, spacing=5):
                 play_button = ui.Button('Pause', clicked_fn=toggle)
                 ui.Button('Restart', clicked_fn=lambda: select(state['index']))
@@ -144,12 +152,15 @@ def run_gui(app, recordings, config, output):
                 speed_model = ui.SimpleFloatModel(1.)
                 ui.FloatDrag(model=speed_model, min=0.25, max=4., step=0.25)
             title = ui.Label('', height=25, style={'font_size': 19})
+            if language:
+                instruction = ui.Label('', height=87, word_wrap=True)
+                native_info = ui.Label('', height=44, word_wrap=True)
             progress = ui.SimpleFloatModel(0.)
             ui.ProgressBar(model=progress, height=18)
             stats = ui.Label('', height=120, word_wrap=True)
             ui.Separator(height=2)
             ui.Label('Original camera recording (3 Hz)', height=24)
-            recorded_image = ui.Image(str(recordings[0]['frames'][5]['file']), height=240,
+            recorded_image = ui.Image(str(recordings[0]['frames'][5]['file']), height=190 if language else 240,
                                       fill_policy=ui.FillPolicy.PRESERVE_ASPECT_FIT)
             ui.Label('Playback: 1x = recorded simulation time.\nArrow and goal marks are viewer overlays.\nNo policy inference runs in this viewer.',
                      height=62, word_wrap=True)
@@ -161,10 +172,11 @@ def run_gui(app, recordings, config, output):
         panel = ui.Workspace.get_window(name)
         if panel:
             panel.visible = False
-    window.dock_in(ui.Workspace.get_window('Viewport'), ui.DockPosition.RIGHT, 0.30)
+    window.dock_in(ui.Workspace.get_window('Viewport'), ui.DockPosition.RIGHT, 0.39 if language else 0.30)
     select(0)
     write_json(output / 'ready.json', dict(status='GUI_REPLAY_READY', scientific=False,
-               source_run=str(recordings[0]['frames'][0]['file'].parents[4]), original_rgb=True,
+               source_run=recordings[0].get('source_run', str(recordings[0]['frames'][0]['file'].parents[4])), original_rgb=True,
+               live_inference=False, language_instructions={r['instruction_id']: r['instruction_text'] for r in recordings} if language else {},
                input_state_sha256={item['goal']['name']: item['state_sha256'] for item in recordings}))
     print('GUI_REPLAY_READY', flush=True)
     last = time.perf_counter()
@@ -195,7 +207,10 @@ def run_gui(app, recordings, config, output):
             recorded_image.source_url = image_path
             state['image'] = image_path
         finished = index == len(recording['states']) - 1
-        title.text = recording['goal']['name'] + (' | FINISHED' if finished else ' | PLAYBACK')
+        title.text = recording.get('instruction_id', recording['goal']['name']) + (' | FINISHED' if finished else ' | PLAYBACK')
+        if language:
+            instruction.text = recording['instruction_text']
+            native_info.text = update_native(recording, row)
         progress.set_value(elapsed / duration if duration else 1.)
         play_button.text = 'Pause' if state['playing'] else 'Play'
         stats.text = (f"Time  {elapsed:5.2f} / {duration:.2f} s\n"
@@ -210,10 +225,16 @@ def run_gui(app, recordings, config, output):
         if frames_rendered == 120:
             capture = capture_viewport_to_file(viewport, str(output / 'overview.png'))
         if now >= next_status:
-            (output / 'playback-status.json').write_text(json.dumps(dict(
+            playback_status = dict(
                 goal=recording['goal']['name'], elapsed_sim=elapsed, pose=row['pose'],
                 playing=state['playing'], frame_index=frame_index, wall_time=time.time(),
-                rendered_frames=frames_rendered), indent=2) + '\n')
+                rendered_frames=frames_rendered)
+            if language:
+                playback_status.update(instruction_id=recording['instruction_id'], instruction_text=recording['instruction_text'],
+                    active_request_id=row['active_request_id'], native_display=native_info.text)
+                with (output / 'playback-samples.jsonl').open('a') as stream:
+                    stream.write(json.dumps(playback_status) + '\n')
+            (output / 'playback-status.json').write_text(json.dumps(playback_status, indent=2) + '\n')
             next_status = now + 2
         time.sleep(max(0., 1/60 - (time.perf_counter() - now)))
     # Keep references to the UI and capture alive for the lifetime of the loop.
@@ -228,9 +249,13 @@ def main():
                         default=ROOT / 'research/frozen-edge-isaac-no-obstacle-final.json')
     parser.add_argument('--offline-protocol', type=Path,
                         help='Explicit stationary offline prediction viewer; no navigation playback')
+    parser.add_argument('--language-protocol', type=Path,
+                        help='Explicit Modality-8 saved navigation replay with native predictions')
     parser.add_argument('--output', type=Path, required=True,
                         help='New local viewer diagnostics directory; never an experiment directory')
     args, _ = parser.parse_known_args()
+    if args.offline_protocol and args.language_protocol:
+        parser.error('Choose one recorded experiment schema')
     if args.output.resolve().is_relative_to(args.run.resolve()):
         parser.error('Viewer output must be outside the immutable experiment directory')
     config = json.loads(args.config.read_text())
@@ -238,7 +263,10 @@ def main():
     if 'static_obstacle' in config:
         from research.static_obstacle_protocol import verify_static
         verify_static(config, args.config)
-    if args.offline_protocol:
+    if args.language_protocol:
+        from research.pose_language_gui import load_language
+        recordings = load_language(args.run, args.language_protocol, config)
+    elif args.offline_protocol:
         from research.offline_obstacle_gui import load_offline, run_offline_gui
         recordings = load_offline(args.offline_protocol, config)
     else:

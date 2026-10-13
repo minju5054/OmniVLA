@@ -77,3 +77,17 @@
   launcher. Use the Edge Python/NumPy runtime for exact scientific re-analysis;
   Isaac's NumPy 2 viewer reads saved metrics and permits only documented display
   comparison rounding. A short positive-clearance horizon is not safe passage.
+- On `research/omnivla-edge-pose-language-obstacle`, the completed scope is
+  exactly 32 frozen ID-8 offline requests and four independent primary N/D/L/R
+  navigation trials, with one strict Edge/CLIP service load per phase. Both
+  phases were frozen before inference; all four valid collision outcomes are
+  retained. No prompt tuning, scientific retry, controller repair, or further
+  inference is authorized by this task. Preserve the new protocol, prompt plan,
+  all frozen source hashes, historical reports, and all raw observations/actions.
+  Saved-data reanalysis uses the Edge environment; recorded GUI replay uses
+  `bash scripts/isaac_pose_language_gui.sh`. The optional language GUI mode
+  displays exact instructions and native XY at observation poses; overlays are
+  display-only and must never enter model inputs. Distinguish small numerical
+  text effects, directional instruction following, visual sensitivity, safe
+  native geometry, and actual goal-reaching. This matrix established no safe
+  passage and no safe goal entry; do not begin reconciliation on this evidence.
