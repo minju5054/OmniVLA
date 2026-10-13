@@ -1,0 +1,310 @@
+{
+  "schema_version": 2,
+  "seed": 0,
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "goals": [
+    {
+      "name": "STRAIGHT",
+      "pose": [
+        5.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "LEFT",
+      "pose": [
+        5.0,
+        2.0,
+        0.3805063771123649
+      ]
+    },
+    {
+      "name": "RIGHT",
+      "pose": [
+        5.0,
+        -2.0,
+        -0.3805063771123649
+      ]
+    }
+  ],
+  "isaac": {
+    "installation": "/home/gpuadmin/isaacsim",
+    "version_file": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "renderer": "RaytracedLighting",
+    "headless": true,
+    "startup_wall_timeout_s": 300,
+    "lifecycle": "Installed default fast_shutdown=True; write/flush/fsync all evidence before final app.close(exit_code=code); host evaluates termination"
+  },
+  "camera": {
+    "convention": "adapter choice; no exact Edge calibration recovered",
+    "type": "pinhole",
+    "width": 640,
+    "height": 480,
+    "horizontal_fov_deg": 90.0,
+    "height_m": 0.5,
+    "pitch_deg": 0.0,
+    "focal_length_m": 0.02,
+    "horizontal_aperture_m": 0.04,
+    "all_one_masks": true,
+    "axis": "world +X forward, +Y left, +Z up"
+  },
+  "scene": {
+    "floor_center": [
+      5.0,
+      0.0,
+      -0.05
+    ],
+    "floor_dimensions": [
+      30.0,
+      30.0,
+      0.1
+    ],
+    "floor_color": [
+      0.32,
+      0.34,
+      0.36
+    ],
+    "free_region_xy": [
+      -5.0,
+      12.0,
+      -8.0,
+      8.0
+    ],
+    "boundary_x": [
+      -9.0,
+      19.0
+    ],
+    "boundary_y": [
+      -14.0,
+      14.0
+    ],
+    "wall_height_m": 3.0,
+    "wall_thickness_m": 0.1,
+    "dome_intensity": 900.0,
+    "distant_intensity": 1500.0,
+    "grid_spacing_m": 2.0,
+    "grid_width_m": 0.02,
+    "collidable_prims": [
+      "/World/Floor"
+    ],
+    "visual_only": "boundary walls and thin floor grid; no obstacles inside free region",
+    "calibration_panels": {
+      "FRONT": [
+        4.0,
+        0.0,
+        0.5
+      ],
+      "LEFT": [
+        4.0,
+        2.0,
+        0.5
+      ],
+      "RIGHT": [
+        4.0,
+        -2.0,
+        0.5
+      ]
+    },
+    "calibration_colors": {
+      "FRONT": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "LEFT": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "RIGHT": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "calibration_panel_size": [
+      0.05,
+      0.5,
+      0.5
+    ]
+  },
+  "physics_hz": 60,
+  "observation_hz": 3,
+  "history": {
+    "count": 6,
+    "spacing_sim_s": 0.3333333333333333,
+    "order": "oldest to newest",
+    "bootstrap": "six independent rendered captures at rest; first at bootstrap step 0, then every 20 steps",
+    "timing_is_adapter_convention": true
+  },
+  "goal_radius_m": 0.5,
+  "timeout_after_bootstrap_sim_s": 40.0,
+  "controller": {
+    "waypoint_index": 4,
+    "metric_scale": 0.1,
+    "DT": 0.3333333333333333,
+    "EPS": 1e-08,
+    "first_v_clip": [
+      0.0,
+      0.5
+    ],
+    "first_w_clip": [
+      -1.0,
+      1.0
+    ],
+    "maxv": 0.3,
+    "maxw": 0.3,
+    "mode": "unchanged upstream AST"
+  },
+  "modality": {
+    "id": 4,
+    "pose_goal": true,
+    "satellite": false,
+    "image_goal": false,
+    "lan_prompt": false,
+    "language_placeholder": "xxxx",
+    "goal_image": "black",
+    "satellite_images": "black"
+  },
+  "scheduling": {
+    "grid_steps": 20,
+    "max_outstanding": 1,
+    "missed_slot": "capture actual RGB, log MISSED_INFERENCE_SLOT and skip request without queueing",
+    "application": "next physics step after response poll; hold old command until then",
+    "integration": "explicit Euler at dt=1/60",
+    "wall_pacing": "None: synchronous 60 Hz simulation steps, rendering as fast as runtime permits; no injected latency",
+    "application_time": "Timestamp of first completed physics step using the prediction; response polled at preceding step boundary",
+    "startup_command": [
+      0.0,
+      0.0
+    ],
+    "hold": "Previous command while outstanding",
+    "cold_start": "Fresh service for scientific group; first forward cold-start latency retained; no unrecorded warmup"
+  },
+  "stop_rules": [
+    "Goal region entry <=0.5 m",
+    "40 simulation seconds after six-frame bootstrap",
+    "Implementation failure: classify and stop without scientific retry",
+    "Upstream zero-XY clip_angle bug before success: classify and stop",
+    "No obstacle, artificial latency or reconciliation work"
+  ],
+  "starting_sha": "c5ed3b911e0eb4c59d07058eda4a15f6ec405b25",
+  "upstream_sha": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68",
+  "freeze_wall_time": 1791856483.0380285,
+  "date": "2026-10-13",
+  "checkpoint": {
+    "repo": "NHirose/omnivla-edge",
+    "revision": "b1361b7e24f101edea795a98b00a826b61a97394",
+    "filename": "omnivla-edge.pth",
+    "bytes": 434276465,
+    "sha256": "f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d",
+    "path": "models-local/omnivla-edge/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+    "url": "https://huggingface.co/NHirose/omnivla-edge/resolve/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+    "command": "python3 research/fetch_edge_checkpoint.py"
+  },
+  "ipc": {
+    "transport": "Local Unix socket; newline JSON metadata; read-only lossless PNG RGB and .npy native action files",
+    "max_outstanding": 1,
+    "queue": false,
+    "catch_up": false,
+    "identity": [
+      "episode_id",
+      "request_id",
+      "observation_id"
+    ],
+    "integrity": "PNG file SHA256, decoded RGB SHA256, native action file SHA256; response request/observation ID equality",
+    "model_service": "One strict float32 Edge/CLIP load; service remains alive across all three goals",
+    "protocol_version": 1
+  },
+  "scientific_retry_policy": {
+    "primary_runs_per_goal": 1,
+    "goal_order": [
+      "STRAIGHT",
+      "LEFT",
+      "RIGHT"
+    ],
+    "post_outcome_tuning": false,
+    "retries": false,
+    "continue_after_model_timeout": true,
+    "stop_after": [
+      "IMPLEMENTATION_FAILURE",
+      "UPSTREAM_CONTROLLER_BUG",
+      "OOM",
+      "invalid native action",
+      "IPC corruption"
+    ],
+    "unrun_goals": "INSUFFICIENT_EVIDENCE",
+    "goal_success": "First 60 Hz XY distance <=0.5 m; yaw report only",
+    "episode_reset": "Same static stage; reset kinematic camera pose to (0,0,0), render 30 settling steps; capture at bootstrap steps 0,20,40,60,80,100; start 40 s timer immediately after sixth capture"
+  },
+  "seed_policy": "Edge torch.manual_seed(0) and np.random.seed(0); deterministic prescribed kinematic scene; renderer bitwise determinism not claimed",
+  "infrastructure_gates": {
+    "lifecycle": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/lifecycle-001/outcome.json",
+      "sha256": "f1cc6cb9e318be45fc19f39c209b04222537651c7d5466904cde390321ce11bc"
+    },
+    "camera": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/camera-history-001/isaac/camera-gate.json",
+      "sha256": "55badb421a062928d321c66f38a15d2bd2d3081508723f7b558003c62cbf84b7"
+    },
+    "history": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/camera-history-001/isaac/history-gate.json",
+      "sha256": "60b4a43917e057ed3701ab2091efc481b926830c977f87be25693c78b23dcfce"
+    },
+    "pose": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+      "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+    },
+    "ipc": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/outcome.json",
+      "sha256": "32f18a7279997ec817c2881f6dbf74ec998741f5b77a5106db5b68eac1029190"
+    },
+    "strict_load": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/service/strict-load.json",
+      "sha256": "40fc99b7b3b9e59b8507b3163dc8658a8c92ea4c7bdb6be8fc8feaf66a504638"
+    },
+    "combined_memory": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/combined-memory-window.json",
+      "sha256": "978913046c3a7df83c8d3585f87321d529aa59d8b64f10e956b762adf28f8b90"
+    },
+    "scheduler": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/isaac/dummy-scheduler/summary.json",
+      "sha256": "53ec6aca424a0b568faddf8cb1e3183ea2f8cf8d04365f2a3225a54355dfc73b"
+    },
+    "controller_parity": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+      "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+    }
+  },
+  "implementation_sha256": {
+    "inference/model_omnivla_edge.py": "9f3da6355af4bd23f065eeeaad905546c500575cfde9d91a8fc984dd1a69741a",
+    "inference/run_omnivla_edge.py": "bee8f50b5b2355a2b4da26d054bef820d556a585e8be735fff218be342353ec5",
+    "inference/utils_policy.py": "57abbdee79b802f54f18c7360cdcf0592c732493ebc5d006d3014e3c930ec3e1",
+    "research/contracts.py": "8e397cb1173515cdd912090c1e8851545402fb42007d28840d4aeae88c844b0d",
+    "research/edge_contracts.py": "8131420b64d93a3ce22d8ff767c423cb9bc1122333640d36e987b9cc09148b17",
+    "research/edge_isaac_service.py": "04978bb3bb89c77ae91d3691b2225702c7c08d3b9d9d149dd5f6119f91dd58e0",
+    "research/isaac_final_adapter.py": "79103a680a4e21977df3207371a28e906cbb7352f695fcf08010dd6f5f2f846b",
+    "research/isaac_final_common.py": "3cadbfdf7faa326f0bb776be3e0baa2fa9a4b9da96eb2e4f4b4c7f3307cb8bb8",
+    "research/isaac_final_contracts.py": "67b36935983ebab4e76baae5b775570b2473a8fa319ffef8ae61b774f5ce8cfc",
+    "research/isaac_final_navigation.py": "9538f53ae326d0fb3bef7ccff03f42caefb65ebb118fe5b299d8b728077dd399",
+    "research/isaac_final_run.py": "faa953b4a4409cbbfccefa069ca017882451af174ad952998d5d1656d91e54ef",
+    "research/isaac_scene.py": "41c3fb6519bf8724f68857eb2320202678c04634bed39e5bbc5f67a07b49ac88",
+    "research/isaac_startup_gate.py": "46ddb1ae0043dae05c2e30d929ad264172e604e757f20f3e3efb37977bbd5055",
+    "research/run_isaac_final_attempt.py": "b46889e12b762ef39796e8b0feff9887ffa33891c096eadd155a5fada14a37f5",
+    "scripts/isaac6_python.sh": "d71e06f693ecf9bd92051fa350af0e88b4c5d7b7f8fcfefbc76a1fb2e69a49ad"
+  }
+}

@@ -129,7 +129,12 @@ class RecoveryEvidenceTests(unittest.TestCase):
             previous = set(json.loads(before.read_text()))
             current = {p.relative_to(ROOT).as_posix()
                        for p in (ROOT / 'outputs').rglob('*') if p.is_file()}
-            self.assertEqual(current - previous, set(audit['new_files']))
+            # Later authorized tasks may add outputs. Validate only this historical
+            # recovery run against its recorded inventory and immutable hashes.
+            recovery_files = {p for p in current - previous if p.startswith(prefix)}
+            self.assertEqual(recovery_files, set(audit['new_files']))
+            for path, sha in audit['new_files'].items():
+                self.assertEqual(digest(ROOT / path), sha)
             self.assertEqual(previous - current, set())
 
     def test_diagnostic_classification_supported(self):

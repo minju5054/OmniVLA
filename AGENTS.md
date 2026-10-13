@@ -32,3 +32,16 @@
 - Checkpoint load is not sample inference; sample inference is not navigation;
   navigation is not obstacle avoidance. Controller cadence is not intrinsic
   waypoint timing; newer Torch compatibility is not official dependency parity.
+- On `research/omnivla-edge-no-obstacle-final`, distinguish infrastructure
+  debugging from scientific experiments. Infrastructure retries are allowed to
+  establish technical correctness; record every command, run ID, change, result
+  and failure reason on this branch. Do not create a branch/report per retry.
+- Scientific navigation starts only after all infrastructure gates pass and the
+  protocol is hashed. Use one primary run per frozen goal, no post-outcome tuning
+  or silent reruns. Classify escaped implementation failures separately from
+  model navigation failures. No obstacle or artificial-latency experiments here.
+- The Isaac CUDA library-path collision is confirmed and resolved by the local
+  `scripts/isaac6_python.sh` isolation. Reuse validated infrastructure knowledge
+  across repositories when source/runtime equivalence is demonstrated; do not
+  repeat solved environment investigations unless relevant hashes changed.
+  Preserve historical reports and original experiment evidence unchanged.

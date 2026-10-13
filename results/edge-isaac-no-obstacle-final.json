@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "starting_sha": "c5ed3b911e0eb4c59d07058eda4a15f6ec405b25",
+  "branch": "research/omnivla-edge-no-obstacle-final",
+  "upstream_sha": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68",
+  "isaac": {
+    "root": "/home/gpuadmin/isaacsim",
+    "version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "default_fast_shutdown": true,
+    "close_signature": "close(self, wait_for_replicator: bool = True, skip_cleanup: bool = False, exit_code: int = 0)",
+    "installed_source_sha256": "6af5372bb0cdda6e665a30cd285ff724b3e5bd012dbdd4df458e0726173fc903",
+    "library_hashes_unchanged": true,
+    "installation_sha256": {
+      "/home/gpuadmin/isaacsim/python.sh": "37f7e3717f1fce1800d0b15b55fcd754c909978bd2455b9d6de3d22d77a92bc3",
+      "/home/gpuadmin/isaacsim/setup_python_env.sh": "0f73e6dac65efa1a28f994939f4734859d2c39eb236c658bfad9fab70c8882e6",
+      "/home/gpuadmin/isaacsim/VERSION": "dd69799842a727b6a272edfaaa11b471be6ca19a2d2806973eb5ddb89a2aac0d"
+    }
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5060 Ti",
+    "driver": "595.99.02",
+    "total_MiB": 16311,
+    "combined_gate_peak_MiB": 3720,
+    "scientific_device_peak_MiB": 3821,
+    "scope": "Device-wide including desktop; sampled every 0.25 wall s, short unsampled peaks possible"
+  },
+  "infrastructure_attempts": [
+    {
+      "run_id": "lifecycle-001",
+      "phase": "lifecycle",
+      "command": "/usr/bin/python3 research/run_isaac_final_attempt.py --run-id lifecycle-001 --phase lifecycle --change 'Use installed default fast shutdown; fsync evidence before final app.close(exit_code=code)'",
+      "child_command": "scripts/isaac6_python.sh research/isaac_final_run.py --phase lifecycle --output /home/gpuadmin/Workspace/OmniVLA/outputs/edge-final/lifecycle-001/isaac --config research/frozen-edge-isaac-goals.json",
+      "service_command": null,
+      "change": "Use installed default fast shutdown; fsync evidence before final app.close(exit_code=code)",
+      "status": "PASS",
+      "failure_reason": null,
+      "launcher_exit_code": 0,
+      "service_exit_code": null,
+      "segmentation_fault": false,
+      "cuda_symbol_error": false,
+      "residual_isaac_processes": [],
+      "wall_seconds": 12.370461463928223,
+      "device_memory_peak_MiB": 2358,
+      "attempt_sha256": "b57c0bbd98d93cf237db32185f8f41ac940975d066ac843337c79eed21b5b05f",
+      "outcome_sha256": "f1cc6cb9e318be45fc19f39c209b04222537651c7d5466904cde390321ce11bc",
+      "raw_path": "outputs/edge-final/lifecycle-001"
+    },
+    {
+      "run_id": "camera-history-001",
+      "phase": "camera",
+      "command": "/usr/bin/python3 research/run_isaac_final_attempt.py --run-id camera-history-001 --phase camera --change 'Add model-free FRONT/LEFT/RIGHT marker and actual stationary/rolling history validation; same scene and camera geometry'",
+      "child_command": "scripts/isaac6_python.sh research/isaac_final_run.py --phase camera --output /home/gpuadmin/Workspace/OmniVLA/outputs/edge-final/camera-history-001/isaac --config research/frozen-edge-isaac-goals.json",
+      "service_command": null,
+      "change": "Add model-free FRONT/LEFT/RIGHT marker and actual stationary/rolling history validation; same scene and camera geometry",
+      "status": "PASS",
+      "failure_reason": null,
+      "launcher_exit_code": 0,
+      "service_exit_code": null,
+      "segmentation_fault": false,
+      "cuda_symbol_error": false,
+      "residual_isaac_processes": [],
+      "wall_seconds": 15.376394510269165,
+      "device_memory_peak_MiB": 2298,
+      "attempt_sha256": "1bcdf6b8da391bb2eeef0f4f0aced32cc7751bdcd8d8617aad6c9a0ee949723c",
+      "outcome_sha256": "71a9e02f00b056cd76f19eb0a36df6b32768ebd691029891d5d314a4f38b8173",
+      "raw_path": "outputs/edge-final/camera-history-001"
+    },
+    {
+      "run_id": "combined-001",
+      "phase": "combined",
+      "command": "/usr/bin/python3 research/run_isaac_final_attempt.py --run-id combined-001 --phase combined --change 'Add persistent strict-loaded Edge service, lossless dummy IPC/scheduler and three stationary inference checks with Isaac alive; no model commands applied'",
+      "child_command": "scripts/isaac6_python.sh research/isaac_final_run.py --phase combined --output /home/gpuadmin/Workspace/OmniVLA/outputs/edge-final/combined-001/isaac --config research/frozen-edge-isaac-goals.json --socket /tmp/omnivla-626539.sock",
+      "service_command": "artifacts-local/envs/edge-blackwell/bin/python research/edge_isaac_service.py --socket /tmp/omnivla-626539.sock --output /home/gpuadmin/Workspace/OmniVLA/outputs/edge-final/combined-001/service",
+      "change": "Add persistent strict-loaded Edge service, lossless dummy IPC/scheduler and three stationary inference checks with Isaac alive; no model commands applied",
+      "status": "PASS",
+      "failure_reason": null,
+      "launcher_exit_code": 0,
+      "service_exit_code": 0,
+      "segmentation_fault": false,
+      "cuda_symbol_error": false,
+      "residual_isaac_processes": [],
+      "wall_seconds": 21.807772397994995,
+      "device_memory_peak_MiB": 3720,
+      "attempt_sha256": "82fda4f759c3226658474f55bd3af46cac1f0ac341de34d0b26079e8ba4b25a3",
+      "outcome_sha256": "32f18a7279997ec817c2881f6dbf74ec998741f5b77a5106db5b68eac1029190",
+      "raw_path": "outputs/edge-final/combined-001"
+    }
+  ],
+  "infrastructure_gates": {
+    "lifecycle": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/lifecycle-001/outcome.json",
+      "sha256": "f1cc6cb9e318be45fc19f39c209b04222537651c7d5466904cde390321ce11bc"
+    },
+    "camera": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/camera-history-001/isaac/camera-gate.json",
+      "sha256": "55badb421a062928d321c66f38a15d2bd2d3081508723f7b558003c62cbf84b7"
+    },
+    "history": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/camera-history-001/isaac/history-gate.json",
+      "sha256": "60b4a43917e057ed3701ab2091efc481b926830c977f87be25693c78b23dcfce"
+    },
+    "pose": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+      "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+    },
+    "ipc": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/outcome.json",
+      "sha256": "32f18a7279997ec817c2881f6dbf74ec998741f5b77a5106db5b68eac1029190"
+    },
+    "strict_load": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/service/strict-load.json",
+      "sha256": "40fc99b7b3b9e59b8507b3163dc8658a8c92ea4c7bdb6be8fc8feaf66a504638"
+    },
+    "combined_memory": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/combined-memory-window.json",
+      "sha256": "978913046c3a7df83c8d3585f87321d529aa59d8b64f10e956b762adf28f8b90"
+    },
+    "scheduler": {
+      "status": "PASS",
+      "evidence": "outputs/edge-final/combined-001/isaac/dummy-scheduler/summary.json",
+      "sha256": "53ec6aca424a0b568faddf8cb1e3183ea2f8cf8d04365f2a3225a54355dfc73b"
+    },
+    "controller_parity": {
+      "status": "PASS",
+      "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+      "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+    }
+  },
+  "camera": {
+    "centroids": {
+      "FRONT": {
+        "pixels": 1600,
+        "x": 319.5,
+        "y": 239.5
+      },
+      "LEFT": {
+        "pixels": 1680,
+        "x": 159.5,
+        "y": 239.5
+      },
+      "RIGHT": {
+        "pixels": 1680,
+        "x": 479.5,
+        "y": 239.5
+      }
+    },
+    "horizontal_fov_deg": 90.0,
+    "criterion": ">=30 dominant-color pixels each; FRONT within 64px of center, LEFT < FRONT-60, RIGHT > FRONT+60",
+    "resolution": [
+      640,
+      480
+    ],
+    "status": "PASS"
+  },
+  "combined_memory": {
+    "start_wall": 1791856264.6631575,
+    "end_wall": 1791856265.1609929,
+    "samples": [
+      {
+        "wall": 1791856264.859835,
+        "used_MiB": 3720
+      },
+      {
+        "wall": 1791856265.123743,
+        "used_MiB": 3720
+      }
+    ],
+    "peak_MiB": 3720,
+    "device_total_MiB": 16311,
+    "scope": "Device-wide, includes desktop; both Isaac and strict-loaded Edge alive, finite inference in progress"
+  },
+  "strict_load": {
+    "strict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "status": "STRICT_LOAD_PASS",
+    "checkpoint": {
+      "repo": "NHirose/omnivla-edge",
+      "revision": "b1361b7e24f101edea795a98b00a826b61a97394",
+      "filename": "omnivla-edge.pth",
+      "bytes": 434276465,
+      "sha256": "f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d",
+      "path": "models-local/omnivla-edge/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+      "url": "https://huggingface.co/NHirose/omnivla-edge/resolve/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+      "command": "python3 research/fetch_edge_checkpoint.py"
+    },
+    "device": "cuda:0",
+    "dtype": "float32",
+    "torch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "numpy": "1.26.4",
+    "load_count": 1,
+    "clip_sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+    "allocated_bytes": 1049351680,
+    "reserved_bytes": 1335885824
+  },
+  "scientific_attempt_count": 1,
+  "scientific_run_id": "scientific-001",
+  "scientific_command": "/usr/bin/python3 research/run_isaac_final_attempt.py --run-id scientific-001 --phase scientific --config research/frozen-edge-isaac-no-obstacle-final.json --timeout 600 --change 'Frozen protocol fb40d57f7999da622d99f33ed019132d1562dde40d14f8c506e40efde63ccbf2; one primary trial per declared goal, no tuning or retries'",
+  "scientific_launch": {
+    "status": "PASS",
+    "launcher_exit_code": 0,
+    "service_exit_code": 0,
+    "segmentation_fault": false,
+    "cuda_symbol_error": false,
+    "residual_isaac_processes": [],
+    "residual_service_processes": [],
+    "timed_out": false,
+    "wall_seconds": 55.109397888183594
+  },
+  "frozen_config_path": "research/frozen-edge-isaac-no-obstacle-final.json",
+  "frozen_config_sha256": "fb40d57f7999da622d99f33ed019132d1562dde40d14f8c506e40efde63ccbf2",
+  "scientific_validation": "PASS",
+  "validation_path": "artifacts-local/edge-final/scientific-validation-002.json",
+  "validation_sha256": "9679cebf7712de2c5b19442ebb01d63805e4cdd44397784d7199b4feddd61e5e",
+  "episodes": {
+    "STRAIGHT": {
+      "episode_id": "STRAIGHT",
+      "scientific": true,
+      "status": "GOAL_REACHED",
+      "failure_reason": null,
+      "completed_steps": 930,
+      "elapsed_sim_s": 15.5,
+      "wall_seconds": 11.032193422317505,
+      "sim_wall_ratio": 1.4049789925405383,
+      "final_pose": [
+        4.528027582172443,
+        -0.15066332738515878,
+        0.004691037107258922
+      ],
+      "final_distance_m": 0.4954365765754051,
+      "final_yaw_error_rad": -0.004691037107258922,
+      "goal_reached": true,
+      "time_to_goal_sim_s": 15.5,
+      "target_observation_hz": 3,
+      "capture_interval_sim_s": {
+        "count": 46,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.3333333333333357
+      },
+      "request_interval_sim_s": {
+        "count": 45,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.6666666666666667
+      },
+      "model_ms": {
+        "count": 45,
+        "median": 14.590116988983937,
+        "p95": 17.924058999051336,
+        "max": 144.3846320034936
+      },
+      "inference_with_clip_ms": {
+        "count": 45,
+        "median": 23.618873005034402,
+        "p95": 29.556911191320975,
+        "max": 251.5772970073158
+      },
+      "pipeline_ms": {
+        "count": 45,
+        "median": 71.96265600214247,
+        "p95": 91.50660180312111,
+        "max": 298.868678000872
+      },
+      "observation_to_application_sim_s": {
+        "count": 45,
+        "median": 0.16666666666666607,
+        "p95": 0.23333333333333411,
+        "max": 0.40000000000000013
+      },
+      "observation_to_application_wall_ms": {
+        "count": 45,
+        "median": 94.90656852722168,
+        "p95": 142.19441413879392,
+        "max": 350.2495288848877
+      },
+      "missed_slots": 1,
+      "requests": 46,
+      "applied_predictions": 45,
+      "action_update_hz_sim": 2.903225806451613,
+      "first_clip_saturation_count": 45,
+      "final_ratio_limit_count": 45,
+      "zero_xy_bug_occurrences": 0,
+      "observation_pose_anchor": true,
+      "all_inference_latency": {
+        "model_ms": {
+          "count": 46,
+          "median": 14.693564495246392,
+          "p95": 17.906089749885723,
+          "max": 144.3846320034936
+        },
+        "forward_with_clip_ms": {
+          "count": 46,
+          "median": 23.746287006360944,
+          "p95": 29.516899241571082,
+          "max": 251.5772970073158
+        },
+        "pipeline_ms": {
+          "count": 46,
+          "median": 71.96238950564293,
+          "p95": 90.84021800299524,
+          "max": 298.868678000872
+        }
+      },
+      "inference_count_including_unapplied": 46,
+      "unapplied_predictions": 1,
+      "final_yaw_error_deg": -0.2687766277851947,
+      "world_goal": [
+        5.0,
+        0.0,
+        0.0
+      ],
+      "raw_path": "outputs/edge-final/scientific-001/isaac/STRAIGHT/raw",
+      "summary_sha256": "d4f9dd81a27a22b1e8cc67a7757adbbad31526959aafcc49d8b2eb5f4889f754",
+      "recorded_frame_to_applied_step_wall_ms": {
+        "count": 45,
+        "median": 109.92288589477539,
+        "p95": 187.14714050292955,
+        "max": 358.9165210723877
+      }
+    },
+    "LEFT": {
+      "episode_id": "LEFT",
+      "scientific": true,
+      "status": "GOAL_REACHED",
+      "failure_reason": null,
+      "completed_steps": 1008,
+      "elapsed_sim_s": 16.8,
+      "wall_seconds": 11.868291139602661,
+      "sim_wall_ratio": 1.415536558918831,
+      "final_pose": [
+        4.708965660849915,
+        1.597122968039312,
+        0.3753079998027515
+      ],
+      "final_distance_m": 0.4970019008474513,
+      "final_yaw_error_rad": 0.005198377309613422,
+      "goal_reached": true,
+      "time_to_goal_sim_s": 16.8,
+      "target_observation_hz": 3,
+      "capture_interval_sim_s": {
+        "count": 50,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.3333333333333357
+      },
+      "request_interval_sim_s": {
+        "count": 50,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.3333333333333357
+      },
+      "model_ms": {
+        "count": 51,
+        "median": 12.5751349987695,
+        "p95": 17.4238819963648,
+        "max": 17.70760399813298
+      },
+      "inference_with_clip_ms": {
+        "count": 51,
+        "median": 20.072473998880014,
+        "p95": 29.3095035085571,
+        "max": 30.39346099831164
+      },
+      "pipeline_ms": {
+        "count": 51,
+        "median": 68.01550900854636,
+        "p95": 83.41337250749348,
+        "max": 94.94139900198206
+      },
+      "observation_to_application_sim_s": {
+        "count": 51,
+        "median": 0.15000000000000036,
+        "p95": 0.23333333333333295,
+        "max": 0.25
+      },
+      "observation_to_application_wall_ms": {
+        "count": 51,
+        "median": 89.20121192932129,
+        "p95": 122.8407621383667,
+        "max": 127.85816192626953
+      },
+      "missed_slots": 0,
+      "requests": 51,
+      "applied_predictions": 51,
+      "action_update_hz_sim": 3.0357142857142856,
+      "first_clip_saturation_count": 51,
+      "final_ratio_limit_count": 51,
+      "zero_xy_bug_occurrences": 0,
+      "observation_pose_anchor": true,
+      "all_inference_latency": {
+        "model_ms": {
+          "count": 51,
+          "median": 12.5751349987695,
+          "p95": 17.4238819963648,
+          "max": 17.70760399813298
+        },
+        "forward_with_clip_ms": {
+          "count": 51,
+          "median": 20.072473998880014,
+          "p95": 29.3095035085571,
+          "max": 30.39346099831164
+        },
+        "pipeline_ms": {
+          "count": 51,
+          "median": 68.01550900854636,
+          "p95": 83.41337250749348,
+          "max": 94.94139900198206
+        }
+      },
+      "inference_count_including_unapplied": 51,
+      "unapplied_predictions": 0,
+      "final_yaw_error_deg": 0.2978450801574207,
+      "world_goal": [
+        5.0,
+        2.0,
+        0.3805063771123649
+      ],
+      "raw_path": "outputs/edge-final/scientific-001/isaac/LEFT/raw",
+      "summary_sha256": "cbb3686f05418408b62f4cf4e2e673dd026d1ba191d838d63495200267e1413b",
+      "recorded_frame_to_applied_step_wall_ms": {
+        "count": 51,
+        "median": 97.91350364685059,
+        "p95": 132.6972246170044,
+        "max": 135.68878173828125
+      }
+    },
+    "RIGHT": {
+      "episode_id": "RIGHT",
+      "scientific": true,
+      "status": "GOAL_REACHED",
+      "failure_reason": null,
+      "completed_steps": 1001,
+      "elapsed_sim_s": 16.683333333333334,
+      "wall_seconds": 11.246443748474121,
+      "sim_wall_ratio": 1.483431892467952,
+      "final_pose": [
+        4.5251658167691895,
+        -1.8581047135768658,
+        -0.4352833431959091
+      ],
+      "final_distance_m": 0.4955822574241074,
+      "final_yaw_error_rad": 0.05477696608354421,
+      "goal_reached": true,
+      "time_to_goal_sim_s": 16.683333333333334,
+      "target_observation_hz": 3,
+      "capture_interval_sim_s": {
+        "count": 50,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.3333333333333357
+      },
+      "request_interval_sim_s": {
+        "count": 50,
+        "median": 0.3333333333333335,
+        "p95": 0.3333333333333339,
+        "max": 0.3333333333333357
+      },
+      "model_ms": {
+        "count": 50,
+        "median": 15.259740001056343,
+        "p95": 17.453424651466776,
+        "max": 17.922835002536885
+      },
+      "inference_with_clip_ms": {
+        "count": 50,
+        "median": 24.85927250381792,
+        "p95": 30.554587954975432,
+        "max": 31.030647005536593
+      },
+      "pipeline_ms": {
+        "count": 50,
+        "median": 69.29789899731986,
+        "p95": 87.5397062023694,
+        "max": 147.3310859873891
+      },
+      "observation_to_application_sim_s": {
+        "count": 50,
+        "median": 0.18333333333333357,
+        "p95": 0.23333333333333428,
+        "max": 0.25
+      },
+      "observation_to_application_wall_ms": {
+        "count": 50,
+        "median": 82.71396160125732,
+        "p95": 141.37550592422485,
+        "max": 152.235746383667
+      },
+      "missed_slots": 0,
+      "requests": 51,
+      "applied_predictions": 50,
+      "action_update_hz_sim": 2.9970029970029968,
+      "first_clip_saturation_count": 50,
+      "final_ratio_limit_count": 50,
+      "zero_xy_bug_occurrences": 0,
+      "observation_pose_anchor": true,
+      "all_inference_latency": {
+        "model_ms": {
+          "count": 51,
+          "median": 15.04684799874667,
+          "p95": 17.43578950117808,
+          "max": 17.922835002536885
+        },
+        "forward_with_clip_ms": {
+          "count": 51,
+          "median": 24.803206004435197,
+          "p95": 30.550925504940096,
+          "max": 31.030647005536593
+        },
+        "pipeline_ms": {
+          "count": 51,
+          "median": 68.72549898980651,
+          "p95": 87.23671000188915,
+          "max": 147.3310859873891
+        }
+      },
+      "inference_count_including_unapplied": 51,
+      "unapplied_predictions": 1,
+      "final_yaw_error_deg": 3.1384889711183375,
+      "world_goal": [
+        5.0,
+        -2.0,
+        -0.3805063771123649
+      ],
+      "raw_path": "outputs/edge-final/scientific-001/isaac/RIGHT/raw",
+      "summary_sha256": "c61da02281617964f902df6f2c09362f13b071361ff39162a94ded4f6c22b0c8",
+      "recorded_frame_to_applied_step_wall_ms": {
+        "count": 50,
+        "median": 90.42155742645264,
+        "p95": 148.45346212387085,
+        "max": 157.5632095336914
+      }
+    }
+  },
+  "aggregate": {
+    "inferences": 148,
+    "applied_predictions": 146,
+    "unapplied_predictions": 2,
+    "missed_slots": 1,
+    "first_clip_saturation_count": 146,
+    "final_ratio_limit_count": 146,
+    "zero_xy_bug_occurrences": 0,
+    "all_inference_latency": {
+      "model_ms": {
+        "count": 148,
+        "median": 14.537235489115119,
+        "p95": 17.48829850475886,
+        "max": 144.3846320034936
+      },
+      "forward_with_clip_ms": {
+        "count": 148,
+        "median": 22.97513550001895,
+        "p95": 30.323035399487708,
+        "max": 251.5772970073158
+      },
+      "pipeline_ms": {
+        "count": 148,
+        "median": 70.02801100315992,
+        "p95": 85.97651734889952,
+        "max": 298.868678000872
+      }
+    },
+    "observation_to_application_wall_ms": {
+      "count": 146,
+      "median": 85.79552173614502,
+      "p95": 136.72173023223877,
+      "max": 350.2495288848877
+    },
+    "observation_to_application_sim_s": {
+      "count": 146,
+      "median": 0.16666666666666607,
+      "p95": 0.23333333333333428,
+      "max": 0.40000000000000013
+    },
+    "recorded_frame_to_applied_step_wall_ms": {
+      "count": 146,
+      "median": 95.40247917175293,
+      "p95": 147.02510833740234,
+      "max": 358.9165210723877
+    }
+  },
+  "cold_start_retained": true,
+  "artificial_latency": false,
+  "historical_report_sha256": {
+    "docs/EDGE_OMNIVLA_PREFLIGHT.md": "c4097bf147774f04417816a6baa8cccd177f6b4681581735e8b8d18e3d0ed5ac",
+    "docs/FULL_OMNIVLA_PREFLIGHT.md": "bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03",
+    "docs/EDGE_ISAAC_NO_OBSTACLE.md": "fd96e229114ce92407171e48de6382f00c323ac18be0030dcb9466b34c9a3bf2",
+    "docs/EDGE_ISAAC_RUNTIME_RECOVERY.md": "e3326c399a17025fe6a96cabfb3a034f8d346938feb8c2cca62f347d0c5b72c4"
+  },
+  "source_audit_sha256": "57b03862ea16eddf52439bc3c5933585a29cf6501c381fd3bbcc6ab2aac2137e",
+  "validation_tests": {
+    "pre_freeze_passed": 83,
+    "pre_freeze_log": "artifacts-local/edge-final/pre-freeze-tests.log",
+    "pre_freeze_log_sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e",
+    "final_passed": 87,
+    "final_log": "artifacts-local/edge-final/final-tests.log",
+    "final_log_sha256": "732f7bdb22af55289242892c8de98683b40f65e7647133a6ac7622a8a8ca0eed"
+  },
+  "decision": "NO_OBSTACLE_GOAL_REACHING_PASS",
+  "limitations": [
+    "One primary trial per goal; no reliability claim",
+    "Simple kinematic SE(2), no physical robot dynamics",
+    "Camera/history timing are adapter conventions, not recovered official calibration/training timing",
+    "Lossless PNG transport/hash verification adds measured CPU/file overhead",
+    "Shader/rendering bitwise determinism not claimed",
+    "Device memory sampled, not exhaustive instantaneous peak",
+    "No obstacle avoidance or latency robustness evidence"
+  ],
+  "not_run": [
+    "static obstacle",
+    "human/pedestrian",
+    "moving obstacle",
+    "artificial latency",
+    "OLD/FRESH chunks",
+    "reconciliation",
+    "graph optimization"
+  ],
+  "next_uncertainty": "Can the same frozen OmniVLA-edge + Isaac adapter safely detour around a predeclared static obstacle without changing model, camera, history, controller, cadence, or goal semantics?",
+  "timing_definitions": {
+    "reported_wall_delay": "Latest frame metadata wall timestamp (recorded after PNG save) to completion of first physics step using prediction. PNG acquisition/write before frame timestamp is excluded.",
+    "simulation_delay": "Observation simulation timestamp to first completed physics step using prediction.",
+    "raw_summary_wall_metric": "Fields named observation_to_application_wall_ms in original episode summaries actually span request send to pre-step response-handling marker; retained unchanged. Reported frame-to-applied-step delay is derived separately from raw timestamps.",
+    "model_ms": "CUDA-synchronized Edge forward hook interval",
+    "forward_with_clip_ms": "Official run_forward_pass including CLIP encoding and output print",
+    "pipeline_ms": "Service RGB read/hash verification, official preprocessing, forward, immutable action save and controller; excludes socket response serialization"
+  },
+  "derived_plot": {
+    "path": "outputs/edge-final/scientific-001/derived/navigation-summary.png",
+    "sha256": "26df672e89027b3cf2ee88a39bfd7ef1b8d348f29e46f832c36a59a0606765ac"
+  }
+}

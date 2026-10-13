@@ -531,3 +531,43 @@ is resolved in a separately authorized runtime task. No obstacle work began.
   unmeasured and needs a separately authorized task.
 
 Validation outcome: all 24 focused CPU checks passed; `git diff --check` passed.
+
+
+## 2026-10-13 — Final OmniVLA-edge obstacle-free Isaac qualification
+
+Starting SHA `c5ed3b911e0eb4c59d07058eda4a15f6ec405b25`; branch `research/omnivla-edge-no-obstacle-final`.
+Updated AGENTS.md to allow logged infrastructure debugging retries while keeping
+frozen scientific trials one-shot, with no post-outcome tuning. Reused the
+verified process-local CUDA isolation; installation/library hashes were unchanged.
+Inspected installed SimulationApp source and adopted default fast shutdown,
+durable pre-close evidence, and final `app.close(exit_code=code)`.
+
+Infrastructure attempts lifecycle-001, camera-history-001 and combined-001 all
+passed, with exit 0 and no residual Isaac process. Camera marker x centers were
+319.5/159.5/479.5 px (FRONT/LEFT/RIGHT), FOV 90 degrees. Actual six-frame history,
+pose/source parity, lossless single-outstanding IPC, strict float32 Edge load,
+scheduler and controller parity passed. Combined active-inference memory was
+3720 MiB device-wide; scientific peak 3821 MiB, sampled every 0.25 s. A first
+socket unit test was blocked by sandbox EPERM; unchanged host-access retry passed.
+All attempts and failures remain recorded locally.
+
+After 83 passing pre-freeze checks, froze protocol SHA256
+`fb40d57f7999da622d99f33ed019132d1562dde40d14f8c506e40efde63ccbf2`. Exactly one scientific group
+scientific-001 ran STRAIGHT/LEFT/RIGHT, each once. All reached the 0.5 m region:
+STRAIGHT 15.50 s / 0.495436577 m; LEFT 16.80 s / 0.497001901 m;
+RIGHT 16.683333 s / 0.495582257 m. All frozen runtime/config hashes unchanged.
+148 finite native outputs, 146 applied; 2 endpoint responses retained unapplied.
+One missed slot, 146 initial clips and final ratio limits, zero zero-XY bugs.
+Model median/p95/max 14.537/17.488/144.385 ms; forward+CLIP
+22.975/30.323/251.577 ms. No artificial latency. Derived frame-record-to-applied-
+step wall delay is 95.402/147.025/358.917 ms; raw request-send timing is preserved
+and distinguished in the report.
+
+Decision: **NO_OBSTACLE_GOAL_REACHING_PASS**. Offline raw evidence validation
+passed; final suite 87 tests passed. Historical reports unchanged; no model,
+controller, scene, camera or timing tuning after freeze. No obstacle, pedestrian,
+latency-injection, OLD/FRESH or reconciliation work performed.
+Report: `docs/EDGE_ISAAC_NO_OBSTACLE_FINAL.md`; compact result:
+`results/edge-isaac-no-obstacle-final.json`; ignored evidence: `outputs/edge-final/`.
+
+Next uncertainty: Can the same frozen OmniVLA-edge + Isaac adapter safely detour around a predeclared static obstacle without changing model, camera, history, controller, cadence, or goal semantics?
