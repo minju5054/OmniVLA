@@ -1,0 +1,152 @@
+{
+  "protocol": "EDGE_OBSTACLE_OFFLINE_V1",
+  "starting_sha": "8ac8352a06b5ac05a778cda09fbe9269604c7a5b",
+  "world_goal": [
+    5.0,
+    0.0,
+    0.0
+  ],
+  "cases": [
+    {
+      "case_id": "D200_OBSTACLE_PRESENT",
+      "pose_id": "D200",
+      "distance_to_front_m": 2.0,
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_PRESENT",
+      "request_id": 0
+    },
+    {
+      "case_id": "D200_OBSTACLE_ABSENT",
+      "pose_id": "D200",
+      "distance_to_front_m": 2.0,
+      "pose": [
+        0.2,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_ABSENT",
+      "request_id": 1
+    },
+    {
+      "case_id": "D150_OBSTACLE_PRESENT",
+      "pose_id": "D150",
+      "distance_to_front_m": 1.5,
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_PRESENT",
+      "request_id": 2
+    },
+    {
+      "case_id": "D150_OBSTACLE_ABSENT",
+      "pose_id": "D150",
+      "distance_to_front_m": 1.5,
+      "pose": [
+        0.7,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_ABSENT",
+      "request_id": 3
+    },
+    {
+      "case_id": "D100_OBSTACLE_PRESENT",
+      "pose_id": "D100",
+      "distance_to_front_m": 1.0,
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_PRESENT",
+      "request_id": 4
+    },
+    {
+      "case_id": "D100_OBSTACLE_ABSENT",
+      "pose_id": "D100",
+      "distance_to_front_m": 1.0,
+      "pose": [
+        1.2,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_ABSENT",
+      "request_id": 5
+    },
+    {
+      "case_id": "D070_OBSTACLE_PRESENT",
+      "pose_id": "D070",
+      "distance_to_front_m": 0.7,
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_PRESENT",
+      "request_id": 6
+    },
+    {
+      "case_id": "D070_OBSTACLE_ABSENT",
+      "pose_id": "D070",
+      "distance_to_front_m": 0.7,
+      "pose": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "condition": "OBSTACLE_ABSENT",
+      "request_id": 7
+    }
+  ],
+  "conditions": [
+    "OBSTACLE_PRESENT",
+    "OBSTACLE_ABSENT"
+  ],
+  "requested_inferences": 8,
+  "one_request_per_case": true,
+  "robot_execution": false,
+  "seed_policy": "Existing service: torch.manual_seed(0), np.random.seed(0) once at load, model.eval; no per-condition reseeding or warmup",
+  "execution_order": "Distances 2.0, 1.5, 1.0, 0.7 m; PRESENT then ABSENT at each pose",
+  "history": {
+    "count": 6,
+    "spacing_sim_s": 0.3333333333333333,
+    "physics_hz": 60,
+    "stationary": true,
+    "settling_steps_before_each_case": 120,
+    "frame_steps": [
+      0,
+      20,
+      40,
+      60,
+      80,
+      100
+    ]
+  },
+  "screening": {
+    "material_lateral_threshold_m": 0.2,
+    "statistical_significance": false
+  },
+  "spatial_evaluation": {
+    "radius_m": 0.2,
+    "margin_m": 0.1,
+    "safe_passage": "Minimum entire polyline clearance >= 0.10 m, observation x <= 1.9 m and polyline reaches x >= 3.1 m; collision and low-clearance take precedence",
+    "row_timestamps": null,
+    "interpolation": "Evaluation-only straight segments, observation point included"
+  },
+  "input_validity": {
+    "present_red_pixels_min": 1000,
+    "absent_red_pixels_max": 20,
+    "latest_pair_mean_abs_pixel_difference_min": 1.0,
+    "stationary_pose_max_abs_error": 1e-06,
+    "require_no_gui_markers": true,
+    "renderer_noise": "Measure six-frame within-condition differences; no assumption of exact background equality",
+    "ghost_check": "After 120 settling steps, all absent frames must have <=20 red-dominant pixels; compare disappearance in the present-object image mask"
+  },
+  "source_static_config_sha256": "f8cdbfe22a32a335968976c80a4c86994154866fcf859277a81f4ce911b73728"
+}

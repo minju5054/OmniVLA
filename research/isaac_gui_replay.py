@@ -226,6 +226,8 @@ def main():
     parser.add_argument('--run', type=Path, default=ROOT / 'outputs/edge-final/scientific-001')
     parser.add_argument('--config', type=Path,
                         default=ROOT / 'research/frozen-edge-isaac-no-obstacle-final.json')
+    parser.add_argument('--offline-protocol', type=Path,
+                        help='Explicit stationary offline prediction viewer; no navigation playback')
     parser.add_argument('--output', type=Path, required=True,
                         help='New local viewer diagnostics directory; never an experiment directory')
     args, _ = parser.parse_known_args()
@@ -236,7 +238,11 @@ def main():
     if 'static_obstacle' in config:
         from research.static_obstacle_protocol import verify_static
         verify_static(config, args.config)
-    recordings = load_recordings(args.run, config)
+    if args.offline_protocol:
+        from research.offline_obstacle_gui import load_offline, run_offline_gui
+        recordings = load_offline(args.offline_protocol, config)
+    else:
+        recordings = load_recordings(args.run, config)
     args.output.mkdir(parents=True, exist_ok=False)
     app, code, result = None, 1, {}
     try:
@@ -246,7 +252,8 @@ def main():
               active_gpu=0, multi_gpu=False, enable_crashreporter=False,
               extra_args=['--/app/file/ignoreUnsavedOnExit=true',
                           '--/app/settings/persistent=false']))
-        result = run_gui(app, recordings, config, args.output)
+        result = (run_offline_gui(app, recordings, config, args.output) if args.offline_protocol
+                  else run_gui(app, recordings, config, args.output))
         code = 0
     except BaseException:
         result['traceback'] = traceback.format_exc()

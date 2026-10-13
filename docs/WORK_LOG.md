@@ -748,3 +748,105 @@ episode byte-identical to its frozen SHA and documented a per-file `blank-at-eof
 exception in `.gitattributes`; all other whitespace checks remain active. This
 packaging correction changes no scientific source/config or result. Rechecked
 the staged diff and frozen protocol before committing.
+
+## 2026-10-13 — Offline obstacle-response diagnostic
+
+User-authorized branch `research/omnivla-edge-obstacle-offline-diagnostic`, from
+local/remote `research/omnivla-edge-static-obstacle` at matching SHA
+`8ac8352a06b5ac05a778cda09fbe9269604c7a5b`. Recorded the attachment, working tree,
+195 tracked file hashes and 416 prior scientific artifact hashes in
+`artifacts-local/edge-obstacle-offline/start-audit/`. Preserved the pre-existing
+untracked `.vscode/`; no reset, stash, branch deletion or history rewrite.
+
+Part A completed before new simulation/inference: all 21 immutable native
+float32 `(1,8,4)` chunks, all eight cumulative XY rows, metric scaling 0.1 m,
+observation-time SE(2), original heading vectors, full observation-to-row-0
+and later swept segments using the existing geometry. Predeclared safe passage
+requires clearance >=0.10 m and the expanded X range 1.9 through 3.1 m.
+Result: 7 collision (33.33%), 3 low clearance (14.29%), 0 safe passage,
+11 insufficient horizon (52.38%); no safe prefix at any waypoint index.
+Maximum absolute local lateral displacement 0.0601405 m, world Y 0.0933421 m.
+All 21 original index-4 pre/clipped/final/applied commands match exactly.
+All normal XY branches ignore heading. All selected v values clip first to
+0.5 then 0.3 m/s; w initially never clips, then scales by 0.6 in 20 cases and
+is zeroed once by the existing near-zero branch. Ratio limiting preserves
+w/v except that branch; lower absolute w alone does not establish lost turn
+curvature. All 168 hypothetical commands and metrics retained, no alternative
+command applied and no upstream zero-XY bug repair.
+
+Part A outputs are `outputs/edge-obstacle-offline/existing-chunks/derived-v2/`.
+The initial `derived/` artifacts remain preserved; v2 corrects plot aspect
+and the near-zero curvature caption/summary, without a scientific rerun.
+
+Part B plan fixed four front distances 2.0/1.5/1.0/0.7 m, PRESENT then ABSENT
+at each, same goal `(5,0,0)`, same camera/scene/lighting/pose-only modality.
+`capture-001` used one headless Isaac process with 120 settling steps per case
+and six independent stationary RGB calls at 0/20/40/60/80/100 steps. 48 actual
+captures, no cloned history, markers or robot execution. Original obstacle
+added/removed only; camera/goal/history and stage identity gates passed. All
+24 absent images had zero red-dominant pixels. Pair whole-image MAE on the
+0–255 scale: 7.1222/12.2517/26.4405/51.7787; outside-red-mask differences and
+same-condition render variation recorded without assuming identical background.
+Capture constructor, data write and process termination succeeded (exit 0).
+
+Commands and process logs:
+
+- `artifacts-local/envs/edge-blackwell/bin/python research/analyze_offline_obstacle.py --part A --output outputs/edge-obstacle-offline/existing-chunks/derived-v2`
+- `bash scripts/isaac6_python.sh research/offline_obstacle_capture.py --output outputs/edge-obstacle-offline/capture-001`, host-supervised with a 300-s timeout; launch/exit in `artifacts-local/edge-obstacle-offline/capture-001/`.
+- Input manifest produced and revalidated by `research/offline_obstacle_protocol.py`; `artifacts-local/edge-obstacle-offline/input-manifest.json`.
+- Edge Python `-m unittest discover -s tests -v`: 124 model-free CPU tests passed before inference, log `pre-freeze-tests.log`.
+- Edge Python `research/freeze_offline_obstacle.py`: frozen protocol SHA256 `bef44a47d5679f68581f4a0fe804f7bb8a8ebe0a5b55f80506c54f6ecd8fa47c`, source/input/Part-A/test/evidence hashes fixed before exclusive batch registration.
+- Edge Python `research/run_offline_obstacle_inference.py --protocol research/frozen-edge-obstacle-offline.json`: exactly 8 requests, one strict float32 Edge/CLIP load, no warmup, no retries, all inferred, service exit 0. Logs `inference-001.log` and `outputs/edge-obstacle-offline/paired-001/service.log`; native actions read-only.
+- Edge Python `research/analyze_offline_pairs.py --output outputs/edge-obstacle-offline/paired-001/derived`: exact repeated derived metrics and pair/RGB plots.
+- Edge Python `research/validate_offline_obstacle.py --output artifacts-local/edge-obstacle-offline/final-validation-002.json`: all 416 prior files unchanged, all frozen source/input hashes pass, 21 original and 8 paired controller comparisons exact, metrics reproduce exactly.
+
+Inference measurements, PRESENT minus ABSENT: max absolute lateral differences
+0.007574/0.020414/0.011054/0.010613 m; RMS positional differences
+0.017150/0.189332/0.515523/0.042871 m. None reaches the frozen 0.20 m lateral
+screen. Paired classifications: insufficient/insufficient at D200 and D150,
+insufficient/collision at D100, collision/collision at D070. Both conditions
+use the original obstacle for counterfactual geometry; absent results are not
+claimed as executed collisions. D100 forward endpoint contracts from 1.002719
+to 0.178824 m; selected pre-clip v differs 1.890348 versus 0.367638 m/s but
+both final v equal 0.3 m/s. Cold model/CLIP-inclusive/pipeline latency:
+118.606/202.218/239.207 ms; subsequent median 10.367/14.269/49.221 ms.
+
+Supplementary post-inference descriptive pixel analysis measured a ground
+darkening proxy outside the red object and graphed same-condition variation.
+This proxy does not change any frozen gate or interpretation threshold and
+does not claim semantic shadow segmentation. Its metrics exactly reproduce
+with `research/analyze_offline_input_pixels.py`; outputs remain ignored under
+paired `derived/`.
+
+Extended the existing Isaac viewer additively via `--offline-protocol`; preserved
+the static collision launcher byte-for-byte. New one-line command:
+`bash ~/Workspace/OmniVLA/scripts/isaac_obstacle_offline_gui.sh`.
+GUI attempt 001 failed before opening: exact comparison of controller-derived
+numbers crossed scientific NumPy 1.26.4 and Isaac NumPy 2.3.1 scalar promotion,
+maximum rounding difference 2.48856e-7. Documented in `gui-001-failure.json`.
+Fixed viewer-only validation to allow <=5e-7 absolute rounding, keeping saved
+scientific numbers and exact identity/classification checks. No frozen science
+source changed and no model reran. GUI attempt 002 succeeded: verified all 8
+fixed cases, 5,091 rendered frames / 12 case changes at verification, real
+Isaac window and screenshots, original RGB, fixed pose/goal/obstacle/paths,
+`OFFLINE PREDICTION — NO ROBOT EXECUTION`. Prediction lines elevated only as
+viewer overlays. No alternate successful navigation fallback.
+
+Final regression suite: 126 tests passed, including two added viewer rounding
+guards. Report `docs/EDGE_OBSTACLE_OFFLINE_DIAGNOSTIC.md`; compact result
+`results/edge-obstacle-offline-diagnostic.json`. Raw RGB/tensors, large plots,
+environments and checkpoints remain ignored local evidence.
+
+Interpretation: measured condition-associated output response, particularly
+longitudinal contraction at D150/D100, contradicts a blanket RGB-insensitivity
+claim. No safe native bypass was demonstrated and no evidence supports an
+index-only rescue of the original 21 chunks. Saturation can erase forward
+extent differences in final v, but desired braking and controller causality
+are unverified. Synthetic-domain and stationary-versus-moving history limits
+remain; internal obstacle recognition cannot be inferred.
+Exact next uncertainty is repeatability of D100 contraction beyond rendered
+input variation. Recommend only a preregistered repeated stationary A/B offline
+test at D100 with independent six-frame histories and unchanged model/interface.
+This recommendation was not executed. Stop after normal commit/push and remote
+SHA verification; no new closed-loop, domain matrix, modality, dynamic obstacle,
+fine-tuning, controller, reconciliation or graph optimization work started.

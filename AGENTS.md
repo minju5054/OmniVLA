@@ -67,3 +67,13 @@
   or graph optimization. Reuse the existing GUI only for recorded result replay
   after the headless trial; keep replay markers out of model observations.
   Static result GUI: `bash scripts/isaac_static_obstacle_gui.sh`.
+- On `research/omnivla-edge-obstacle-offline-diagnostic`, the completed scope is
+  immutable analysis of the 21 static predictions, followed by exactly eight
+  frozen stationary present/absent requests using one Edge/CLIP load. No robot
+  execution, scientific retry, controller repair, or further experiment is
+  authorized by that task. Preserve the frozen source/input protocol and raw data.
+  Offline result GUI: `bash scripts/isaac_obstacle_offline_gui.sh`; label fixed
+  predictions `OFFLINE PREDICTION — NO ROBOT EXECUTION`. Preserve the collision
+  launcher. Use the Edge Python/NumPy runtime for exact scientific re-analysis;
+  Isaac's NumPy 2 viewer reads saved metrics and permits only documented display
+  comparison rounding. A short positive-clearance horizon is not safe passage.
