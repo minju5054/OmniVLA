@@ -7,6 +7,18 @@
   versions, and exact commands for every qualification run.
 - Raw model output is immutable. Store raw and derived evidence separately;
   refuse to overwrite prior runs. `docs/WORK_LOG.md` is append-only.
+- User preference: after each experiment, show its results in the Isaac Sim GUI
+  and include a one-line GUI launch command in the final response. For navigation,
+  replay that experiment's saved poses and original camera images with visible
+  goals, paths and outcome; verify the GUI opens and playback advances. Clearly
+  label recorded replay versus live inference. Use the actual run/config, never
+  silently substitute a previous successful run. If an experiment produced no
+  replayable navigation evidence, explain that limitation. Keep visualization
+  additive and do not rerun or alter a scientific experiment just to show it.
+- Current recorded-navigation launcher: `bash scripts/isaac_gui_replay.sh`.
+  Its defaults show edge-final/scientific-001; explicitly pass `--run` and
+  `--config` for another compatible run. Each launch uses a fresh ignored output
+  directory. Update the viewer as needed for future experiment scene/schema changes.
 - Never commit checkpoints, Hugging Face caches, datasets, generated runs,
   large images, virtual environments, Isaac caches, or secrets. Use ignored
   `artifacts-local/`, `models-local/`, or `outputs/` for local evidence.
@@ -45,3 +57,13 @@
   across repositories when source/runtime equivalence is demonstrated; do not
   repeat solved environment investigations unless relevant hashes changed.
   Preserve historical reports and original experiment evidence unchanged.
+- On `research/omnivla-edge-static-obstacle`, the user authorizes exactly one
+  primary static-obstacle trial after model-free validation and a new protocol
+  freeze. Preserve the obstacle-free frozen files, evidence and local GUI work.
+  Use one fixed opaque cuboid, virtual circle radius 0.20 m and safety margin
+  0.10 m. Evaluate swept center motion between consecutive poses. Collision
+  checks may terminate the episode but must never repair commands or poses.
+  No scientific retry, post-outcome tuning, dynamic obstacles, reconciliation
+  or graph optimization. Reuse the existing GUI only for recorded result replay
+  after the headless trial; keep replay markers out of model observations.
+  Static result GUI: `bash scripts/isaac_static_obstacle_gui.sh`.

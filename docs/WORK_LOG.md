@@ -571,3 +571,180 @@ Report: `docs/EDGE_ISAAC_NO_OBSTACLE_FINAL.md`; compact result:
 `results/edge-isaac-no-obstacle-final.json`; ignored evidence: `outputs/edge-final/`.
 
 Next uncertainty: Can the same frozen OmniVLA-edge + Isaac adapter safely detour around a predeclared static obstacle without changing model, camera, history, controller, cadence, or goal semantics?
+
+## 2026-10-13 — Isaac GUI replay of completed navigation
+
+User requested viewing the driving results in the Isaac Sim GUI. Added
+`research/isaac_gui_replay.py` on the existing final branch. It reads the saved
+scientific-001 SE(2) states and the original RGB images, recreates the frozen
+scene, and adds explicitly visual-only pose arrows, colored paths and 0.5 m goal
+rings. No model is loaded and no new scientific navigation is performed.
+The panel supports goal selection, pause/restart, speed and automatic cycling.
+Playback at 1x follows recorded simulation time, with a 3-second endpoint hold.
+
+Commands (both launches used the existing isolated Isaac wrapper):
+
+```bash
+python3 -m py_compile research/isaac_gui_replay.py
+bash scripts/isaac6_python.sh research/isaac_gui_replay.py --output artifacts-local/gui-replay/attempt-001/viewer
+bash scripts/isaac6_python.sh research/isaac_gui_replay.py --output artifacts-local/gui-replay/attempt-002/viewer
+```
+
+The launchers ran the GUI in a detached subprocess and recorded the exact command,
+PID, display and launch time in each attempt's `launch.json`; stdout/stderr are in
+`console.log`. Attempt 001 successfully cycled all three goals; inspection found
+a deprecated docking API and an unnecessary Render Settings panel that reduced
+the viewing area. Stopped that viewer through its local stop-request file, then
+updated only the viewer's docking/layout and launched attempt 002. Attempt 002
+reached `GUI_REPLAY_READY`, cycled STRAIGHT/LEFT/RIGHT, and has no Error/Traceback
+entries at verification. The GUI was left open for the user. X11 window inventory,
+desktop screenshots, viewport captures and advancing playback status verified
+the visible application. All 164 original RGB hashes and the frozen source hashes
+passed read-only checks. Evidence remains under ignored `artifacts-local/gui-replay/`.
+No new Git branch was created and the scientific protocol/results are unchanged.
+
+To reopen later, use the same command with a new, unused `--output` directory;
+the viewer refuses to reuse an existing directory or write inside its input run.
+
+## 2026-10-13 — Default GUI presentation and one-line launcher
+
+User requested GUI result presentation after every future experiment and a
+one-line launch command. Recorded that preference in `AGENTS.md`, including
+explicit selection of the just-completed run, replay/live labeling and preserving
+the scientific evidence. Added `scripts/isaac_gui_replay.sh`, which resolves the
+repository from its own location and allocates a fresh timestamp/PID diagnostics
+path on every invocation. It forwards `--run`, `--config` and other viewer
+arguments through the existing isolated Isaac launcher. Defaults remain the
+completed edge-final/scientific-001 run; future experiments must select their own
+compatible run/config or adapt the viewer to their scene/schema.
+
+One-line command from any working directory:
+
+```bash
+bash ~/Workspace/OmniVLA/scripts/isaac_gui_replay.sh
+```
+
+## 2026-10-13 — Static obstacle qualification preparation
+
+User explicitly requested one primary central-static-obstacle trial on
+`research/omnivla-edge-static-obstacle`, followed by analysis, existing GUI replay,
+commit and push, then stop. Start local/remote obstacle-free HEAD both matched
+`89b4e39c55af02cb9dc1a87c65f783f273e54ff6`. Read AGENTS, work log, final report,
+compact results, frozen runner/service/controller/scheduler/validation and local
+GUI additions. `git ls-remote --heads origin` showed no static-obstacle branch;
+`git switch -c research/omnivla-edge-static-obstacle` preserved the uncommitted
+AGENTS/WORK_LOG/viewer/launcher changes and pre-existing untracked `.vscode/`.
+Initial hashes and request copy: `artifacts-local/static-obstacle/start-audit/`.
+
+Added separate geometry, protocol, obstacle scene, episode, validation, runner
+and supervisor modules. Baseline frozen runtime files remain byte-identical.
+The episode reuses baseline request/response/bootstrap and unchanged scheduler,
+integration and model service. New checks only measure clearance and terminate;
+they never modify controls or poses. Circle/AABB swept distance uses segment
+intersection, endpoint and corner projections, with first contact found by
+64 bisections; the completed 60 Hz detection step is retained without clipping
+the motion. Footprint is an evaluation convention, not physical chassis geometry.
+
+Proposed before inference: red opaque cuboid center (2.5,0,0.5), dimensions
+(0.6,1,1), RGB displayColor (0.8,0.08,0.08), yaw 0; radius 0.20 and margin 0.10 m.
+Draft config: `artifacts-local/static-obstacle/proposed-config.json`.
+Existing GUI was extended additively to show this obstacle, footprint, measured
+clearance and actual recorded outcome; original RGB is shown from saved files.
+Added a small launcher that forwards explicit static run/config to the existing
+viewer. Scientific execution remains headless with no replay markers.
+
+Model-free commands and preserved logs:
+
+```bash
+python3 -m unittest discover -s tests -p test_static_obstacle.py -v
+python3 research/run_static_obstacle_attempt.py --phase infrastructure --run-id infrastructure-001 --config artifacts-local/static-obstacle/proposed-config.json --change 'Model-free obstacle geometry, visibility, yaw, history, spectator isolation, dummy IPC and swept collision qualification'
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR="$PWD/artifacts-local/edge-matplotlib" artifacts-local/envs/edge-blackwell/bin/python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -p 'test_static_obstacle*.py' -v
+```
+
+Infrastructure-001 PASS, launcher exit 0, no residual processes or segmentation
+fault. No model loaded or inferred. Measured geometry matches within 1e-6 m;
+21,051 red pixels at image x=319.108 initially, x=411.127 at +15 degree yaw.
+Spectator-only camera addition preserved observation pose/intrinsics, with
+0.192786 mean absolute RGB difference after render settling (threshold 1).
+Calibration and actual rolling history gates passed; six model-free dummy
+IPC requests were applied with zero held motion. Scripted straight motion was
+detected at step 401, with the continuous contact at approximately 6.6667 s.
+First full suite: 101 passed. Added real-episode model-free peer tests for
+collision immediate stop, safe/low-clearance goal, implementation failure and
+upstream-controller failure: 17 new evaluation tests pass. Re-running the full
+suite to include them before freeze. All 330 obstacle-free raw artifact hashes
+and historical report/source hashes remain unchanged.
+
+## 2026-10-13 — Single static-obstacle trial, collision and completion
+
+Full pre-freeze suite passed 104 tests. Froze the new protocol at
+`research/frozen-edge-static-obstacle.json`, SHA256
+`f8cdbfe22a32a335968976c80a4c86994154866fcf859277a81f4ce911b73728`.
+Baseline config and runtime source files remain unchanged. Registration was
+written exclusively before the scientific launch, preventing a second primary.
+
+```bash
+python3 research/run_static_obstacle_attempt.py --phase scientific --run-id scientific-001 --config research/frozen-edge-static-obstacle.json --timeout 600 --change 'Frozen f8cdbfe22a32a335968976c80a4c86994154866fcf859277a81f4ce911b73728; one primary central static-obstacle trial; no tuning or retries'
+PYTHONDONTWRITEBYTECODE=1 artifacts-local/envs/edge-blackwell/bin/python research/validate_static_obstacle_evidence.py --output artifacts-local/static-obstacle/scientific-validation-001.json
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR="$PWD/artifacts-local/edge-matplotlib" artifacts-local/envs/edge-blackwell/bin/python research/analyze_static_obstacle.py --output outputs/static-obstacle/scientific-001/derived
+bash scripts/isaac_static_obstacle_gui.sh --output artifacts-local/static-obstacle/gui-001/viewer
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR="$PWD/artifacts-local/edge-matplotlib" artifacts-local/envs/edge-blackwell/bin/python -m unittest discover -s tests -v
+git diff --check
+```
+
+Scientific outcome: **COLLISION**. First swept contact 7.301832592 sim s;
+detection/termination at step 439, 7.316666667 sim s. Minimum signed clearance
+-0.004438785 m; first 0.10 m safety-boundary crossing 6.967805882 sim s. Goal
+not reached; final goal distance 2.995643566 m. Maximum lateral deviation
+0.022212310 m and path length 2.005 m. Final pose
+(2.004438785,-0.022212310,-0.072277013). The executed endpoint was retained,
+not moved back to the contact surface; no additional step was executed.
+
+Exactly 21 native predictions, all applied, 27 actual RGB captures and 440 states.
+One missed inference slot; all 21 controls underwent initial clipping and final
+ratio limitation. Zero upstream zero-XY exceptions. Cold first inference retained;
+no artificial delay. Median model/CLIP-inclusive/pipeline times
+15.667/26.349/76.970 ms; recorded-frame-to-completed-applied-step median
+96.136 ms, with the same post-PNG timestamp convention as the baseline.
+Isaac and Edge service exit 0, no residuals/SIGSEGV. Device-wide sampled peak
+3866 MiB. Scientific runtime/config hashes unchanged; no tuning or retry.
+
+Offline validation PASS for native actions, history, controller parity, pose
+integration, swept clearance, collision termination and timestamp linkage.
+All 330 obstacle-free artifact hashes and historical reports/results match.
+Primary raw/run files marked read-only. Derived PNG/SVG plots cover XY and
+footprint/safety envelopes, goal distance, clearance, v/w, and first/middle/last
+model chunks with verified cumulative XY/local heading semantics. No intrinsic
+waypoint timestamps assumed. Plots were visually inspected; prior STRAIGHT is
+explicitly an obstacle-free reference, not a controlled repeat.
+
+Existing GUI replay extended additively and launched after science. It reached
+GUI_REPLAY_READY, rendered 4400 frames and cycled the recorded collision episode
+eight times before normal window closure. No model inference in replay. Viewport
+capture inspected; logs/command/PID under `artifacts-local/static-obstacle/gui-001/`.
+Repeatable one-line GUI command: `bash ~/Workspace/OmniVLA/scripts/isaac_static_obstacle_gui.sh`.
+
+Final suite passed **108 tests**, including four new offline evidence/transform/
+config-hash checks; `git diff --check` passed. Final report
+`docs/EDGE_STATIC_OBSTACLE.md`; compact result
+`results/edge-static-obstacle-summary.json`. Git publication includes code,
+tests, compact results, report and preserved GUI additions, excluding `.vscode/`
+and all ignored raw images/tensors/checkpoints/environments/caches.
+
+Interpretation: technical infrastructure passes but this single frozen navigation
+trial fails static-obstacle qualification. It does not establish general model
+incapability or identify a causal perception/controller failure. Exact next
+uncertainty: checkpoint visual/domain sensitivity versus the fixed index-4
+closed-loop interface as the source of the absent lateral avoidance response.
+No dynamic obstacles, OLD/FRESH analysis, reconciliation, graph optimization or
+follow-up experiment started. Normal commit/push to the requested branch only;
+remote SHA verification is the final publication step.
+
+Staged whitespace check subsequently detected extra EOF blank lines in the new
+episode and offline validator; the previous unstaged check did not inspect new
+untracked additions. Trimmed the unfrozen offline validator. Kept the executed
+episode byte-identical to its frozen SHA and documented a per-file `blank-at-eof`
+exception in `.gitattributes`; all other whitespace checks remain active. This
+packaging correction changes no scientific source/config or result. Rechecked
+the staged diff and frozen protocol before committing.

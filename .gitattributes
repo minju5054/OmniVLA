@@ -1,0 +1,3 @@
+# Preserve the exact already-executed source SHA, including its trailing blank.
+# Other whitespace checks still apply to this frozen scientific runtime file.
+research/static_obstacle_navigation.py whitespace=-blank-at-eof

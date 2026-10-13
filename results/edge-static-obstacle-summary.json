@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "branch": "research/omnivla-edge-static-obstacle",
+  "starting_sha": "89b4e39c55af02cb9dc1a87c65f783f273e54ff6",
+  "execution_git_head": "89b4e39c55af02cb9dc1a87c65f783f273e54ff6",
+  "upstream_sha": "5182600cb4a9ee07684e17cdd2a6cbafc56b8a68",
+  "decision": "STATIC_OBSTACLE_QUALIFICATION_FAIL",
+  "scientific_outcome": "COLLISION",
+  "primary_trial_count": 1,
+  "retries": 0,
+  "post_outcome_tuning": false,
+  "infrastructure_status": "PASS",
+  "validation": "PASS",
+  "frozen_config_path": "research/frozen-edge-static-obstacle.json",
+  "frozen_config_sha256": "f8cdbfe22a32a335968976c80a4c86994154866fcf859277a81f4ce911b73728",
+  "scenario": {
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": {
+      "name": "STATIC_CENTER",
+      "pose": [
+        5.0,
+        0.0,
+        0.0
+      ]
+    },
+    "static_obstacle": {
+      "path": "/World/StaticObstacle",
+      "center": [
+        2.5,
+        0.0,
+        0.5
+      ],
+      "dimensions": [
+        0.6,
+        1.0,
+        1.0
+      ],
+      "color": [
+        0.8,
+        0.08,
+        0.08
+      ],
+      "opacity": 1.0,
+      "yaw_rad": 0.0
+    },
+    "evaluation": {
+      "agent_radius_m": 0.2,
+      "safety_margin_m": 0.1,
+      "convention": "Virtual evaluation circle, not a physical robot chassis",
+      "clearance": "Euclidean center-to-closed-rectangle distance minus radius; inside rectangle distance is zero",
+      "sweep": "Exact segment/AABB minimum for consecutive explicit-Euler centers; circle first contact by 64 bisections",
+      "termination": "Collision priority over goal; finish and log current 60 Hz step, stop before next integration; report first continuous contact time",
+      "safety": "Any swept clearance below 0.10 m is retained for whole-episode classification"
+    }
+  },
+  "metrics": {
+    "episode_id": "STATIC_CENTER",
+    "scientific": true,
+    "status": "COLLISION",
+    "failure_reason": null,
+    "completed_steps": 439,
+    "elapsed_sim_s": 7.316666666666666,
+    "wall_seconds": 4.830808162689209,
+    "sim_wall_ratio": 1.5145843967013652,
+    "final_pose": [
+      2.0044387854550587,
+      -0.022212309742139596,
+      -0.07227701279218332
+    ],
+    "final_distance_m": 2.995643566379359,
+    "final_yaw_error_rad": 0.07227701279218332,
+    "goal_reached": false,
+    "time_to_goal_sim_s": null,
+    "collision": true,
+    "first_collision_time_sim_s": 7.301832591814758,
+    "minimum_signed_clearance_m": -0.004438785455058547,
+    "safety_margin_violation": true,
+    "maximum_lateral_deviation_m": 0.022212309742139596,
+    "executed_path_length_m": 2.004999999999999,
+    "target_observation_hz": 3,
+    "capture_interval_sim_s": {
+      "count": 21,
+      "median": 0.33333333333333304,
+      "p95": 0.3333333333333339,
+      "max": 0.3333333333333339
+    },
+    "request_interval_sim_s": {
+      "count": 20,
+      "median": 0.33333333333333304,
+      "p95": 0.3500000000000008,
+      "max": 0.6666666666666667
+    },
+    "model_ms": {
+      "count": 21,
+      "median": 15.667420011595823,
+      "p95": 18.694064012379386,
+      "max": 139.97108899638988
+    },
+    "inference_with_clip_ms": {
+      "count": 21,
+      "median": 26.348501007305458,
+      "p95": 30.37583699915558,
+      "max": 263.40895300381817
+    },
+    "pipeline_ms": {
+      "count": 21,
+      "median": 76.96976599982008,
+      "p95": 85.64701800059993,
+      "max": 315.02431799890473
+    },
+    "observation_to_application_sim_s": {
+      "count": 21,
+      "median": 0.20000000000000018,
+      "p95": 0.2333333333333334,
+      "max": 0.6500000000000001
+    },
+    "observation_to_application_wall_ms": {
+      "count": 21,
+      "median": 89.15424346923828,
+      "p95": 135.82086563110352,
+      "max": 322.07512855529785
+    },
+    "missed_slots": 1,
+    "requests": 21,
+    "applied_predictions": 21,
+    "action_update_hz_sim": 2.8701594533029615,
+    "first_clip_saturation_count": 21,
+    "final_ratio_limit_count": 21,
+    "zero_xy_bug_occurrences": 0,
+    "observation_pose_anchor": true,
+    "all_response_model_ms": {
+      "count": 21,
+      "median": 15.667420011595823,
+      "p95": 18.694064012379386,
+      "max": 139.97108899638988
+    },
+    "all_response_forward_with_clip_ms": {
+      "count": 21,
+      "median": 26.348501007305458,
+      "p95": 30.37583699915558,
+      "max": 263.40895300381817
+    },
+    "all_response_pipeline_ms": {
+      "count": 21,
+      "median": 76.96976599982008,
+      "p95": 85.64701800059993,
+      "max": 315.02431799890473
+    },
+    "recorded_frame_to_applied_step_wall_ms": {
+      "count": 21,
+      "median": 96.13633155822754,
+      "p95": 143.52726936340332,
+      "max": 328.8838863372803
+    },
+    "recorded_frame_to_ready_wall_ms": {
+      "count": 21,
+      "median": 77.88276672363281,
+      "p95": 86.7009162902832,
+      "max": 316.03240966796875
+    },
+    "first_safety_boundary_crossing_sim_s": 6.9678058817819295,
+    "first_sampled_safety_violation_sim_s": 6.983333333333333,
+    "linear_velocity_range_m_s": [
+      0.0,
+      0.3
+    ],
+    "angular_velocity_range_rad_s": [
+      -0.10063972100615501,
+      0.03156612329185009
+    ],
+    "maximum_absolute_heading_deg": 4.141167788805166,
+    "unapplied_responses": 0,
+    "frames": 27,
+    "delay_definition": "Latest RGB metadata wall time after PNG save to first completed application step; excludes acquisition/save before metadata timestamp",
+    "raw_legacy_delay_definition": "Raw summary observation_to_application_wall_ms is request-send to pre-step application marker"
+  },
+  "scientific_process": {
+    "isaac_exit_code": 0,
+    "service_exit_code": 0,
+    "residual_isaac_processes": [],
+    "residual_service_processes": [],
+    "segmentation_fault": false,
+    "wall_seconds": 22.04307723045349,
+    "device_memory_peak_MiB": 3866,
+    "memory_sample_interval_s": 0.25
+  },
+  "runtime": {
+    "isaac": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "driver": "595.99.02",
+    "vram_MiB": 16311,
+    "edge_strict_load": {
+      "strict": true,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "status": "STRICT_LOAD_PASS",
+      "checkpoint": {
+        "repo": "NHirose/omnivla-edge",
+        "revision": "b1361b7e24f101edea795a98b00a826b61a97394",
+        "filename": "omnivla-edge.pth",
+        "bytes": 434276465,
+        "sha256": "f93b056f124380899fce3e087a5c2b41ce4d8c07e211daad52b6ebf02e80d04d",
+        "path": "models-local/omnivla-edge/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+        "url": "https://huggingface.co/NHirose/omnivla-edge/resolve/b1361b7e24f101edea795a98b00a826b61a97394/omnivla-edge.pth",
+        "command": "python3 research/fetch_edge_checkpoint.py"
+      },
+      "device": "cuda:0",
+      "dtype": "float32",
+      "torch": "2.7.1+cu128",
+      "cuda": "12.8",
+      "numpy": "1.26.4",
+      "load_count": 1,
+      "clip_sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+      "allocated_bytes": 1049351680,
+      "reserved_bytes": 1335885824
+    }
+  },
+  "infrastructure": {
+    "run_id": "infrastructure-001",
+    "isaac_exit_code": 0,
+    "wall_seconds": 19.12109375,
+    "gates": {
+      "status": "PASS",
+      "model_inference_count": 0,
+      "geometry": {
+        "center": [
+          2.5,
+          0.0,
+          0.5
+        ],
+        "dimensions": [
+          0.6000000238418579,
+          1.0,
+          1.0
+        ],
+        "color": [
+          [
+            0.800000011920929,
+            0.07999999821186066,
+            0.07999999821186066
+          ]
+        ],
+        "opacity": [
+          1.0
+        ]
+      },
+      "start_clearance": 2.0,
+      "goal_region_minimum_clearance": 1.5,
+      "direct_path_with_safety": {
+        "minimum_clearance": -0.30000000000000004,
+        "minimum_fraction": 0.44,
+        "collision": true,
+        "first_contact_fraction": 0.38000000000000006
+      },
+      "front_pixels": {
+        "pixels": 21051,
+        "x": 319.10754833499595,
+        "y": 239.9073203173246
+      },
+      "positive_yaw_pixels": {
+        "pixels": 23539,
+        "x": 411.12732061684864,
+        "y": 239.5388929011428
+      },
+      "camera_gate": "PASS",
+      "history_gate": "PASS",
+      "spectator_rgb_mean_abs_difference": 0.19278645833333333,
+      "scientific_stage_has_no_replay_markers": true,
+      "dummy_ipc_requests": 6,
+      "dummy_ipc_applied": 6,
+      "scripted_collision": {
+        "step": 401,
+        "pose": [
+          2.0049999999999795,
+          0.0,
+          0.0
+        ],
+        "sweep": {
+          "minimum_clearance": -0.004999999999979299,
+          "minimum_fraction": 1.0,
+          "collision": true,
+          "first_contact_fraction": 4.1744385725905886e-12
+        }
+      }
+    },
+    "pre_freeze_test_count": 104,
+    "model_inference_count": 0,
+    "reused_gates": {
+      "lifecycle": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/lifecycle-001/outcome.json",
+        "sha256": "f1cc6cb9e318be45fc19f39c209b04222537651c7d5466904cde390321ce11bc"
+      },
+      "camera": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/camera-history-001/isaac/camera-gate.json",
+        "sha256": "55badb421a062928d321c66f38a15d2bd2d3081508723f7b558003c62cbf84b7"
+      },
+      "history": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/camera-history-001/isaac/history-gate.json",
+        "sha256": "60b4a43917e057ed3701ab2091efc481b926830c977f87be25693c78b23dcfce"
+      },
+      "pose": {
+        "status": "PASS",
+        "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+        "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+      },
+      "ipc": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/combined-001/outcome.json",
+        "sha256": "32f18a7279997ec817c2881f6dbf74ec998741f5b77a5106db5b68eac1029190"
+      },
+      "strict_load": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/combined-001/service/strict-load.json",
+        "sha256": "40fc99b7b3b9e59b8507b3163dc8658a8c92ea4c7bdb6be8fc8feaf66a504638"
+      },
+      "combined_memory": {
+        "status": "PASS",
+        "evidence": "artifacts-local/edge-final/combined-memory-window.json",
+        "sha256": "978913046c3a7df83c8d3585f87321d529aa59d8b64f10e956b762adf28f8b90"
+      },
+      "scheduler": {
+        "status": "PASS",
+        "evidence": "outputs/edge-final/combined-001/isaac/dummy-scheduler/summary.json",
+        "sha256": "53ec6aca424a0b568faddf8cb1e3183ea2f8cf8d04365f2a3225a54355dfc73b"
+      },
+      "controller_parity": {
+        "status": "PASS",
+        "evidence": "artifacts-local/edge-final/pre-freeze-tests.log",
+        "sha256": "1035d682e70720a5a9577be1269236836686ad2b5318892d789e30507d69563e"
+      }
+    }
+  },
+  "evidence": {
+    "run": "outputs/static-obstacle/scientific-001",
+    "validation_path": "artifacts-local/static-obstacle/scientific-validation-001.json",
+    "validation_sha256": "a2f9f868d401de3bc244a92d7de269a9c8ae271b65a432bd1d292ef814668bf6",
+    "baseline_artifacts_verified": 330,
+    "historical_report_result_hashes": {
+      "docs/EDGE_ISAAC_NO_OBSTACLE.md": "fd96e229114ce92407171e48de6382f00c323ac18be0030dcb9466b34c9a3bf2",
+      "docs/EDGE_ISAAC_NO_OBSTACLE_FINAL.md": "742d73e0f0856a35e75b5913267471013e27dcb8821a2adfa336353b848a15ef",
+      "docs/EDGE_ISAAC_RUNTIME_RECOVERY.md": "e3326c399a17025fe6a96cabfb3a034f8d346938feb8c2cca62f347d0c5b72c4",
+      "docs/EDGE_OMNIVLA_PREFLIGHT.md": "c4097bf147774f04417816a6baa8cccd177f6b4681581735e8b8d18e3d0ed5ac",
+      "docs/FULL_OMNIVLA_PREFLIGHT.md": "bb9f0440281f2672104fdcebb08366cf16654b3ff3bafe4972b5ad6d8c747d03",
+      "docs/RESEARCH_CONTEXT.md": "1518784671e73addb13e6b089b69a7d8f439677979746601f0b75e6cfa3d9698",
+      "results/blackwell-cuda.json": "03537c836d83aa547a44f10ebe56e96f523b1877a4d355c7c1b798258781a66c",
+      "results/checkpoint-manifest.json": "bc86c1912fceaf6e39fa28f36c8039cc4f1af84a2064aea4a4bb1fafd3b78139",
+      "results/controller-coordinate-unit.json": "dfa0e49655a103b9fd62f172e17d8e6f72b68cf4db0ea866722b712f5bcd4655",
+      "results/edge-blackwell-freeze.txt": "7daa12905ac9b599d589b102e1a7490b7125c217415b013c2b36d6f3c840b32b",
+      "results/edge-checkpoint-manifest.json": "fc9e8153aa852a2ab33369099863572615736d1e4555a32be515526bebd13a79",
+      "results/edge-controller-summary.json": "a108141419fbd81ccaa79fa9c77a36c78bf244c81f9241b1ffac4b6a45a8cff5",
+      "results/edge-coordinate-summary.json": "9613d1b7fb52ad4aa894aacdf3c2953d397d0931b307cdcc8bf2665c50e5b5fe",
+      "results/edge-evidence-manifest.json": "8ed331fbabef434255ef61f86a8f65b8b707ad0236c53efb392d19a97d87934c",
+      "results/edge-import-audit.json": "6ca7b1cbd8838afbb87052a033df29532e75b28646647d6373848c8b6c19e2a9",
+      "results/edge-isaac-no-obstacle-final.json": "8b890f82f9f091888017e38f4bcb19a6ae56f62066976ca6745657ae1341e27d",
+      "results/edge-isaac-no-obstacle-summary.json": "56bbc296e223cb022ea1b28fa16d1f6eeb582e7e57c2e103d9ccfb3e6d1f19ec",
+      "results/edge-isaac-runtime-recovery.json": "820add1a1d46ff7e0f2f2b0ae87a7dbda6959d03c5212e1b3f9f0cef39579eae",
+      "results/edge-isaac-scene-declaration.json": "bc067e6c1c247ae06f26c52fd77d0e140990bdb41fdc57fc1287cb6fbffe602a",
+      "results/edge-isaac-source-audit.json": "8489f95ea84f71e51aa7a1ddd1d32dca8e2fc59d64bc68fba413e00faadcc00c",
+      "results/edge-isaac-validation.json": "d13f20d3aa2ffbf7d8f287e4b6fbb9afe86ac292a7226fcbc74d67d7df32177d",
+      "results/edge-latency-summary.json": "6b82435d5e12dc20503ff71061439d89a1eff57393bc8767f48ab0cc09dd1a61",
+      "results/edge-official-cpu-freeze.txt": "6fb23da2493318877bb625f1f9cb858e288909b02532913be8df79838cf228fc",
+      "results/edge-preflight-decision.json": "ad39cdf6788222996ad2138c8d88d38e726b81fb49b65a75df311ea09264831e",
+      "results/edge-runtime.json": "8d4de29001ed759cb1de8b7877bb90e1d7a1ecad8e647550590d92f43896c108",
+      "results/edge-sample-summary.json": "376f51e52320171e165cb27561d0ea299cdee5fcb72379588beef0002d599066",
+      "results/edge-validation.json": "21b5cc7c015adc97f9ef490ad3e6c1e05aef1d7e8f7d8ed52bb57bbf7882e8f5",
+      "results/full-bf16-summary.json": "d7f5c1fbb74890e96cf6aa3d4f053e9efdd81838fe5d2adb60708c613e0e80f1",
+      "results/official-cuda.json": "ee506b8e1739d99b03a16e71ee0b5c020af39b511ffef0492ff34b962c1168fc",
+      "results/runtime-blackwell-freeze.txt": "dcd795aa9496a8126f1ca4283bb06bf645f432aa23f0dc7be1bae952b4d80797",
+      "results/runtime-official-freeze.txt": "33e8ea7050f4fc64a2b68fc81b6e6f2e2961c75f6225f504978bd9236fdfa66b",
+      "results/source-provenance.json": "2a7bfb1618b3d7b432c08738d781339ac5343295ee91764db088f6e62f909570"
+    },
+    "frames": 27,
+    "requests": 21,
+    "states": 440,
+    "derived": "outputs/static-obstacle/scientific-001/derived",
+    "plots": {
+      "predictions-vs-executed.png": "ad11304f42c1bac4f89ad11935b0e1769f3b39606f59b2f3a7f49b44a285be55",
+      "predictions-vs-executed.svg": "5f11b19acccdecdfcca9d0007cc06a070db54633e806faa3548ff273373fed53",
+      "navigation-summary.png": "5772e7f4a53b5ff7b25f895446a0ac596982c853c0862edd6ca6bb3c7b517f11",
+      "navigation-summary.svg": "d3e2231c46abae189b0c7b637661398b1b549be12437095df3d37fd56ec15179"
+    },
+    "gui": "artifacts-local/static-obstacle/gui-001",
+    "gui_command": "bash ~/Workspace/OmniVLA/scripts/isaac_static_obstacle_gui.sh",
+    "gui_rendered_frames": 4400,
+    "gui_recorded_cycles": 8,
+    "gui_window_closed_after_replay": true
+  },
+  "changed_items": [
+    "One fixed opaque red obstacle",
+    "Virtual footprint and swept collision evaluation/termination",
+    "Additional measurement and offline result visualization"
+  ],
+  "preserved_items": [
+    "Float32 Edge/CLIP checkpoint and original preprocessing",
+    "Pose-only modality 4",
+    "640x480 90deg HFOV camera at 0.5 m",
+    "Actual six-frame history at 3 Hz",
+    "60 Hz explicit Euler SE(2)",
+    "Original waypoint index 4 controller and velocity limits",
+    "Single-outstanding no-queue IPC and scheduler",
+    "Observation-time local goal with 30 m clamp",
+    "Goal radius 0.5 m and timeout 40 sim s",
+    "Cold first inference; no artificial delay"
+  ],
+  "interpretation": {
+    "positive": [
+      "Obstacle visibility/coordinate/geometry gates passed",
+      "Runtime, data integrity and evaluation termination passed"
+    ],
+    "negative": [
+      "No safe detour observed in this single frozen trial",
+      "Geometric collision and safety margin violation; goal not reached"
+    ],
+    "limits": [
+      "Single trial, one primitive scene; no general robustness or incapability claim",
+      "Virtual circle and piecewise linear Euler sweep; no physical chassis/contact dynamics",
+      "Synthetic camera/scene domain gap and checkpoint training provenance uncertainty",
+      "Controller saturation on every applied prediction",
+      "Headless scientific timing differs from GUI replay; frame-record wall timestamp excludes earlier capture/save",
+      "Predicted rows are spatial with unresolved intrinsic timing"
+    ],
+    "next_uncertainty": "What causes the missing lateral avoidance response to this visible obstacle in pose-only mode: checkpoint visual/domain sensitivity or the fixed waypoint-index-4 closed-loop interface?",
+    "not_run": [
+      "Dynamic obstacles",
+      "OLD/FRESH analysis",
+      "Reconciliation",
+      "Graph optimization",
+      "Follow-up trials"
+    ]
+  },
+  "validation_tests": {
+    "pre_freeze_passed": 104,
+    "final_passed": 108,
+    "final_log": "artifacts-local/static-obstacle/final-tests.log",
+    "final_log_sha256": "41f2d341d53c772c44c396429b4b1c1049ed2231cf36ac9365f1ffdba1428d24"
+  }
+}
